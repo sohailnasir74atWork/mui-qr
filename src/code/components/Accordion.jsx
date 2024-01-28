@@ -95,7 +95,54 @@ export default function CustomizedAccordions({prop}) {
             <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/>
           </AccordionDetails>
         </Accordion>
-  
+        <Accordion
+          expanded={expanded === 'panel3'}
+          onChange={handleChange('panel3')}
+        >
+          <AccordionSummary
+            aria-controls="panel3d-content"
+            id="panel3d-header"
+          >
+            <ColorLensIcon sx={{ color: pink[500] }}/>
+            <Typography style={{ paddingLeft: '10px' }}>Borders</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {/* <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/> */}
+            COMMING SOON
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          expanded={expanded === 'panel4'}
+          onChange={handleChange('panel4')}
+        >
+          <AccordionSummary
+            aria-controls="panel4d-content"
+            id="panel4d-header"
+          >
+            <ColorLensIcon sx={{ color: pink[500] }}/>
+            <Typography style={{ paddingLeft: '10px' }}>LOGO</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {/* <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/> */}
+            COMMING SOON
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          expanded={expanded === 'panel5'}
+          onChange={handleChange('panel5')}
+        >
+          <AccordionSummary
+            aria-controls="panel5d-content"
+            id="panel5d-header"
+          >
+            <ColorLensIcon sx={{ color: pink[500] }}/>
+            <Typography style={{ paddingLeft: '10px' }}>Frames</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {/* <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/> */}
+            COMMING SOON
+          </AccordionDetails>
+        </Accordion>
         {/* Continue this pattern for panels 3, 4, and 5 */}
       </>
     );
