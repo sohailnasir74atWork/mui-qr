@@ -1,0 +1,106 @@
+.App {
+  text-align: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.home-container {
+  display: flex;
+  max-width: 1000px;
+  margin-right: 600px;
+  justify-content: center;
+  margin: 100px auto 0px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Example shadow */
+}
+
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.opacity-3 {
+  opacity: .3;
+}
+
+.button-home-container {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+
+}
+
+.qr-home-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 20px;
+  padding:0px 20px
+
+}
+.heading-2{
+  font-size: 20px;
+  font-weight: 900;
+  color: gray;
+}
+.heading-3 {
+  font-size: 14px;
+  font-weight: 900;
+  color: gray;
+}
+.button-stats-home-container{
+  padding:10px 0px
+}
+p {
+  margin: 3px 0px;
+  font-size: 12px;
+}
+.text {
+  margin: 3px 0px;
+  font-size: 12px;
+}
+.toggle-button {
+  margin-left: 10px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.color-demo {
+  width: 30%;
+  height: 30px;
+  border-radius: 5px;
+  /* margin-left: 10px; */
+  /* Adjust the margin as needed */
+  cursor: pointer;
+  border: .5px solid lightgray;
+  margin-bottom: 3px;
+  padding-inline:2px
+}
+.home-color-container {
+  
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  
+}
+
+.demo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.input-demo {
+  padding:.5px solid grey
+}

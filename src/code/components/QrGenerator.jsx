@@ -1,0 +1,117 @@
+import React, { useEffect, useRef, useState } from "react";
+import QRCodeStyling from "qr-code-styling";
+import { parseLinearGradient } from "./gradientParser";
+import qrPlaceHolder from "../Assets/qrPlaceHolder.svg";
+import { Button } from "@mui/material";
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+
+const QrGenerator = ({ prop }) => {
+  const {
+    data,
+    img,
+    backgroundColor,
+    qrColor,
+    solidColorBackground,
+    solidColorQR,
+  } = prop;
+  const [qrCode, setQrCode] = useState(null);
+  const gradientBackground = parseLinearGradient(backgroundColor);
+  const gradientQR = parseLinearGradient(qrColor);
+
+  const canvasRef = useRef(null);
+
+  function handleDownloadClick(typeOfImg) {
+    if (qrCode && qrCode.download) {
+      qrCode
+        .download({
+          name: "MyQRCode",
+          extension: typeOfImg,
+        })
+        .then(() => {})
+        .catch((error) => {});
+    } else {
+      console.error("Download function not available in QRCodeStyling.");
+    }
+  }
+
+  useEffect(() => {
+    if (data !== null) {
+      const canvasElement = canvasRef.current;
+      while (canvasElement.firstChild) {
+        canvasElement.removeChild(canvasElement.firstChild);
+      }
+
+      const newQrCode = new QRCodeStyling({
+        width: 300,
+        height: 300,
+        data: data,
+        image: img,
+        dotsOptions: {
+          ...(solidColorQR
+            ? { color: qrColor }
+            : {
+                gradient: {
+                  colorStops: gradientQR,
+                },
+              }),
+        },
+        backgroundOptions: {
+          ...(solidColorBackground
+            ? { color: backgroundColor }
+            : {
+                gradient: {
+                  colorStops: gradientBackground,
+                },
+              }),
+        },
+        imageOptions: {
+          crossOrigin: "anonymous",
+          margin: 20,
+        },
+      });
+
+      setQrCode(newQrCode);
+      newQrCode.append(canvasElement);
+    }
+  }, [data, img, canvasRef, backgroundColor, qrColor]);
+
+  return (
+    <div className="qr-home-container">
+      <div ref={canvasRef}></div>
+     {!data && <img
+                  src={qrPlaceHolder}
+                  alt="qrSvgPlaceHolder"
+                  className="opacity-3"
+                />}
+      <div className="button-home-container">
+        <Button
+          variant="contained" color="success"
+          disabled = {!data}
+          onClick={() => handleDownloadClick("png")}
+        >
+          Download   PNG
+        </Button>
+
+        <Button
+            variant="contained" color="secondary"
+            disabled = {!data}
+            onClick={() => handleDownloadClick("webp")}
+        >
+          Download  WEBP
+        </Button>
+       
+     
+       
+      </div>
+      <div className="button-stats-home-container">
+       
+      <Button variant="contained" startIcon={<LeaderboardIcon />}    style={{ width: '100%' }}
+>
+  number of scans
+</Button>
+      </div>
+    </div>
+  );
+};
+
+export default QrGenerator;
