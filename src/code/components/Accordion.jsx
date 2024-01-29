@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
@@ -29,7 +30,7 @@ const Accordion = styled((props) => (
 
 const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+    expandIcon={<AddRoundedIcon sx={{ fontSize: '1.5rem' }} />}
     {...props}
   />
 ))(({ theme }) => ({
@@ -39,7 +40,7 @@ const AccordionSummary = styled((props) => (
       : 'rgba(0, 0, 0, .03)',
   flexDirection: 'row',
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(90deg)',
+    transform: 'rotate(45deg)',
   },
   '& .MuiAccordionSummary-content': {
     marginLeft: theme.spacing(1),
