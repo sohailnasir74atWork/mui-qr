@@ -19,8 +19,15 @@
   justify-content: center;
   margin: 50px auto 0px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Example shadow */
+  @media (max-width: 600px) {
+    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+    flex-direction: column-reverse;
+  }
 }
-
+@media (max-width: 600px) {
+  /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+  flex-direction: column;
+}
 
 .center {
   display: flex;
@@ -129,4 +136,13 @@ p {
 .rbgcp-inputs-wrap{
   /* font-size: 10px; */
   width:175px
+}
+.responsive-flex {
+  display: flex;
+  flex-direction: row; /* Default direction is row */
+
+  @media (max-width: 600px) {
+    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+    flex-direction: column;
+  }
 }

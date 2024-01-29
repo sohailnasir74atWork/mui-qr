@@ -44,6 +44,28 @@ function a11yProps(index) {
 export default function VerticalTabs({prop}) {
   const [value, setValue] = React.useState(0);
   const {setQrCodeSettings, qrCodeSettings, setActiveTool} = prop
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    // Detect mobile screen size
+    const detectMobileScreen = () => {
+      const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      const isMobile = screenWidth < 768; // Adjust the threshold as needed
+      return isMobile;
+    };
+
+    const updateMobileState = () => {
+      setIsMobile(detectMobileScreen());
+    };
+
+    // Run the detection on component mount
+    updateMobileState();
+
+    window.addEventListener('resize', updateMobileState);
+
+    return () => {
+      window.removeEventListener('resize', updateMobileState);
+    };
+  }, []); // The empty dependency array ensures the effect runs only on mount and unmount
 
   const handleToolTypeClick = (event, newValue) => {
     setValue(newValue);
@@ -55,17 +77,18 @@ export default function VerticalTabs({prop}) {
   };
   
     return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        bgcolor: "background.paper",
-        display: "flex",
-        maxHeight: "500px",
-      }}
+    <div
+    //   sx={{
+    //     flexGrow: 1,
+    //     bgcolor: "background.paper",
+    //     display: "flex",
+    //     maxHeight: "500px",
+    //   }}
+    className="responsive-flex"
     >
       <Tabs
-        orientation="vertical"
         variant="scrollable"
+        orientation={!isMobile ? 'vertical' : ''}
         value={value}
         onChange={handleToolTypeClick}
         aria-label="Vertical tabs example"
@@ -89,6 +112,6 @@ export default function VerticalTabs({prop}) {
           </TabPanel>
         ))}
       </div>
-    </Box>
+    </div>
   );
 }
