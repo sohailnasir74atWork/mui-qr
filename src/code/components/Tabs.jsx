@@ -43,14 +43,17 @@ function a11yProps(index) {
 
 export default function VerticalTabs({prop}) {
   const [value, setValue] = React.useState(0);
-  const {setData, data, setClearInput, setActiveTool, clearInput, showError} = prop
+  const {setQrCodeSettings, qrCodeSettings, setActiveTool} = prop
 
   const handleToolTypeClick = (event, newValue) => {
     setValue(newValue);
-    setData("");
-    setClearInput(true);
+    setQrCodeSettings((prevSettings) => ({
+      ...prevSettings,
+      inputData: { ...prevSettings.inputData, url: '' },
+      clearInput: true, // Update clearInput separately
+    }));
   };
-
+  
     return (
     <Box
       sx={{
@@ -82,7 +85,7 @@ export default function VerticalTabs({prop}) {
           <TabPanel key={index} value={value} index={index}>
             <span className="heading-2">Start Customizing</span>
             <br/>
-            <CustomizedAccordions prop={{setData, clearInput, showError}}/>
+            <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings}}/>
           </TabPanel>
         ))}
       </div>

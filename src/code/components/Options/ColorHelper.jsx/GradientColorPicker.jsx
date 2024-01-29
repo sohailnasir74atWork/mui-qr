@@ -191,9 +191,10 @@ console.log(color)
               Gradient
             </span> */}
             <FormControlLabel
-        control={<AntSwitch defaultChecked />}
-        label=""
-      /> 
+  control={<AntSwitch checked={isGradientToggleOn} onChange={handleGradientToggle} />}
+  label=""
+/>
+
       <span className="text">Gradient</span></div>
       
           </div>
@@ -206,9 +207,10 @@ console.log(color)
             </span> */}
             <div>
             <FormControlLabel
-        control={<AntSwitch defaultChecked />}
-        label=""
-      /> 
+  control={<AntSwitch checked={isTransparentToggleOn} onChange={handleTransparentToggle} />}
+  label=""
+/>
+
       <span className="text">Transarent</span></div>
           </div>
         </div>

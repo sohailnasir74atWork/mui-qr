@@ -6,20 +6,13 @@ import { Button } from "@mui/material";
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 
 const QrGenerator = ({ prop }) => {
-  const {
-    data,
-    img,
-    backgroundColor,
-    qrColor,
-    solidColorBackground,
-    solidColorQR,
-  } = prop;
+  const { setQrCodeSettings, qrCodeSettings } = prop;
   const [qrCode, setQrCode] = useState(null);
-  const gradientBackground = parseLinearGradient(backgroundColor);
-  const gradientQR = parseLinearGradient(qrColor);
-
+  const gradientBackground = parseLinearGradient(qrCodeSettings.backgroundColor);
+  const gradientQR = parseLinearGradient(qrCodeSettings.qrColor);
   const canvasRef = useRef(null);
-
+  const data = qrCodeSettings.inputData.url
+    console.log(data)
   function handleDownloadClick(typeOfImg) {
     if (qrCode && qrCode.download) {
       qrCode
@@ -45,10 +38,10 @@ const QrGenerator = ({ prop }) => {
         width: 300,
         height: 300,
         data: data,
-        image: img,
+        // image: img,
         dotsOptions: {
-          ...(solidColorQR
-            ? { color: qrColor }
+          ...(qrCodeSettings.solidColorQR
+            ? { color: qrCodeSettings.qrColor }
             : {
                 gradient: {
                   colorStops: gradientQR,
@@ -56,8 +49,8 @@ const QrGenerator = ({ prop }) => {
               }),
         },
         backgroundOptions: {
-          ...(solidColorBackground
-            ? { color: backgroundColor }
+          ...(qrCodeSettings.solidColorBackground
+            ? { color: qrCodeSettings.backgroundColor }
             : {
                 gradient: {
                   colorStops: gradientBackground,
@@ -73,7 +66,7 @@ const QrGenerator = ({ prop }) => {
       setQrCode(newQrCode);
       newQrCode.append(canvasElement);
     }
-  }, [data, img, canvasRef, backgroundColor, qrColor]);
+  }, [data,  canvasRef, qrCodeSettings.backgroundColor, qrCodeSettings.qrColor]);
 
   return (
     <div className="qr-home-container">

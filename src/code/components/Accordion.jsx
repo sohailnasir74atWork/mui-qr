@@ -53,7 +53,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export default function CustomizedAccordions({prop}) {
     const [expanded, setExpanded] = React.useState('panel1');
-    const {setData, clearInput, showError, setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR } = prop
+    const {setQrCodeSettings, qrCodeSettings } = prop
   
     const handleChange = (panel) => (event, newExpanded) => {
       setExpanded(newExpanded ? panel : false);
@@ -61,7 +61,7 @@ export default function CustomizedAccordions({prop}) {
   
     return (
       <>
-            <Accordion
+        <Accordion
           expanded={expanded === 'panel1'}
           onChange={handleChange('panel1')}
           style={{minWidth:'500px'}}
@@ -74,7 +74,7 @@ export default function CustomizedAccordions({prop}) {
             <Typography style={{ paddingLeft: '10px' }}>Generate QR</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Links prop={{setData, clearInput, showError}}/>
+            <Links prop={{setQrCodeSettings, qrCodeSettings}}/>
           </AccordionDetails>
         </Accordion>
   
@@ -92,7 +92,7 @@ export default function CustomizedAccordions({prop}) {
             <Typography style={{ paddingLeft: '10px' }}>Colors</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/>
+            <ColorHandling prop={{setQrCodeSettings, qrCodeSettings  }}/>
           </AccordionDetails>
         </Accordion>
         <Accordion
