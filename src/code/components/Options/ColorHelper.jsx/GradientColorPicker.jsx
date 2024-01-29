@@ -53,7 +53,7 @@ const GradientPicker = ({ onChange, value }) => {
     <ColorPicker
       value={value}
       onChange={onChange}
-      className="color-picker-container"
+      className="color-picker-container color-picker-width"
       width={180}
       height={100}
       hidePresets

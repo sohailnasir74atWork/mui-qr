@@ -138,8 +138,11 @@ p {
   position: relative;
   /* Set position to relative */
   flex-direction: column;
+  
 }
-
+.color-picker-width {
+  width:180px
+}
 .color-picker {
   position: absolute;
   /* Set position to absolute */
@@ -148,6 +151,9 @@ p {
   left: 200px;
   z-index: 1;
   background-color: lightgray;
+  @media (max-width: 600px) {
+    left: 100px;
+  }
 }
 
 .rbgcp-inputs-wrap {
