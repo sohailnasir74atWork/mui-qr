@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MiniDrawer from "./components/ToolBar";
 import VerticalTabs from "./components/Tabs";
 import QrGenerator from "./components/QrGenerator.jsx";
+import { Container } from "@mui/material";
 
 const Home = () => {
   const [activeTool, setActiveTool] = useState("link");
@@ -16,11 +17,12 @@ const Home = () => {
   });
     
   return (
+    <Container>
     <div className="home-container">
-      <div >
+      <div className="w-100">
         <VerticalTabs prop={{setQrCodeSettings, qrCodeSettings, setActiveTool}}/>
       </div>
-      <div className='w-60'>
+      <div>
       <div className="center">
           <div className="qr-home-container">
   
@@ -33,6 +35,7 @@ const Home = () => {
 
     
     </div>
+    </Container>
   );
 };
 

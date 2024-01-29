@@ -1,58 +1,60 @@
 import React, { useState, useEffect, useRef } from "react";
 import ColorPicker, { useColorPicker } from "react-best-gradient-color-picker";
 import styled from "@emotion/styled";
-import Switch, { SwitchProps } from '@mui/material/Switch';
+import Switch, { SwitchProps } from "@mui/material/Switch";
 import { FormControlLabel } from "@mui/material";
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
-    width: 28,
-    height: 16,
-    padding: 0,
-    display: 'flex',
-    '&:active': {
-      '& .MuiSwitch-thumb': {
-        width: 15,
+  width: 28,
+  height: 16,
+  padding: 0,
+  display: "flex",
+  "&:active": {
+    "& .MuiSwitch-thumb": {
+      width: 15,
+    },
+    "& .MuiSwitch-switchBase.Mui-checked": {
+      transform: "translateX(9px)",
+    },
+  },
+  "& .MuiSwitch-switchBase": {
+    padding: 2,
+    "&.Mui-checked": {
+      transform: "translateX(12px)",
+      color: "#fff",
+      "& + .MuiSwitch-track": {
+        opacity: 1,
+        backgroundColor: theme.palette.mode === "dark" ? "#177ddc" : "#1890ff",
       },
-      '& .MuiSwitch-switchBase.Mui-checked': {
-        transform: 'translateX(9px)',
-      },
     },
-    '& .MuiSwitch-switchBase': {
-      padding: 2,
-      '&.Mui-checked': {
-        transform: 'translateX(12px)',
-        color: '#fff',
-        '& + .MuiSwitch-track': {
-          opacity: 1,
-          backgroundColor: theme.palette.mode === 'dark' ? '#177ddc' : '#1890ff',
-        },
-      },
-    },
-    '& .MuiSwitch-thumb': {
-      boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-      width: 12,
-      height: 12,
-      borderRadius: 6,
-      transition: theme.transitions.create(['width'], {
-        duration: 200,
-      }),
-    },
-    '& .MuiSwitch-track': {
-      borderRadius: 16 / 2,
-      opacity: 1,
-      backgroundColor:
-        theme.palette.mode === 'dark' ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.25)',
-      boxSizing: 'border-box',
-    },
-  }));
-  
+  },
+  "& .MuiSwitch-thumb": {
+    boxShadow: "0 2px 4px 0 rgb(0 35 11 / 20%)",
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    transition: theme.transitions.create(["width"], {
+      duration: 200,
+    }),
+  },
+  "& .MuiSwitch-track": {
+    borderRadius: 16 / 2,
+    opacity: 1,
+    backgroundColor:
+      theme.palette.mode === "dark"
+        ? "rgba(255,255,255,.35)"
+        : "rgba(0,0,0,.25)",
+    boxSizing: "border-box",
+  },
+}));
+
 const GradientPicker = ({ onChange, value }) => {
   return (
     <ColorPicker
       value={value}
       onChange={onChange}
       className="color-picker-container"
-      width={200}
+      width={180}
       height={100}
       hidePresets
       hideEyeDrop
@@ -60,7 +62,7 @@ const GradientPicker = ({ onChange, value }) => {
       hideInputType
       hideGradientStop
       presets={false}
-      hideInputs
+    //   hideInputs
       setGradient
       hideColorTypeBtns
       hideAdvancedSliders
@@ -114,20 +116,19 @@ const GradientColorPicker = ({
   };
 
   const handleTransparentToggle = () => {
-  if (!isGradientToggleOn) {
-    setIsTransparentToggleOn((prev) => {
-      const newTransparentState = !prev;
-      setColor(newTransparentState ? "" : "#ffffff");
-      return newTransparentState;
-    });
-  } else {
-    setShowError((prev) => !prev);
-  }
+    if (!isGradientToggleOn) {
+      setIsTransparentToggleOn((prev) => {
+        const newTransparentState = !prev;
+        setColor(newTransparentState ? "" : "#ffffff");
+        return newTransparentState;
+      });
+    } else {
+      setShowError((prev) => !prev);
+    }
 
-  // Hide the color picker.
-  setShowColorPicker(false);
-};
-
+    // Hide the color picker.
+    setShowColorPicker(false);
+  };
 
   const handleGradientToggle = () => {
     setIsGradientToggleOn((prev) => !prev);
@@ -145,18 +146,11 @@ const GradientColorPicker = ({
     };
   }, []);
 
-console.log(color)
+  console.log(color);
   return (
     <div>
       <div className="color-picker-container">
-        <div style={{ display: "flex" }}>
-          {/* <input
-            type="text"
-            value={isGradientToggleOn ? color : (isTransparentToggleOn ? 'Transparent':  hexValue)}
-            readOnly
-            className="input-color-home"
-          /> */}
-        </div>
+        <div style={{ display: "flex" }}></div>
         <div
           className="color-picker"
           ref={colorPickerRef}
@@ -165,68 +159,73 @@ console.log(color)
           <GradientPicker value={color} onChange={handleColorChange} />
         </div>
         <div className="home-color-container">
-            <div>
-          {!hideTransparent && (
-            <div className="toggle-button">
-              {/* <div onClick={handleTransparentToggle} className="flex-align-center">
-                {isTransparentToggleOn ? <FaToggleOn /> : <FaToggleOff />}
-              </div> */}
-             
-              {showError && (
-                <>
-                  <hr />{" "}
-                  <span className="error" style={{ display: "block" }}>
-                    Transparent Background cant be created in Gredient Mode
-                  </span>
-                </>
-              )}
-            </div>
-          )}
-          <div className="toggle-button">
-            <div>
-            {/* <div onClick={handleGradientToggle}className="flex-align-center">
-              {isGradientToggleOn ? <FaToggleOn /> : <FaToggleOff />}
-            </div>
-            <span className="font-m" style={{ marginLeft: "10px" }}>
-              Gradient
-            </span> */}
-            <FormControlLabel
-  control={<AntSwitch checked={isGradientToggleOn} onChange={handleGradientToggle} />}
-  label=""
-/>
-
-      <span className="text">Gradient</span></div>
-      
-          </div>
-          <div className="toggle-button">
-            {/* <div onClick={handleGradientToggle}className="flex-align-center">
-              {isGradientToggleOn ? <FaToggleOn /> : <FaToggleOff />}
-            </div>
-            <span className="font-m" style={{ marginLeft: "10px" }}>
-              Gradient
-            </span> */}
-            <div>
-            <FormControlLabel
-  control={<AntSwitch checked={isTransparentToggleOn} onChange={handleTransparentToggle} />}
-  label=""
-/>
-
-      <span className="text">Transarent</span></div>
-          </div>
-        </div>
         <div className="demo-container">
-         <input
-            type="text"
-            value={isGradientToggleOn ? color : (isTransparentToggleOn ? 'Transparent':  hexValue)}
-            readOnly
-            className="color-demo"
-          />
-      <ColorDemo color={color} onClick={handleDemoClick}  className='color-demo'/>
+            {/* <input
+              type="text"
+              value={
+                isGradientToggleOn
+                  ? color
+                  : isTransparentToggleOn
+                  ? "Transparent"
+                  : hexValue
+              }
+              readOnly
+              className="color-demo"
+            /> */}
+            <ColorDemo
+              color={color}
+              onClick={handleDemoClick}
+              className="color-demo"
+            />
+          </div>
+          <div style={{display:'flex'}}>
+            {/* {!hideTransparent && (
+              <div className="toggle-button">
+                {showError && (
+                  <>
+                    <hr />{" "}
+                    <span className="error" style={{ display: "block" }}>
+                      Transparent Background cant be created in Gredient Mode
+                    </span>
+                  </>
+                )}
+              </div>
+            )} */}
+            <div className="toggle-button">
+              <div>
+                <FormControlLabel
+                  control={
+                    <AntSwitch
+                      checked={isGradientToggleOn}
+                      onChange={handleGradientToggle}
+                    />
+                  }
+                  label=""
+                />
 
-      </div>
+                <span className="text">Gradient</span>
+              </div>
+            </div>
+            {!hideTransparent && (
+              <div className="toggle-button">
+                <div>
+                  <FormControlLabel
+                    control={
+                      <AntSwitch
+                        checked={isTransparentToggleOn}
+                        onChange={handleTransparentToggle}
+                      />
+                    }
+                    label=""
+                  />
+
+                  <span className="text">Transarent</span>
+                </div>
+              </div>
+            )}
+          </div>
+         
         </div>
-        
-
       </div>
     </div>
   );

@@ -10,11 +10,12 @@
 .w-50 {
   width: 50%;
 }
+.w-100 {
+  width:100%
+}
 
 .home-container {
   display: flex;
-  max-width: 1000px;
-  margin-right: 600px;
   justify-content: center;
   margin: 50px auto 0px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Example shadow */
@@ -37,7 +38,7 @@
 .button-home-container {
   display: flex;
   justify-content: space-between;
-  width: 300px;
+  width: 310px;
 
 }
 
@@ -57,7 +58,7 @@
 .heading-3 {
   font-size: 14px;
   font-weight: 900;
-  color: gray;
+  color: rgb(212, 34, 212);
 }
 .button-stats-home-container{
   padding:10px 0px
@@ -74,7 +75,8 @@ p {
   margin-left: 10px;
   margin-top: 5px;
   display: flex;
-  justify-content: space-between;
+  width:100px;
+  justify-content: flex-end;
 }
 .color-demo {
   width: 100%;
@@ -101,10 +103,11 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width:200px
 }
-.input-demo {
+/* .input-demo {
   padding:.5px solid grey
-}
+} */
 
 .color-picker-container {
   display: flex;
@@ -117,9 +120,13 @@ p {
 .color-picker {
   position: absolute;
   /* Set position to absolute */
-  top: 70px;
+  /* top: 70px; */
   /* Position it below the color demo */
-  right: 0;
+  left: 200px;
   z-index: 1;
-  background-color: purple;
+  background-color: lightgray;
+}
+.rbgcp-inputs-wrap{
+  /* font-size: 10px; */
+  width:175px
 }
