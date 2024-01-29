@@ -103,7 +103,7 @@ export default function VerticalTabs({prop}) {
           />
         ))}
       </Tabs>
-      <div style={{ width: "100%" }}>
+      <div >
         {qrTypes.map((tab, index) => (
           <TabPanel key={index} value={value} index={index}>
             <span className="heading-3">Start Customizing</span>
