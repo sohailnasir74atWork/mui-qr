@@ -28,7 +28,6 @@ const Links = ({ prop }) => {
         required
         id="outlined-required"
         label="Submit Url Here"
-        fullWidth
         value={value}
         onChange={handleInputChange} // This function now updates both states
       />
