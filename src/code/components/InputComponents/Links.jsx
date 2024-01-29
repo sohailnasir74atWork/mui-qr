@@ -30,6 +30,7 @@ const Links = ({ prop }) => {
         label="Submit Url Here"
         value={value}
         onChange={handleInputChange} // This function now updates both states
+        style={{width:"100%"}}
       />
       <p>Your QR code will open this URL</p>
     </div>
