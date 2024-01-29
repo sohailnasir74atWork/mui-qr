@@ -64,7 +64,6 @@ export default function CustomizedAccordions({prop}) {
         <Accordion
           expanded={expanded === 'panel1'}
           onChange={handleChange('panel1')}
-          style={{minWidth:'500px'}}
         >
           <AccordionSummary
             aria-controls="panel1d-content"
