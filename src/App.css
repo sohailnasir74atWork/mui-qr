@@ -121,7 +121,11 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 200px
+  width: 200px;
+  @media (max-width: 600px) {
+    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+    width: 60px;
+  }
 }
 
 /* .input-demo {
