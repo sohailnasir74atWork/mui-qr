@@ -3,6 +3,7 @@ import  ReactGPicker  from 'react-gcolor-picker';
 import styled from "@emotion/styled";
 import Switch from "@mui/material/Switch";
 import { FormControlLabel } from "@mui/material";
+import ErrorBar from "./Error";
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
@@ -59,6 +60,8 @@ const GradientColorPicker = ({
   const [isTransparentToggleOn, setIsTransparentToggleOn] = useState(false);
   const [isGradientToggleOn, setIsGradientToggleOn] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [errorTransparent, seterrorTransparent] = useState(false);
+
 
   const colorPickerRef = useRef();
 
@@ -80,10 +83,13 @@ const GradientColorPicker = ({
   };
 
   const handleGradientToggle = () => {
+    if(!isTransparentToggleOn){
     setIsGradientToggleOn((prev) => !prev);
     setSolidColor(!solidColor);
     setShowColorPicker(false);
-  };
+  } else {
+    seterrorTransparent((prev) => !prev);
+  }} 
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -108,6 +114,9 @@ const GradientColorPicker = ({
   return (
     <div>
       <div className="color-picker-container">
+        {showError && <ErrorBar message={'Please disbale gradient mode'}/>}
+        {errorTransparent && <ErrorBar message={'Please disbale transparent mode'}/>}
+
         <div style={{ display: "flex" }}></div>
         <div
           className="color-picker"
