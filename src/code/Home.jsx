@@ -3,6 +3,7 @@ import MiniDrawer from "./components/ToolBar";
 import VerticalTabs from "./components/Tabs";
 import QrGenerator from "./components/QrGenerator.jsx";
 import { Container } from "@mui/material";
+import Test from "./components/Options/ColorHelper.jsx/Test.js";
 
 const Home = () => {
   const [activeTool, setActiveTool] = useState("link");
@@ -30,6 +31,7 @@ const Home = () => {
             {/* QR GENERATOR TOOL */}
             <QrGenerator prop={{  setQrCodeSettings, qrCodeSettings, setActiveTool }}/>
           </div>
+          {/* <Test/> */}
         </div>
       </div>
 

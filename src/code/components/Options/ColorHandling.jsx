@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import GradientColorPicker from "./ColorHelper.jsx/GradientColorPicker";
+import { Divider } from "@mui/material";
 const ColorHandling = ({ prop }) => {
   const { setQrCodeSettings, qrCodeSettings } = prop;
   console.log(qrCodeSettings);
@@ -8,6 +9,8 @@ const ColorHandling = ({ prop }) => {
     <div className="option-container-home p-v-15 accordion-open">
       <div className="accordion-content">
         <span className="block heading-3">Background Color</span>
+        <Divider/>
+
         <GradientColorPicker
           setColor={(color) =>
             setQrCodeSettings((prev) => ({ ...prev, backgroundColor: color }))
@@ -22,18 +25,18 @@ const ColorHandling = ({ prop }) => {
           solidColor={qrCodeSettings.solidColorBackground}
         />
 
-        {/* <hr />
-          <br /> */}
         <span className="block heading-3">QR Color</span>
+        <Divider/>
+
         <GradientColorPicker
           setColor={(color) =>
             setQrCodeSettings((prev) => ({ ...prev, qrColor: color }))
           }
           color={qrCodeSettings.qrColor}
           setSolidColor={(solidColor) =>
-            setQrCodeSettings((prev) => ({ ...prev, solidQrColor: solidColor }))
+            setQrCodeSettings((prev) => ({ ...prev, solidColorQR: solidColor }))
           }
-          solidColor={qrCodeSettings.solidQrColor}
+          solidColor={qrCodeSettings.solidColorQR}
           hideTransparent
         />
       </div>

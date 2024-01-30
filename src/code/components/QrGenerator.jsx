@@ -10,6 +10,7 @@ const QrGenerator = ({ prop }) => {
   const [qrCode, setQrCode] = useState(null);
   const gradientBackground = parseLinearGradient(qrCodeSettings.backgroundColor);
   const gradientQR = parseLinearGradient(qrCodeSettings.qrColor);
+  console.log(gradientBackground, gradientQR, qrCodeSettings)
   const canvasRef = useRef(null);
   const data = qrCodeSettings.inputData.url
     console.log(data)
