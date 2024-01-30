@@ -129,6 +129,7 @@ const GradientColorPicker = ({
             solid={isGradientToggleOn ? false : true}
             gradient={isGradientToggleOn ? true : false}
             format='hex'
+            popupWidth={200}
 
           />
         </div>
