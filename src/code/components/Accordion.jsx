@@ -34,8 +34,9 @@ const AccordionSummary = styled((props) => (
     {...props}
   />
 ))(({ theme }) => ({
+
   backgroundColor:
-    theme.palette.mode === 'dark'
+    theme.palette.mode === 'light'
       ? 'rgba(255, 255, 255, .05)'
       : 'rgba(0, 0, 0, .03)',
   flexDirection: 'row',
@@ -103,8 +104,8 @@ export default function CustomizedAccordions({prop}) {
             aria-controls="panel3d-content"
             id="panel3d-header"
           >
-            <ColorLensIcon sx={{ color: pink[500] }}/>
-            <Typography style={{ paddingLeft: '10px' }}>Borders</Typography>
+            <DashboardCustomizeIcon sx={{ color: pink[500] }}/>
+            <Typography style={{ paddingLeft: '10px' }}>Shape & Forms</Typography>
           </AccordionSummary>
           <AccordionDetails>
             {/* <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/> */}

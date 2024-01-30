@@ -177,3 +177,6 @@ p {
 .block-center{
   text-align: center;
 }
+.white-bg {
+  background-color: white;
+}
