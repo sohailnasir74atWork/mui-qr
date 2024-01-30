@@ -78,8 +78,7 @@ export default function VerticalTabs({prop}) {
   
     return (
     <div
-      style={{maxHeight:'450px'}}
-    className="responsive-flex"
+     className="responsive-flex tab-height"
     >
       <Tabs
         variant="scrollable"
