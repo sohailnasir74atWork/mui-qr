@@ -9,8 +9,13 @@ const QrGenerator = ({ prop }) => {
   const { setQrCodeSettings, qrCodeSettings } = prop;
   const [qrCode, setQrCode] = useState(null);
   const gradientBackground = parseLinearGradient(qrCodeSettings.backgroundColor);
+  const gradientBorder = parseLinearGradient(qrCodeSettings.borderColor);
+//   const gradientQR = parseLinearGradient(qrCodeSettings.qrColor);
+
   const gradientQR = parseLinearGradient(qrCodeSettings.qrColor);
-  console.log(gradientBackground, gradientQR, qrCodeSettings)
+  const gradientCenter = parseLinearGradient(qrCodeSettings.centerColor);
+
+
   const canvasRef = useRef(null);
   const data = qrCodeSettings.inputData.url
     console.log(data)
@@ -58,6 +63,24 @@ const QrGenerator = ({ prop }) => {
                 },
               }),
         },
+        cornersSquareOptions: {
+            ...(qrCodeSettings.solidBorderColor
+              ? { color: qrCodeSettings.borderColor }
+              : {
+                  gradient: {
+                    colorStops: gradientBorder,
+                  },
+                }),
+          },
+          cornersDotOptions: {
+            ...(qrCodeSettings.solidCenterColor
+              ? { color: qrCodeSettings.centerColor }
+              : {
+                  gradient: {
+                    colorStops: gradientCenter,
+                  },
+                }),
+          },
         imageOptions: {
           crossOrigin: "anonymous",
           margin: 20,
@@ -67,7 +90,7 @@ const QrGenerator = ({ prop }) => {
       setQrCode(newQrCode);
       newQrCode.append(canvasElement);
     }
-  }, [data,  canvasRef, qrCodeSettings.backgroundColor, qrCodeSettings.qrColor]);
+  }, [data,  canvasRef, qrCodeSettings.backgroundColor, qrCodeSettings.qrColor, qrCodeSettings.borderColor, qrCodeSettings.centerColor]);
 
   return (
     <div className="qr-home-container">
@@ -99,10 +122,10 @@ const QrGenerator = ({ prop }) => {
       </div>
       <div className="button-stats-home-container">
        
-      <Button variant="contained" startIcon={<LeaderboardIcon />}    style={{ width: '100%' }}
+      {/* <Button variant="contained" startIcon={<LeaderboardIcon />}    style={{ width: '100%' }}
 >
   number of scans
-</Button>
+</Button> */}
       </div>
     </div>
   );

@@ -12,9 +12,14 @@ const Home = () => {
     inputData: { url: null },
     backgroundColor: '#ffffff',
     qrColor: '#000000',
+    borderColor: '#000000',
+    centerColor: '#000000',
     solidColorQR:true,
     solidColorBackground:true,
+    solidBorderColor:true,
+    solidCenterColor:true,
     clearInput:false
+
   });
     
   return (
@@ -23,7 +28,7 @@ const Home = () => {
       <div className="w-100">
         <VerticalTabs prop={{setQrCodeSettings, qrCodeSettings, setActiveTool}}/>
       </div>
-      <div>
+      <div className="block-center">
       <div className="center">
           <div className="qr-home-container">
   

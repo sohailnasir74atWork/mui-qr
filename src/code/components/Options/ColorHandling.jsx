@@ -25,7 +25,7 @@ const ColorHandling = ({ prop }) => {
         />
         <Divider/>
 
-        <span className="block heading-3">QR Color</span>
+        <span className="block heading-3">Dots Color</span>
 
         <GradientColorPicker
           setColor={(color) =>
@@ -38,7 +38,36 @@ const ColorHandling = ({ prop }) => {
           solidColor={qrCodeSettings.solidColorQR}
           hideTransparent
         />
-      </div>
+                <Divider/>
+
+        <span className="block heading-3">Marker Border Color</span>
+
+<GradientColorPicker
+  setColor={(color) =>
+    setQrCodeSettings((prev) => ({ ...prev, borderColor: color }))
+  }
+  color={qrCodeSettings.borderColor}
+  setSolidColor={(solidColor) =>
+    setQrCodeSettings((prev) => ({ ...prev, solidBorderColor: solidColor }))
+  }
+  solidColor={qrCodeSettings.solidBorderColor}
+  hideTransparent
+/>
+<Divider/>
+
+<span className="block heading-3">Marker Center Color</span>
+
+        <GradientColorPicker
+          setColor={(color) =>
+            setQrCodeSettings((prev) => ({ ...prev, centerColor: color }))
+          }
+          color={qrCodeSettings.centerColor}
+          setSolidColor={(solidColor) =>
+            setQrCodeSettings((prev) => ({ ...prev, solidCenterColor: solidColor }))
+          }
+          solidColor={qrCodeSettings.solidCenterColor}
+          hideTransparent
+        />      </div>
     </div>
   );
 };

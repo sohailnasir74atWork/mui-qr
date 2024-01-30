@@ -20,6 +20,7 @@
   justify-content: center;
   margin: 50px auto 0px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  max-height: 500px;
 
   /* Example shadow */
   @media (max-width: 600px) {
@@ -172,4 +173,7 @@ p {
 }
 .popup_tabs-body{
   padding:10px !important
+}
+.block-center{
+  text-align: center;
 }

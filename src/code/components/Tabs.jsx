@@ -78,12 +78,7 @@ export default function VerticalTabs({prop}) {
   
     return (
     <div
-    //   sx={{
-    //     flexGrow: 1,
-    //     bgcolor: "background.paper",
-    //     display: "flex",
-    //     maxHeight: "500px",
-    //   }}
+      style={{maxHeight:'500px'}}
     className="responsive-flex"
     >
       <Tabs
