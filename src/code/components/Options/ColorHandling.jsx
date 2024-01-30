@@ -9,7 +9,6 @@ const ColorHandling = ({ prop }) => {
     <div className="option-container-home p-v-15 accordion-open">
       <div className="accordion-content">
         <span className="block heading-3">Background Color</span>
-        <Divider/>
 
         <GradientColorPicker
           setColor={(color) =>
@@ -24,9 +23,9 @@ const ColorHandling = ({ prop }) => {
           }
           solidColor={qrCodeSettings.solidColorBackground}
         />
+        <Divider/>
 
         <span className="block heading-3">QR Color</span>
-        <Divider/>
 
         <GradientColorPicker
           setColor={(color) =>
