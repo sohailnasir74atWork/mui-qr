@@ -78,7 +78,7 @@ export default function VerticalTabs({prop}) {
   
     return (
     <div
-      style={{maxHeight:'500px'}}
+      style={{maxHeight:'450px'}}
     className="responsive-flex"
     >
       <Tabs
