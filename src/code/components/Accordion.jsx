@@ -104,7 +104,7 @@ export default function CustomizedAccordions({prop}) {
             aria-controls="panel3d-content"
             id="panel3d-header"
           >
-            <DashboardCustomizeIcon sx={{ color: pink[500] }}/>
+            <DashboardCustomizeIcon sx={{ color: purple[800] }}/>
             <Typography style={{ paddingLeft: '10px' }}>Shape & Forms</Typography>
           </AccordionSummary>
           <AccordionDetails>
