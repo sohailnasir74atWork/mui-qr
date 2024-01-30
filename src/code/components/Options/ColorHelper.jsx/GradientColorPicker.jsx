@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import Switch from "@mui/material/Switch";
 import { FormControlLabel } from "@mui/material";
 import ErrorBar from "./Error";
+import { Flag } from "@mui/icons-material";
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
@@ -130,6 +131,9 @@ const GradientColorPicker = ({
             gradient={isGradientToggleOn ? true : false}
             format='hex'
             popupWidth={200}
+            showGradientAngle={false}
+            defaultColors={[]}
+            showGradientResult={false}
 
           />
         </div>
