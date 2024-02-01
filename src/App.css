@@ -59,8 +59,9 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-top: 20px;
-  padding: 0px 20px
+  /* margin-top: 20px; */
+  padding: 40px 20px 0px 20px;
+  background-color: #BEADFA;
 }
 
 .heading-2 {
@@ -72,7 +73,8 @@
 .heading-3 {
   font-size: 14px;
   font-weight: 900;
-  color: rgb(212, 34, 212);
+  /* color: rgb(212, 34, 212); */
+  /* color: lightgray; */
 }
 
 .button-stats-home-container {
@@ -188,4 +190,40 @@ p {
     /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     height:600px;
   }
+}
+
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.carousel img {
+  max-width: 100%;
+  margin: 0 5px;
+  flex: 0 0 auto;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.scroll-button.left {
+  left: 0;
+}
+
+.scroll-button.right {
+  right: 0;
 }

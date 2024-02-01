@@ -7,6 +7,10 @@ import Box from "@mui/material/Box";
 import CustomizedAccordions from "./Accordion";
 import { qrTypes } from "./ToolList";
 
+const backgroundPurple = '#BEADFA'
+const lightPurple = "#B931FC"; // Example light purple color
+const darkPurple = "purple"; // Example dark purple color
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -41,9 +45,9 @@ function a11yProps(index) {
 }
 
 
-export default function VerticalTabs({prop}) {
+export default function VerticalTabs({ prop }) {
   const [value, setValue] = React.useState(0);
-  const {setQrCodeSettings, qrCodeSettings, setActiveTool} = prop
+  const { setQrCodeSettings, qrCodeSettings, setActiveTool } = prop
   const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
     // Detect mobile screen size
@@ -75,10 +79,12 @@ export default function VerticalTabs({prop}) {
       clearInput: true, // Update clearInput separately
     }));
   };
-  
-    return (
+
+  return (
     <div
-     className="responsive-flex tab-height"
+      className="responsive-flex tab-height"
+      style={{backgroundColor:backgroundPurple }}
+
     >
       <Tabs
         variant="scrollable"
@@ -86,7 +92,11 @@ export default function VerticalTabs({prop}) {
         value={value}
         onChange={handleToolTypeClick}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: "divider" }}
+        sx={{
+          '& .MuiTabs-indicator': {
+            backgroundColor: darkPurple, // Active tab indicator color
+          },
+        }}
       >
         {qrTypes.map((tab, index) => (
           <Tab
@@ -94,15 +104,21 @@ export default function VerticalTabs({prop}) {
             label={tab.label}
             icon={tab.icon}
             {...a11yProps(index)}
+            sx={{
+              backgroundColor: value === index ? darkPurple : lightPurple, // Active/Inactive tab background color
+              color: 'white', // Text color
+              '&.Mui-selected': { // Additional styles for selected (active) tab
+                color: 'white',
+              },
+            }}
           />
         ))}
       </Tabs>
       <div style={{ width: "100%" }}>
         {qrTypes.map((tab, index) => (
-          <TabPanel key={index} value={value} index={index}>
-            <span className="heading-3">Start Customizing</span>
-            <br/>
-            <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings}}/>
+          <TabPanel key={index} value={value} index={index} style={{paddingTop:'8px'}}
+          >
+            <CustomizedAccordions prop={{ setQrCodeSettings, qrCodeSettings }} />
           </TabPanel>
         ))}
       </div>

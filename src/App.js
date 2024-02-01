@@ -13,15 +13,15 @@ const App = () => {
 
   const theme = createTheme({
     palette: {
-    //   primary: {
-    //     main: '#2a9461', // Custom primary color
-    //     // You can also define light, dark, and contrastText
-    //   },
-    //   secondary: {
-    //     main: '#494c7d', // Custom secondary color
-    //     // Define light, dark, and contrastText if needed
-    //   },
-    //   // Add other palette colors if necessary
+      // primary: {
+      //   // main: '#2a9461', // Custom primary color
+      //   // You can also define light, dark, and contrastText
+      // },
+      // secondary: {
+      //   main: '#494c7d', // Custom secondary color
+      //   // Define light, dark, and contrastText if needed
+      // },
+      // // Add other palette colors if necessary
     },
   });
   return (

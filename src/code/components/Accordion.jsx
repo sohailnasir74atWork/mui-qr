@@ -15,7 +15,8 @@ import CropOriginalIcon from '@mui/icons-material/CropOriginal';
 import { blue, green, lime, orange, pink, purple, teal } from '@mui/material/colors';
 import Links from './InputComponents/Links';
 import ColorHandling from './Options/ColorHandling';
-
+const lightPurple = "#B931FC"; // Example light purple color
+const darkPurple = "purple"; // Example dark purple color
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -63,6 +64,9 @@ export default function CustomizedAccordions({prop}) {
   
     return (
       <>
+<span className="heading-3"           
+>Start Customizing</span>
+
         <Accordion
           expanded={expanded === 'panel1'}
           onChange={handleChange('panel1')}
@@ -108,7 +112,7 @@ export default function CustomizedAccordions({prop}) {
             <Typography style={{ paddingLeft: '10px' }}>Shape & Forms</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            {/* <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/> */}
+           
             COMMING SOON
           </AccordionDetails>
         </Accordion>
@@ -124,7 +128,7 @@ export default function CustomizedAccordions({prop}) {
             <Typography style={{ paddingLeft: '10px' }}>LOGO</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            {/* <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/> */}
+           
             COMMING SOON
           </AccordionDetails>
         </Accordion>
@@ -140,7 +144,7 @@ export default function CustomizedAccordions({prop}) {
             <Typography style={{ paddingLeft: '10px' }}>Frames</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            {/* <ColorHandling prop={{ setBackgroundColor, backgroundColor, qrColor, setQrColor, setSolidColorBackground, solidColorBackground, setSolidColorQR, solidColorQR }}/> */}
+           
             COMMING SOON
           </AccordionDetails>
         </Accordion>
