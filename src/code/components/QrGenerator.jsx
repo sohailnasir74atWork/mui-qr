@@ -4,6 +4,7 @@ import { parseLinearGradient } from "./gradientParser";
 import qrPlaceHolder from "../Assets/qrPlaceHolder.svg";
 import { Button } from "@mui/material";
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import { darkPink, lightPink } from "./Veriables";
 
 const QrGenerator = ({ prop }) => {
   const {  qrCodeSettings } = prop;
@@ -94,15 +95,16 @@ const QrGenerator = ({ prop }) => {
 
   return (
     <div className="qr-home-container">
-      <div ref={canvasRef}></div>
-      {!data && <img
+      <div ref={canvasRef} className={ data?"qr-box-home":''}></div>
+     {!data && <div className="qr-box-home">
+       <img
         src={qrPlaceHolder}
         alt="qrSvgPlaceHolder"
         className="opacity-3"
-      />}
+      /></div>}
       <div className="button-home-container">
         <Button
-          variant="contained" color="success"
+          variant="contained" color="primary"
           disabled={!data}
           onClick={() => handleDownloadClick("png")}
         >
@@ -110,12 +112,13 @@ const QrGenerator = ({ prop }) => {
         </Button>
 
         <Button
-          variant="contained" color="secondary"
-          disabled={!data}
-          onClick={() => handleDownloadClick("webp")}
-        >
-          Download  WEBP
-        </Button>
+  variant="contained"
+  style={{ backgroundColor: lightPink, color: 'white' }}
+  disabled={!data}
+  onClick={() => handleDownloadClick("webp")}
+>
+  Download WEBP
+</Button>
 
 
 

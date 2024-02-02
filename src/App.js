@@ -9,14 +9,17 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 import './App.css'
 import Home from './code/Home';
+import { backgroundPurple, darkPurple, lightPurple } from './code/components/Veriables';
 const App = () => {
 
   const theme = createTheme({
     palette: {
-      // primary: {
-      //   // main: '#2a9461', // Custom primary color
-      //   // You can also define light, dark, and contrastText
-      // },
+      primary: {
+        main: darkPurple,
+        light: lightPurple,
+        // dark:backgroundPurple
+        // You can also define light, dark, and contrastText
+      },
       // secondary: {
       //   main: '#494c7d', // Custom secondary color
       //   // Define light, dark, and contrastText if needed

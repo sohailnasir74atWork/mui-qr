@@ -6,7 +6,11 @@ import SmsIcon from "@mui/icons-material/Sms";
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-
+import ColorLensIcon from "@mui/icons-material/ColorLens"; // Corrected
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize"; // Corrected
+import Face4Icon from "@mui/icons-material/Face"; // Corrected
+import CropOriginalIcon from "@mui/icons-material/CropOriginal"; // Corrected
+import { lime, orange, pink, purple } from "@mui/material/colors";
 
 export const qrTypes = [
   { label: "url", icon: <AddLinkIcon /> },
@@ -19,11 +23,9 @@ export const qrTypes = [
   { label: "whatsapp", icon: <WhatsAppIcon /> },
 ];
 
-// export const options = [
-//   { label: "Generate QR", icon: <QrCodeIcon sx={{ color: teal[800] }}/> },
-//   { label: "colors", icon: <ColorLensIcon sx={{ color: pink[500] }}/> },
-//   { label: "shapes", icon: <DashboardCustomizeIcon sx={{ color: purple[500] }}/> },
-//   { label: "log", icon: <Face4Icon sx={{ color: orange[500] }}/> },
-//   { label: "frams", icon: <CropOriginalIcon sx={{ color: lime[900] }}/> },
-//   ];
-
+export const options2 = [
+  { label: "colors", icon: <ColorLensIcon /> },
+  { label: "shapes", icon: <DashboardCustomizeIcon /> },
+  { label: "log", icon: <Face4Icon /> }, // Note: Face4Icon may not exist in Material UI Icons. Please verify.
+  { label: "frams", icon: <CropOriginalIcon /> },
+];

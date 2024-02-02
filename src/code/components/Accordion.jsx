@@ -15,8 +15,8 @@ import CropOriginalIcon from '@mui/icons-material/CropOriginal';
 import { blue, green, lime, orange, pink, purple, teal } from '@mui/material/colors';
 import Links from './InputComponents/Links';
 import ColorHandling from './Options/ColorHandling';
-const lightPurple = "#B931FC"; // Example light purple color
-const darkPurple = "purple"; // Example dark purple color
+import { lightPurple, darkPurple, backgroundPurple } from "./Veriables";
+
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -64,10 +64,10 @@ export default function CustomizedAccordions({prop}) {
   
     return (
       <>
-<span className="heading-3"           
->Start Customizing</span>
 
-        <Accordion
+<Links prop={{setQrCodeSettings, qrCodeSettings}}/>
+
+        {/* <Accordion
           expanded={expanded === 'panel1'}
           onChange={handleChange('panel1')}
         >
@@ -81,7 +81,7 @@ export default function CustomizedAccordions({prop}) {
           <AccordionDetails>
             <Links prop={{setQrCodeSettings, qrCodeSettings}}/>
           </AccordionDetails>
-        </Accordion>
+        </Accordion> */}
   
         {/* Repeat for each option, changing the panel number, icon, and label as needed */}
         {/* Example for the second panel */}

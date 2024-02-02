@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import MiniDrawer from "./components/ToolBar";
 import VerticalTabs from "./components/Tabs";
 import QrGenerator from "./components/QrGenerator.jsx";
 import { Container } from "@mui/material";
 import ImageCarousel from "./components/Options/ImageSlider.jsx";
-const backgroundPurple = '#BEADFA'
+import { lightPurple, darkPurple, backgroundPurple } from "./components/Veriables.js";
+import MiniDrawer from "./components/Options/newoptions.jsx";
 
 const Home = () => {
   const [activeTool, setActiveTool] = useState("link");
@@ -33,9 +33,9 @@ const Home = () => {
             prop={{ setQrCodeSettings, qrCodeSettings, setActiveTool }}
           />
         </div>
-        <div className="block-center">
+        <div className="block-center qr-bg-holder">
           <div className="center">
-            <div>
+            <div className="">
 
 
 
@@ -43,12 +43,15 @@ const Home = () => {
               <QrGenerator
                 prop={{ setQrCodeSettings, qrCodeSettings, setActiveTool }}
               />
-              <div style={{background:backgroundPurple}}>
+              <div>
                 <ImageCarousel/>
                 </div>
             </div>
             {/* <Test/> */}
           </div>
+        </div>
+        <div>
+          <MiniDrawer prop={{ setQrCodeSettings, qrCodeSettings, setActiveTool }}/>
         </div>
       </div>
     </Container>

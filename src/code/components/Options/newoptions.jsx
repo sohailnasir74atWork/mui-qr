@@ -4,9 +4,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import CustomizedAccordions from "./Accordion";
-import { qrTypes } from "./ToolList";
-import { lightPurple, darkPurple, backgroundPurple } from "./Veriables";
+import { darkPink, lightPink } from "../Veriables";
+import { options2 } from "../ToolList";
+import CustomizedAccordions from "../Accordion";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,7 +45,7 @@ function a11yProps(index) {
 
 export default function VerticalTabs({ prop }) {
   const [value, setValue] = React.useState(0);
-  const { setQrCodeSettings, qrCodeSettings, setActiveTool } = prop
+  const { setQrCodeSettings, qrCodeSettings } = prop
   const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
     // Detect mobile screen size
@@ -71,17 +71,13 @@ export default function VerticalTabs({ prop }) {
 
   const handleToolTypeClick = (event, newValue) => {
     setValue(newValue);
-    setQrCodeSettings((prevSettings) => ({
-      ...prevSettings,
-      inputData: { ...prevSettings.inputData, url: '' },
-      clearInput: true, // Update clearInput separately
-    }));
+
   };
 
   return (
     <div
-      className="responsive-flex tab-height"
-      style={{backgroundColor:backgroundPurple }}
+      className="responsive-flex-recerse tab-height"
+    //   style={{backgroundColor:'#ff00a9' }}
 
 
     >
@@ -102,14 +98,14 @@ export default function VerticalTabs({ prop }) {
           
         }}
       >
-        {qrTypes.map((tab, index) => (
+        {options2.map((tab, index) => (
           <Tab
             key={index}
             label={tab.label}
             icon={tab.icon}
             {...a11yProps(index)}
             sx={{
-              backgroundColor: value === index ? darkPurple : lightPurple, // Active/Inactive tab background color
+              backgroundColor: value === index ? darkPink : lightPink, // Active/Inactive tab background color
               color: 'white', // Text color
               margin: '3px',
               borderRadius: '10px',
@@ -132,13 +128,14 @@ export default function VerticalTabs({ prop }) {
         ))}
       </Tabs>
       <div style={{ width: "360px" }}>
-        {qrTypes.map((tab, index) => (
+        {options2.map((tab, index) => (
           <TabPanel key={index} value={value} index={index} >
-            <span className="heading-4"  style={{display:'flex', justifyContent:'left'}}          
->GENERATE QR</span>
+            <span className="heading-4" style={{display:'flex', justifyContent:'flex-end', color:darkPink}}           
+>COLOR SETTINGS</span>
 <br/>
 <br/>
-            <CustomizedAccordions prop={{ setQrCodeSettings, qrCodeSettings }} />
+           <div>            <CustomizedAccordions prop={{ setQrCodeSettings, qrCodeSettings }} />
+</div>
           </TabPanel>
         ))}
       </div>
