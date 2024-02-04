@@ -2,24 +2,22 @@ import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 
 const Home = () => {
-  const [activeTool, setActiveTool] = useState("link");
+  const [activeTool, setActiveTool] = useState("Links");
   const [showError, setShowError] = useState(false);
   const [qrCodeSettings, setQrCodeSettings] = useState({
     inputData: { url: null },
-    backgroundColor: "#ffffff",
-    qrColor: "#000000",
-    borderColor: "#000000",
-    centerColor: "#000000",
-    solidColorQR: true,
-    solidColorBackground: true,
-    solidBorderColor: true,
-    solidCenterColor: true,
+    colors: {
+      background: { isSolid: true, color: "#1f1f1f" },
+      dots: { isSolid: true, color: "#000000" },
+      square: { isSolid: true, color: "#000000" },
+      cornerDots: { isSolid: true, color: "#000000" },
+    },
     clearInput: false,
   });
 
   return (
     <div>
-      <SideBar/>
+      <SideBar prop={{qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool}}/>
     </div>
   );
 };

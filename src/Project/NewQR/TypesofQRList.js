@@ -10,8 +10,8 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 
 export const demoList = [
-  { icon: <HomeIcon />, heading: "Home", text: "This is the text for Home" },
-  { icon: <SettingsIcon />, heading: "Settings", text: "This is the text for Settings" },
+  { icon: <HomeIcon />, heading: "Links", text: "This is the text for Home" },
+  { icon: <SettingsIcon />, heading: "Text", text: "This is the text for Settings" },
   { icon: <AlarmIcon />, heading: "Alarm", text: "This is the text for Alarm" },
   { icon: <FaceIcon />, heading: "Profile", text: "This is the text for Profile" },
   { icon: <BuildIcon />, heading: "Tools", text: "This is the text for Tools" },

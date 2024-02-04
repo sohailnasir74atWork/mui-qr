@@ -88,7 +88,9 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 const steps = ["Type of QR Code", "Content", "QR Design"];
-export default function SideBar() {
+export default function SideBar({prop}) {
+
+  const {qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool} = prop
   const theme = useTheme();
   const [open, setOpen] = React.useState(   true);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -157,7 +159,7 @@ useEffect(()=>{
   const renderContent = () => {
     switch (selectedIndex) {
       case 0:
-        return (activeStep > 2 ? '' : <TypesOfQR prop={{activeStep, setActiveStep}}/>);
+        return (activeStep > 2 ? '' : <TypesOfQR prop={{activeStep, setActiveStep, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool}}/>);
       case 1:
         return <Typography paragraph>Bulk QR Generater</Typography>;
       case 2:
