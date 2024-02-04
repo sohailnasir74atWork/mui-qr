@@ -134,10 +134,10 @@ export default function VerticalTabs({ prop }) {
       <div style={{ width: "360px" }}>
         {qrTypes.map((tab, index) => (
           <TabPanel key={index} value={value} index={index} >
-            <span className="heading-4"  style={{display:'flex', justifyContent:'left'}}          
+            <span className="heading-4"  style={{display:'flex', justifyContent:'left', color:darkPurple}}          
 >GENERATE QR</span>
-<br/>
-<br/>
+
+
             <CustomizedAccordions prop={{ setQrCodeSettings, qrCodeSettings }} />
           </TabPanel>
         ))}

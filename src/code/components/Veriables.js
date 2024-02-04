@@ -1,5 +1,5 @@
 export const backgroundPurple = 'rgb(243, 247, 250)'
-export const lightPurple = "#be29ec"; // Example light purple color
-export const darkPurple = "#660066"; // Example dark purple color
-export const lightPink = '#ff00a9'
-export const darkPink = '#b42b51'
+export const lightPurple = "#128C7E"; // Example light purple color
+export const darkPurple = "#FAF5E9"; // Example dark purple color
+export const lightPink = '#34B7F1'
+export const darkPink = '#ff00a9'

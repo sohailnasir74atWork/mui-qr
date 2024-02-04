@@ -50,9 +50,9 @@ const Home = () => {
             {/* <Test/> */}
           </div>
         </div>
-        <div>
+        {/* <div>
           <MiniDrawer prop={{ setQrCodeSettings, qrCodeSettings, setActiveTool }}/>
-        </div>
+        </div> */}
       </div>
     </Container>
   );

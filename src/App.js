@@ -8,8 +8,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 import './App.css'
-import Home from './code/Home';
 import { backgroundPurple, darkPurple, lightPurple } from './code/components/Veriables';
+import Home from './Project/Index';
 const App = () => {
 
   const theme = createTheme({
@@ -32,7 +32,7 @@ const App = () => {
     <Router>
       <Routes>
        
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/>} />
        
       </Routes>
     </Router>

@@ -59,7 +59,7 @@ body {
 
 }
 .qr-box-home {
-  border: 10px solid linear-gradient(to bottom right, purple 50%, #ff00a9 50%);;
+  border: 10px solid linear-gradient(to bottom right, #128C7E 50%, #34B7F1 50%);;
   border-radius: 50px;
   box-shadow: 0px 0px 12px;
   margin: 10px;
@@ -77,14 +77,25 @@ body {
 .qr-bg-holder{
   border-radius: 50px;
   /* background-color:#be29ec ; */
-  background: linear-gradient(to bottom right, purple 50%, #ff00a9 50%);
+  background: #128C7E;
+
 
 }
 
 .heading-2 {
   font-size: 20px;
-  font-weight: 900;
-  color: gray;
+  font-weight: 900;}
+.heading-container {
+  margin-bottom: 20px;
+
+}
+.heading-tag {
+  margin-bottom: 10px;
+  background-color: #FE8E3E;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-left: 10px;
+
 }
 
 .heading-3 {
@@ -96,7 +107,7 @@ body {
 .heading-4 {
   font-size: 40px;
   font-family: fantasy;
-  font-weight: 600;
+  font-weight: 500;
   /* color: rgb(212, 34, 212); */
   /* color: lightgray; */
   color: purple;
@@ -258,3 +269,127 @@ p {
 .tabs {
   margin: 10px;
 }
+
+
+/* /////////////////////////////////////////////////////////// */
+
+
+.types-of-qr-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #F7F7F7;
+
+
+}
+.types-of-qr-select{
+  width: 100% !important;
+  padding: 18px !important;
+  overflow-y: scroll;
+  height: 100vh;
+
+
+}
+.types-of-qr-mobile-demo {
+  width: 100%;
+  height: 100vh; /* Use 100% of the viewport height */
+  margin: 20px;
+  /* overflow-y: scroll; */
+
+  /* Initially hide the scrollbar */
+  
+}
+
+/* For Firefox, there isn't a standard way to hide the scrollbar until scrolling. 
+   The scrollbar will be thin as defined above. */
+
+
+.mobile-frame{
+  position: relative;
+  overflow: hidden; /* Ensure the overlay stays within the image boundaries */
+
+}
+
+.overlay {
+  position: absolute;
+  top: 2.5%; /* Adjust as needed for the desired height */
+  left: 5%; /* Adjust as needed for the desired width */
+  bottom: 2.5%; /* Adjust as needed for the desired height */
+  width: 90%; /* Adjust the width of the overlay */
+  height: 95%; /* Adjust the height of the overlay */
+  background-color: white;
+  opacity: 1; 
+  border-radius: 50px;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+  grid-gap: 10px; /* Adjust the space between the items */
+  /* padding: 20px; */
+}
+.static-qr {
+  padding: 20px;
+
+}
+.static-qr-tabs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+padding: 6px;
+height: 80px;
+align-items: center;
+border: 2px solid transparent;
+cursor: pointer;
+box-shadow: 0 4px 6px 0 rgba(205,209,224,0.5);
+background-color: white;
+transition: all 0.25s ease-in-out;
+border-radius: 8px;
+margin-bottom: 10px;
+
+
+}
+.static-qr-tabs:hover{
+  border-color: #FE8E3E;
+}
+.static-qr-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  width: 100px;
+  background-color: #F7F7F7;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+
+/* WebKit (Chrome, Safari) scrollbar styles */
+/* ::-webkit-scrollbar {
+  width: 0px; /* Hide the scrollbar */
+
+
+/* When the user hovers over the container, show the scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(243, 247, 250);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgb(243, 247, 250);
+  border-radius: 20px; /* Round edges */
+}
+
