@@ -3,7 +3,7 @@ import GradientColorPicker from "./ColorHelper.jsx/GradientColorPicker";
 import { Divider } from "@mui/material";
 const ColorHandling = ({ prop }) => {
   const { setQrCodeSettings, qrCodeSettings } = prop;
-  console.log(qrCodeSettings);
+  // console.log(qrCodeSettings);
 
   return (
     <div className="option-container-home p-v-15 accordion-open">

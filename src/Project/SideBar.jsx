@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -20,7 +20,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { Button, Step, StepButton, Stepper } from "@mui/material";
 import TypesOfQR from "./NewQR/TypesOfQR.jsx";
-import InputsSection from "./NewQR/InputsSection.jsx"
+import InputsSection from "./NewQR/InputsSection.jsx";
 const drawerWidth = 200;
 
 const openedMixin = (theme) => ({
@@ -88,17 +88,18 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 const steps = ["Type of QR Code", "Content", "QR Design"];
-export default function SideBar({prop}) {
-
-  const {qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool} = prop
+export default function SideBar({ prop }) {
+  const { qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool } = prop;
   const theme = useTheme();
-  const [open, setOpen] = React.useState(   true);
+  const [open, setOpen] = React.useState(true);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
-useEffect(()=>{
-    if(completedSteps() === totalSteps()){setSelectedIndex(3)}
-},[activeStep])
+  useEffect(() => {
+    if (completedSteps() === totalSteps()) {
+      setSelectedIndex(3);
+    }
+  }, [activeStep]);
   const totalSteps = () => {
     return steps.length;
   };
@@ -159,7 +160,20 @@ useEffect(()=>{
   const renderContent = () => {
     switch (selectedIndex) {
       case 0:
-        return (activeStep > 2 ? '' : <TypesOfQR prop={{activeStep, setActiveStep, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool}}/>);
+        return activeStep > 2 ? (
+          ""
+        ) : (
+          <TypesOfQR
+            prop={{
+              activeStep,
+              setActiveStep,
+              qrCodeSettings,
+              setQrCodeSettings,
+              activeTool,
+              setActiveTool,
+            }}
+          />
+        );
       case 1:
         return <Typography paragraph>Bulk QR Generater</Typography>;
       case 2:
@@ -172,14 +186,10 @@ useEffect(()=>{
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        open={open}
-        sx={{ background: "linear-gradient(135deg, #ff0f7b, #f89b29)" }}
-        >
+      <AppBar position="fixed" open={open} sx={{ background: "#f1f1f1" }}>
         <Toolbar>
           <IconButton
-            color="inherit"
+            color="black"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
@@ -283,7 +293,7 @@ useEffect(()=>{
           )}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1,  }}>
+      <Box component="main" sx={{ flexGrow: 1 }}>
         <DrawerHeader />
         {renderContent()}
       </Box>

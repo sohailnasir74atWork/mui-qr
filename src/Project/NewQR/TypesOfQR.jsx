@@ -9,11 +9,11 @@ const TypesOfQR = ({ prop }) => {
   const inputClick = (e) => {
     setActiveStep(activeStep + 1);
     setActiveTool(e)
-    console.log(activeStep);
+    // console.log(activeStep);
   };
 
   useEffect(() => {
-    console.log(activeStep);
+    // console.log(activeStep);
   }, [activeStep]);
 
   return (
@@ -31,8 +31,8 @@ const TypesOfQR = ({ prop }) => {
                 >
                   <div className="static-qr-icons">{item.icon}</div>
                   <div className="flex-col">
-                    <span>{item.heading}</span>
-                    <span>{item.text}</span>
+                    <span className="text-primary">{item.heading}</span>
+                    <span className="text-secondary">{item.text}</span>
                   </div>
                 </div>
               ))}
@@ -50,8 +50,8 @@ const TypesOfQR = ({ prop }) => {
                 >
                   <div className="static-qr-icons">{item.icon}</div>
                   <div className="flex-col">
-                    <span>{item.heading}</span>
-                    <span>{item.text}</span>
+                    <span className="text-primary">{item.heading}</span>
+                    <span className="text-secondary">{item.text}</span>
                   </div>
                 </div>
               ))}
@@ -62,7 +62,7 @@ const TypesOfQR = ({ prop }) => {
       )}
       {activeStep == 1 && activeTool === 'Link' && (
         <div className="types-of-qr-select">
-        <Links prop={{setQrCodeSettings, qrCodeSettings}}/>
+        <Links prop={{setQrCodeSettings, qrCodeSettings, activeStep, setActiveStep}}/>
         </div>
       )}
       {activeStep == 1 && activeTool !== 'Link' && (
@@ -71,7 +71,7 @@ const TypesOfQR = ({ prop }) => {
       {activeStep == 2 && (
         <div className="types-of-qr-select">We are at step 3</div>
       )}
-      <QrDemo />
+      <QrDemo prop={{qrCodeSettings}}/>
     </div>
   );
 };

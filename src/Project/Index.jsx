@@ -5,9 +5,10 @@ const Home = () => {
   const [activeTool, setActiveTool] = useState("Link");
   const [showError, setShowError] = useState(false);
   const [qrCodeSettings, setQrCodeSettings] = useState({
+    qrName:'My QR',
     inputData: { url: null },
-    colors: {
-      background: { isSolid: true, color: "#1f1f1f" },
+      colors: {
+      background: { isSolid: true, color: "#FFFFFF"},
       dots: { isSolid: true, color: "#000000" },
       square: { isSolid: true, color: "#000000" },
       cornerDots: { isSolid: true, color: "#000000" },
@@ -17,7 +18,9 @@ const Home = () => {
 
   return (
     <div>
-      <SideBar prop={{qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool}}/>
+      <SideBar
+        prop={{ qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool }}
+      />
     </div>
   );
 };

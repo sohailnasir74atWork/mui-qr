@@ -1,50 +1,61 @@
-import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
-import './App.css'
-import { backgroundPurple, darkPurple, lightPurple } from './code/components/Veriables';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Project/Index';
-const App = () => {
+import "./App.css"
+// ... other imports
+const getCssVariableValue = (variable) => {
+  return getComputedStyle(document.documentElement).getPropertyValue(variable);
+}
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#E0115F',
+      light: getCssVariableValue('--white-color'),
+      dark: getCssVariableValue('--green-color'),
 
-  const theme = createTheme({
-    palette: {
-      // primary: {
-        // main: darkPurple,
-        // light: lightPurple,
-        // dark:backgroundPurple
-        // You can also define light, dark, and contrastText
-      },
-      // secondary: {
-      //   main: '#494c7d', // Custom secondary color
-      //   // Define light, dark, and contrastText if needed
-      // },
-      // // Add other palette colors if necessary
-    // },
-    typography: {
-      fontFamily: [
-        'Lato', // Set Lato as the first priority
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(','),
+      // dark:backgroundPurple
+      // You can also define light, dark, and contrastText
+    }},
+    secondary: {
+      main: getCssVariableValue('--lightgreen-color'),
+      // Define light, dark, and contrastText if needed
     },
-    
-  });
+    // Add other palette colors if necessary
+
+  typography: {
+    fontFamily: [
+      'Lato', // Set Lato as the first priority
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.9rem', // Set your desired font size here
+        },
+      },
+    },
+  },
+});
+
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
-    <Router>
-      <Routes>
-       
-        <Route path="/" element={<Home/>} />
-       
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* Other routes */}
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 };
