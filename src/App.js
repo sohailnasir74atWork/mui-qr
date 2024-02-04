@@ -1,11 +1,5 @@
 import './App.css';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 import './App.css'
 import { backgroundPurple, darkPurple, lightPurple } from './code/components/Veriables';
@@ -14,9 +8,9 @@ const App = () => {
 
   const theme = createTheme({
     palette: {
-      primary: {
-        main: darkPurple,
-        light: lightPurple,
+      // primary: {
+        // main: darkPurple,
+        // light: lightPurple,
         // dark:backgroundPurple
         // You can also define light, dark, and contrastText
       },
@@ -25,7 +19,22 @@ const App = () => {
       //   // Define light, dark, and contrastText if needed
       // },
       // // Add other palette colors if necessary
+    // },
+    typography: {
+      fontFamily: [
+        'Lato', // Set Lato as the first priority
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
     },
+    
   });
   return (
     <ThemeProvider theme={theme}>

@@ -157,7 +157,7 @@ useEffect(()=>{
   const renderContent = () => {
     switch (selectedIndex) {
       case 0:
-        return (activeStep > 2 ? '' : <TypesOfQR activeStep={activeStep}/>);
+        return (activeStep > 2 ? '' : <TypesOfQR prop={{activeStep, setActiveStep}}/>);
       case 1:
         return <Typography paragraph>Bulk QR Generater</Typography>;
       case 2:

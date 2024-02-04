@@ -1,94 +1,41 @@
-.App {
-  text-align: center;
-}
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.w-50 {
-  width: 50%;
-}
-
-.w-100 {
-  width: 100%
-}
 body {
-  background-color: rgb(243, 247, 250);
-
-}
-.home-container {
-  display: flex;
-  justify-content: center;
-  margin: 50px auto 0px;
-  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
-  /* max-height: 500px; */
-  padding-bottom: 100px;
-  
-
-  /* Example shadow */
-  @media (max-width: 600px) {
-    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
-    flex-direction: column-reverse;
-  }
+  font-family: 'Lato', sans-serif !important;
 }
 
-@media (max-width: 600px) {
-  /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
-  flex-direction: column;
+/* colors.css */
+:root {
+  --background-color: #FAF9F6;
+  /* off white */
+  --darkgreen-color: #1D3630;
+  /*  */
+  --green-color: #6E807A;
+  /* Example secondary color */
+  --lightgreen-color: #BECAC4;
+  /* Example secondary color */
+  --tan-color: #E1DFDA;
+  /* Example secondary color */
+  --black-color: #06140E;
+  /* Example secondary color */
+  --white-color: #FFFFFF;
+  /* Example secondary color */
+  --lightgery-color: #d3d3d3;
+  /* Example secondary color */
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-}
-
-.w-40 {
-  width: 40%;
-}
-
-.opacity-3 {
-  opacity: .3;
-}
-
-.button-home-container {
-  display: flex;
-  justify-content: space-between;
-  width: 310px;
-
-}
-.qr-box-home {
-  border: 10px solid linear-gradient(to bottom right, #128C7E 50%, #34B7F1 50%);;
-  border-radius: 50px;
-  box-shadow: 0px 0px 12px;
-  margin: 10px;
-  padding:20px;
-  background-color: white;
-  /* min-height: calc(100vh - 50px); */
-}
-.qr-home-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  /* margin-top: 20px; */
-  /* padding: 40px 20px 0px 20px; */
-}
-.qr-bg-holder{
-  border-radius: 50px;
-  /* background-color:#be29ec ; */
-  background: #128C7E;
-
-
+body {
+  background-color: var(--background-color);
 }
 
 .heading-2 {
   font-size: 20px;
-  font-weight: 900;}
+  font-weight: 900;
+}
+
 .heading-container {
   margin-bottom: 20px;
 
 }
+
 .heading-tag {
   margin-bottom: 10px;
   background-color: #FE8E3E;
@@ -104,6 +51,7 @@ body {
   /* color: rgb(212, 34, 212); */
   /* color: lightgray; */
 }
+
 .heading-4 {
   font-size: 40px;
   font-family: fantasy;
@@ -163,6 +111,7 @@ p {
   flex-direction: column;
   align-items: flex-end;
   width: 200px;
+
   @media (max-width: 600px) {
     /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     width: 60px;
@@ -179,17 +128,20 @@ p {
   position: relative;
   /* Set position to relative */
   flex-direction: column;
-  
+
 }
+
 .color-picker-width {
-  width:180px
+  width: 180px
 }
+
 .color-picker {
-  position: absolute !important;  
-  left: 200px !important; 
-  top:0px !important; 
-  z-index: 1 !important; 
+  position: absolute !important;
+  left: 200px !important;
+  top: 0px !important;
+  z-index: 1 !important;
   background-color: lightgray;
+
   @media (max-width: 600px) {
     left: 60px !important;
   }
@@ -199,10 +151,12 @@ p {
   /* font-size: 10px; */
   width: 175px
 }
+
 .responsive-flex-recerse {
   display: flex;
   flex-direction: row-reverse;
 }
+
 .responsive-flex {
   display: flex;
   flex-direction: row;
@@ -213,17 +167,21 @@ p {
     flex-direction: column;
   }
 }
-.popup_tabs-body{
-  padding:10px !important
+
+.popup_tabs-body {
+  padding: 10px !important
 }
-.block-center{
+
+.block-center {
   text-align: center;
 }
+
 .white-bg {
   background-color: white;
 }
 
-.tab-height{
+.tab-height {
+
   /* height:450px; */
   @media (max-width: 600px) {
     /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
@@ -253,7 +211,7 @@ p {
 .scroll-button {
   position: absolute;
   top: 50%;
-  background-color: #ddd;
+  background-color: var(--background-color);
   border: none;
   cursor: pointer;
   transform: translateY(-50%);
@@ -266,6 +224,7 @@ p {
 .scroll-button.right {
   right: 0;
 }
+
 .tabs {
   margin: 10px;
 }
@@ -273,16 +232,29 @@ p {
 
 /* /////////////////////////////////////////////////////////// */
 
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
 
 .types-of-qr-container {
   display: flex;
   flex-direction: row;
   width: 100%;
-  background-color: #F7F7F7;
+  background-color: var(--background-color);
 
 
 }
-.types-of-qr-select{
+
+.types-of-qr-select {
   width: 100% !important;
   padding: 18px !important;
   overflow-y: scroll;
@@ -290,83 +262,97 @@ p {
 
 
 }
+
 .types-of-qr-mobile-demo {
   width: 100%;
-  height: 100vh; /* Use 100% of the viewport height */
+  height: 100vh;
+  /* Use 100% of the viewport height */
   margin: 20px;
   /* overflow-y: scroll; */
 
   /* Initially hide the scrollbar */
-  
+
 }
 
 /* For Firefox, there isn't a standard way to hide the scrollbar until scrolling. 
    The scrollbar will be thin as defined above. */
 
 
-.mobile-frame{
+.mobile-frame {
   position: relative;
-  overflow: hidden; /* Ensure the overlay stays within the image boundaries */
+  overflow: hidden;
+  /* Ensure the overlay stays within the image boundaries */
 
 }
 
 .overlay {
   position: absolute;
-  top: 2.5%; /* Adjust as needed for the desired height */
-  left: 5%; /* Adjust as needed for the desired width */
-  bottom: 2.5%; /* Adjust as needed for the desired height */
-  width: 90%; /* Adjust the width of the overlay */
-  height: 95%; /* Adjust the height of the overlay */
+  top: 2.5%;
+  /* Adjust as needed for the desired height */
+  left: 5%;
+  /* Adjust as needed for the desired width */
+  bottom: 2.5%;
+  /* Adjust as needed for the desired height */
+  width: 90%;
+  /* Adjust the width of the overlay */
+  height: 95%;
+  /* Adjust the height of the overlay */
   background-color: white;
-  opacity: 1; 
+  opacity: 1;
   border-radius: 50px;
 }
 
-.flex-row{
+.flex-row {
   display: flex;
   flex-direction: row;
 }
-.flex-col{
+
+.flex-col {
   display: flex;
   flex-direction: column;
 }
+
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
-  grid-gap: 10px; /* Adjust the space between the items */
+  grid-template-columns: repeat(2, 1fr);
+  /* Creates two columns */
+  grid-gap: 10px;
+  /* Adjust the space between the items */
   /* padding: 20px; */
 }
+
 .static-qr {
   padding: 20px;
 
 }
+
 .static-qr-tabs {
   display: flex;
   flex-direction: row;
   width: 100%;
-padding: 6px;
-height: 80px;
-align-items: center;
-border: 2px solid transparent;
-cursor: pointer;
-box-shadow: 0 4px 6px 0 rgba(205,209,224,0.5);
-background-color: white;
-transition: all 0.25s ease-in-out;
-border-radius: 8px;
-margin-bottom: 10px;
-
-
+  padding: 6px;
+  height: 80px;
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 4px 6px 0 rgba(205, 209, 224, 0.5);
+  background-color: var(--white-color);
+  transition: all 0.25s ease-in-out;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
-.static-qr-tabs:hover{
+
+.static-qr-tabs:hover {
   border-color: #FE8E3E;
 }
+
 .static-qr-icons {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 64px;
   width: 100px;
-  background-color: #F7F7F7;
+  background-color: var(--background-color);
   margin-right: 20px;
   border-radius: 5px;
 }
@@ -384,12 +370,12 @@ margin-bottom: 10px;
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgb(243, 247, 250);
+  background: var(--background-color);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(243, 247, 250);
-  border-radius: 20px; /* Round edges */
+  background-color: var(--background-color);
+  border-radius: 20px;
+  /* Round edges */
 }
-
