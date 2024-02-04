@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { demoList } from "./TypesofQRList";
+import { dymanicTools, staticTools } from "./TypesofQRList";
 import QrDemo from "./QrDemo";
 import Links from "../InputComponents/Links";
 
@@ -26,7 +26,7 @@ const TypesOfQR = ({ prop }) => {
               <span className="heading-tag">with tracking</span>
             </div>
             <div className="grid-container">
-              {demoList.map((item, index) => (
+              {staticTools.map((item, index) => (
                 <div className="static-qr-tabs" key={index}  onClick={()=>inputClick(item.heading)}
                 >
                   <div className="static-qr-icons">{item.icon}</div>
@@ -42,7 +42,7 @@ const TypesOfQR = ({ prop }) => {
               <span className="heading-tag">with tracking</span>
             </div>
             <div className="grid-container">
-              {demoList.map((item, index) => (
+              {dymanicTools.map((item, index) => (
                 <div
                   className="static-qr-tabs"
                   key={index}
@@ -60,12 +60,12 @@ const TypesOfQR = ({ prop }) => {
           </div>
         </div>
       )}
-      {activeStep == 1 && activeTool === 'Links' && (
+      {activeStep == 1 && activeTool === 'Link' && (
         <div className="types-of-qr-select">
         <Links prop={{setQrCodeSettings, qrCodeSettings}}/>
         </div>
       )}
-      {activeStep == 1 && activeTool !== 'Links' && (
+      {activeStep == 1 && activeTool !== 'Link' && (
         <div className="types-of-qr-select">We are at step 2</div>
       )}
       {activeStep == 2 && (

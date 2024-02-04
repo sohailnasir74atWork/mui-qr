@@ -259,8 +259,6 @@ p {
   padding: 18px !important;
   overflow-y: scroll;
   height: 100vh;
-
-
 }
 
 .types-of-qr-mobile-demo {
@@ -268,7 +266,9 @@ p {
   height: 100vh;
   /* Use 100% of the viewport height */
   margin: 20px;
+  
   /* overflow-y: scroll; */
+  background-color: var(--background-color);
 
   /* Initially hide the scrollbar */
 

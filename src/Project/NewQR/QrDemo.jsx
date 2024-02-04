@@ -21,8 +21,8 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+        <Box sx={{ ph: 3 }}>
+          <Typography sx={{textAlign:'center', display:'flex'}}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -55,8 +55,8 @@ export default function QrDemo() {
   };
 
   return (
-    <Box sx={{ bgcolor: 'white'}}>
-      <AppBar position="static">
+    <Box>
+      <AppBar position="static" sx={{boxShadow:'none'}}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -64,16 +64,24 @@ export default function QrDemo() {
           textColor="inherit"
           variant="fullWidth"
           aria-label="full width tabs example"
+          sx={{ bgcolor:'var(--background-color)', '& .MuiTabs-indicator': {
+            display: 'none',
+          },'& .MuiTab-root': {
+            padding:'6px 12px',
+            // Adjust padding and font size to make the tabs smaller
+            fontSize: '0.7rem', // Reduce font size
+            minHeight:'40px'
+          }, '& .MuiTabs-flexContainer':{width:'300px', margin:'30px auto 0px'}}}
         >
-          <Tab label="Moile Preview" {...a11yProps(0)} />
-          <Tab label="destop preview" {...a11yProps(1)} />
+          <Tab label="Moile Preview" {...a11yProps(0)} sx={{margin:'10px', backgroundColor:'var(--darkgreen-color)', borderRadius:'50px'}}/>
+          <Tab label="destop preview" {...a11yProps(1)} sx={{margin:'10px', backgroundColor:'var(--darkgreen-color)', borderRadius:'50px'}}/>
         </Tabs>
       </AppBar>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
-      >
+        >
         <TabPanel value={value} index={0} dir={theme.direction}>
         <div className="types-of-qr-mobile-demo">
         <div className="mobile-frame"><img src={mobileFrame} alt="Mobile Frame" style={{width:'100%', height:'100%'}}/><div className="overlay"></div></div>

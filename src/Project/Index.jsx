@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 
 const Home = () => {
-  const [activeTool, setActiveTool] = useState("Links");
+  const [activeTool, setActiveTool] = useState("Link");
   const [showError, setShowError] = useState(false);
   const [qrCodeSettings, setQrCodeSettings] = useState({
     inputData: { url: null },
