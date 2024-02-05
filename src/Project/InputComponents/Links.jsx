@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ErrorBar from "../Error";
 
 const Links = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings, activeStep, setActiveStep } = prop;
+  const { setQrCodeSettings, qrCodeSettings, handleComplete } = prop;
   const [value, setValue] = useState("");
   const [qrName, setQrName] = useState("");
   const [urlError, setUrlError] = useState("");
@@ -32,23 +32,23 @@ const Links = ({ prop }) => {
     // Validate URL
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
     const isValidUrl = urlRegex.test(value);
-
+  
     // Validate QR Name
     const isQrNameValid = qrName.trim() !== '';
-
+  
     // Set errors based on validation results
-    if (!isValidUrl || isValidUrl === null) {
+    if (!isValidUrl || value.trim() === '') {
       setUrlError('Please enter a valid URL');
     } else {
       setUrlError('');
     }
-
+  
     if (!isQrNameValid) {
       setNameError('Name should not be empty');
     } else {
       setNameError('');
     }
-
+  
     // If both URL and QR Name are valid, update the settings
     if (isValidUrl && isQrNameValid) {
       setQrCodeSettings((prevSettings) => ({
@@ -56,18 +56,17 @@ const Links = ({ prop }) => {
         inputData: { ...prevSettings.inputData, url: value },
         qrName: qrName.trim()
       }));
+      handleComplete();
     }
-    setActiveStep(activeStep + 1)
   };
+  
 
   return (
     <div className="input-container-home">
       {urlError && <ErrorBar message={urlError} />}
       {nameError && <ErrorBar message={nameError} />}
-      <span className="text-primary">Fill Out the QR Code's Content</span>
-      <br/>
-      <br/>
-      <TextField
+      <h3 className="heading-2">Fill Out the QR Code's Content</h3>
+           <TextField
         required
         id="outlined-required"
         label="Write Your QR Name"
@@ -86,7 +85,7 @@ const Links = ({ prop }) => {
         style={{ width: "100%" }}
       />
       <p>Your QR code will open this URL</p>
-      <br/>
+      
       <br/>
       <TextField
           id="outlined-number"

@@ -165,8 +165,8 @@ export default function SideBar({ prop }) {
         ) : (
           <TypesOfQR
             prop={{
+              handleComplete,
               activeStep,
-              setActiveStep,
               qrCodeSettings,
               setQrCodeSettings,
               activeTool,

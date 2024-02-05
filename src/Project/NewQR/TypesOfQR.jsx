@@ -3,18 +3,20 @@ import React, { useEffect, useState } from "react";
 import { dymanicTools, staticTools } from "./TypesofQRList";
 import QrDemo from "./QrDemo";
 import Links from "../InputComponents/Links";
+import CustomizedAccordions from "./QrDesigns";
 
 const TypesOfQR = ({ prop }) => {
-  const { activeStep, setActiveStep, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool } = prop;
+  const { handleComplete, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, activeStep } = prop;
   const inputClick = (e) => {
-    setActiveStep(activeStep + 1);
+    
     setActiveTool(e)
+    handleComplete()
     // console.log(activeStep);
   };
 
   useEffect(() => {
     // console.log(activeStep);
-  }, [activeStep]);
+  }, [activeTool]);
 
   return (
     <div className="types-of-qr-container">
@@ -38,7 +40,7 @@ const TypesOfQR = ({ prop }) => {
               ))}
             </div>
             <div className="heading-container">
-              <span className="heading-2">DYNAMIC QR</span>{" "}
+              <h3 className="heading-2">DYNAMIC QR</h3>{" "}
               <span className="heading-tag">with tracking</span>
             </div>
             <div className="grid-container">
@@ -60,16 +62,18 @@ const TypesOfQR = ({ prop }) => {
           </div>
         </div>
       )}
-      {activeStep == 1 && activeTool === 'Link' && (
+      {activeStep === 1 && activeTool === 'Link' && (
         <div className="types-of-qr-select">
-        <Links prop={{setQrCodeSettings, qrCodeSettings, activeStep, setActiveStep}}/>
+        <Links prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
         </div>
       )}
-      {activeStep == 1 && activeTool !== 'Link' && (
+      {activeStep === 1 && activeTool !== 'Link' && (
         <div className="types-of-qr-select">We are at step 2</div>
       )}
-      {activeStep == 2 && (
-        <div className="types-of-qr-select">We are at step 3</div>
+      {activeStep === 2 && (
+        <div className="types-of-qr-select">
+          <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
+        </div>
       )}
       <QrDemo prop={{qrCodeSettings}}/>
     </div>

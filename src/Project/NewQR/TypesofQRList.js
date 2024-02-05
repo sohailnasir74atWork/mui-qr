@@ -8,6 +8,10 @@ import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';
 import BluetoothIcon from '@mui/icons-material/Bluetooth';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
+import ColorLensIcon from "@mui/icons-material/ColorLens"; // Corrected
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize"; // Corrected
+import Face4Icon from "@mui/icons-material/Face"; // Corrected
+import CropOriginalIcon from "@mui/icons-material/CropOriginal"; // Corrected
 
 export const dymanicTools = [
   { icon: <HomeIcon />, heading: "Links", text: "This is the text for Home" },
@@ -32,4 +36,12 @@ export const staticTools = [
   { icon: <BatteryChargingFullIcon />, heading: "Call", text: "Make a Call" },
   { icon: <BluetoothIcon />, heading: "SMS", text: "Send a Text Message" },
   { icon: <CameraAltIcon />, heading: "PayPal", text: "Generate PayPal Transaction" },
+];
+
+
+export const options = [
+  { label: "colors", icon: <ColorLensIcon /> },
+  { label: "shapes", icon: <DashboardCustomizeIcon /> },
+  { label: "log", icon: <Face4Icon /> }, // Note: Face4Icon may not exist in Material UI Icons. Please verify.
+  { label: "frams", icon: <CropOriginalIcon /> },
 ];
