@@ -22,13 +22,12 @@ import QR from "../../Assets/icons/QR.png"
 import VCard from "../../Assets/icons/VCard.png"
 import WhatsApp from "../../Assets/icons/WhatsApp.png"
 import Wifi from "../../Assets/icons/Wifi.png"
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
+import BurstModeIcon from '@mui/icons-material/BurstMode';
+import QrCodeIcon from '@mui/icons-material/QrCode';
+import DesignServicesIcon from '@mui/icons-material/DesignServices';
 
-
-
-
-
-
-
+export const sideBar = [{icon:<ControlPointIcon/>, heading: "New QR"}, {heading:"Bulk QR Generator", icon:<BurstModeIcon/>}, {heading: "Templates", icon: <DesignServicesIcon/>}, {heading: "My QR Codes", icon:<QrCodeIcon/>}]
 
 
 export const dymanicTools = [

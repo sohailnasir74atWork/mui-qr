@@ -270,7 +270,7 @@ p {
 }
 
 .types-of-qr-select {
-  width: 100% !important;
+  width: calc(100% - 340px) !important;
   padding: 30px !important;
   overflow-y: scroll;
   height: 100vh;
@@ -295,7 +295,7 @@ p {
 
 .mobile-frame {
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
   margin:10px;
 
   /* Ensure the overlay stays within the image boundaries */

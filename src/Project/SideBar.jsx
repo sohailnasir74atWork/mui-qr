@@ -21,6 +21,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import { Button, Step, StepButton, Stepper } from "@mui/material";
 import TypesOfQR from "./NewQR/TypesOfQR.jsx";
 import InputsSection from "./NewQR/InputsSection.jsx";
+import { sideBar } from "./NewQR/TypesofQRList.js";
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -263,7 +264,7 @@ export default function SideBar({ prop }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {["New QR", "Bulk QR Generator", "Templates", "My QR Codes"].map(
+          {sideBar.map(
             (text, index) => (
               <ListItem key={text} disablePadding sx={{ display: "block" }}>
                 <ListItemButton
@@ -284,9 +285,9 @@ export default function SideBar({ prop }) {
                       justifyContent: "center",
                     }}
                   >
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    {text.icon}
                   </ListItemIcon>
-                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                  <ListItemText primary={text.heading} sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
               </ListItem>
             )
