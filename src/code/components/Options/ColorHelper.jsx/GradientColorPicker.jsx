@@ -132,7 +132,7 @@ const GradientColorPicker = ({
             format='hex'
             popupWidth={200}
             showGradientAngle={false}
-            defaultColors={[]}
+            defaultColors={['red', 'green']}
             showGradientResult={false}
 
           />

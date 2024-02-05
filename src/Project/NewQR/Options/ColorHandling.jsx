@@ -11,31 +11,64 @@ const ColorHandling = ({ prop }) => {
         <span className="block heading-3">Background Color</span>
 
         <GradientColorPicker
-          setColor={(color) =>
-            setQrCodeSettings((prev) => ({ ...prev, backgroundColor: color }))
-          }
-          color={qrCodeSettings.backgroundColor}
-          setSolidColor={(solidColor) =>
-            setQrCodeSettings((prev) => ({
-              ...prev,
-              solidColorBackground: solidColor,
-            }))
-          }
-          solidColor={qrCodeSettings.solidColorBackground}
-        />
+  setColor={(color) =>
+    setQrCodeSettings((prev) => ({
+      ...prev,
+      colors: {
+        ...prev.colors,
+        background: {
+          ...prev.colors.background,
+          color: color
+        }
+      }
+    }))
+  }
+  color={qrCodeSettings.colors.background.color}
+  setSolidColor={(solidColor) =>
+    setQrCodeSettings((prev) => ({
+      ...prev,
+      colors: {
+        ...prev.colors,
+        background: {
+          ...prev.colors.background,
+          isSolid: solidColor
+        }
+      }
+    }))
+  }
+  solidColor={qrCodeSettings.colors.background.isSolid}
+/>
+
         <Divider/>
 
         <span className="block heading-3">Dots Color</span>
 
         <GradientColorPicker
           setColor={(color) =>
-            setQrCodeSettings((prev) => ({ ...prev, qrColor: color }))
+            setQrCodeSettings((prev) => ({
+              ...prev,
+              colors: {
+                ...prev.colors,
+                dots: {
+                  ...prev.colors.dots,
+                  color: color
+                }
+              }
+            }))
           }
-          color={qrCodeSettings.qrColor}
+          color={qrCodeSettings.colors.dots.color}
           setSolidColor={(solidColor) =>
-            setQrCodeSettings((prev) => ({ ...prev, solidColorQR: solidColor }))
+            setQrCodeSettings((prev) => ({
+              ...prev,
+              colors: {
+                ...prev.colors,
+                dots: {
+                  ...prev.colors.dots,
+                  isSolid: solidColor
+                }}
+            }))
           }
-          solidColor={qrCodeSettings.solidColorQR}
+          solidColor={qrCodeSettings.colors.dots.isSolid}
           hideTransparent
         />
                 <Divider/>
@@ -44,13 +77,31 @@ const ColorHandling = ({ prop }) => {
 
 <GradientColorPicker
   setColor={(color) =>
-    setQrCodeSettings((prev) => ({ ...prev, borderColor: color }))
+    setQrCodeSettings((prev) => ({
+      ...prev,
+      colors: {
+        ...prev.colors,
+        square: {
+          ...prev.colors.square,
+          color: color
+        }
+      }
+    }))
   }
-  color={qrCodeSettings.borderColor}
+  color={qrCodeSettings.colors.square.color}
   setSolidColor={(solidColor) =>
-    setQrCodeSettings((prev) => ({ ...prev, solidBorderColor: solidColor }))
+    setQrCodeSettings((prev) => ({
+      ...prev,
+      colors: {
+        ...prev.colors,
+        square: {
+          ...prev.colors.square,
+          isSolid: solidColor
+        }
+      }
+    }))
   }
-  solidColor={qrCodeSettings.solidBorderColor}
+  solidColor={qrCodeSettings.colors.square.isSolid}
   hideTransparent
 />
 <Divider/>
@@ -59,13 +110,31 @@ const ColorHandling = ({ prop }) => {
 
         <GradientColorPicker
           setColor={(color) =>
-            setQrCodeSettings((prev) => ({ ...prev, centerColor: color }))
+            setQrCodeSettings((prev) => ({
+              ...prev,
+              colors: {
+                ...prev.colors,
+                cornerDots: {
+                  ...prev.colors.cornerDots,
+                  color: color
+                }
+              }
+            }))
           }
-          color={qrCodeSettings.centerColor}
+          color={qrCodeSettings.colors.cornerDots.color}
           setSolidColor={(solidColor) =>
-            setQrCodeSettings((prev) => ({ ...prev, solidCenterColor: solidColor }))
+            setQrCodeSettings((prev) => ({
+              ...prev,
+              colors: {
+                ...prev.colors,
+                cornerDots: {
+                  ...prev.colors.cornerDots,
+                  isSolid: solidColor
+                }
+              }
+            }))
           }
-          solidColor={qrCodeSettings.solidCenterColor}
+          solidColor={qrCodeSettings.colors.cornerDots.isSolid}
           hideTransparent
         />      </div>
     </div>

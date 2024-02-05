@@ -18,7 +18,7 @@ const QrGenerator = ({ prop }) => {
   const canvasRef = useRef(null);
   const data = qrCodeSettings.inputData.url
 
-  console.log(data)
+  console.log(qrCodeSettings)
   function handleDownloadClick(typeOfImg) {
     if (qrCode && qrCode.download) {
       qrCode
@@ -47,7 +47,7 @@ const QrGenerator = ({ prop }) => {
         // image: img,
         dotsOptions: {
           ...(qrCodeSettings.colors.dots.isSolid
-            ? { color: qrCodeSettings.colors.dots.isSolid }
+            ? { color: qrCodeSettings.colors.dots.color }
             : {
               gradient: {
                 colorStops: gradientQR,

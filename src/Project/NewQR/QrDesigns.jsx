@@ -7,9 +7,10 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import { pink, purple } from '@mui/material/colors';
+import { pink, purple, green } from '@mui/material/colors';
 import ColorHandling from './Options/ColorHandling';
-
+import FilterFramesIcon from '@mui/icons-material/FilterFrames';
+import AppleIcon from '@mui/icons-material/Apple';// import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -47,7 +48,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function CustomizedAccordions({ prop }) {
-  const [expanded, setExpanded] = React.useState(['panel2', 'panel3', 'panel4', 'panel5']);
+  const [expanded, setExpanded] = React.useState(['panel2']);
   const { setQrCodeSettings, qrCodeSettings } = prop;
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -101,7 +102,7 @@ export default function CustomizedAccordions({ prop }) {
           id="panel4d-header"
           sx={{ height: '80px' }}
         >
-          <ColorLensIcon sx={{ color: pink[500] }} />
+          <AppleIcon sx={{ color: green[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>LOGO</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -118,7 +119,7 @@ export default function CustomizedAccordions({ prop }) {
           id="panel5d-header"
           sx={{ height: '80px' }}
         >
-          <ColorLensIcon sx={{ color: pink[500] }} />
+          <FilterFramesIcon sx={{ color: purple[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>Frames</Typography>
         </AccordionSummary>
         <AccordionDetails>

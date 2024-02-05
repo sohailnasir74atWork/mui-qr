@@ -156,7 +156,16 @@ export default function SideBar({ prop }) {
 
   const handleListItemClick = (index) => {
     setSelectedIndex(index);
-  };
+    setCompleted({})
+    setActiveStep(0)
+    setQrCodeSettings((prevSettings) => ({
+      ...prevSettings,
+      inputData: {
+        ...prevSettings.inputData,
+        url: null
+      }
+    }));
+      };
 
   const renderContent = () => {
     switch (selectedIndex) {

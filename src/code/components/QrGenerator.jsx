@@ -19,7 +19,7 @@ const QrGenerator = ({ prop }) => {
 
   const canvasRef = useRef(null);
   const data = qrCodeSettings.inputData.url
-  console.log(data)
+  // console.log(data)
   function handleDownloadClick(typeOfImg) {
     if (qrCode && qrCode.download) {
       qrCode

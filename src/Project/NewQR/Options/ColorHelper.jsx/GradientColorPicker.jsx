@@ -63,7 +63,7 @@ const GradientColorPicker = ({
   const [showError, setShowError] = useState(false);
   const [errorTransparent, seterrorTransparent] = useState(false);
 
-
+// console.log(solidColor)
   const colorPickerRef = useRef();
 
   const handleColorChange = (newColor) => {
@@ -132,7 +132,6 @@ const GradientColorPicker = ({
             format='hex'
             popupWidth={200}
             showGradientAngle={false}
-            defaultColors={[]}
             showGradientResult={false}
 
           />
