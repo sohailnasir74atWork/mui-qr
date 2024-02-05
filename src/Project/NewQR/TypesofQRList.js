@@ -12,7 +12,7 @@ import ColorLensIcon from "@mui/icons-material/ColorLens"; // Corrected
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize"; // Corrected
 import Face4Icon from "@mui/icons-material/Face"; // Corrected
 import CropOriginalIcon from "@mui/icons-material/CropOriginal"; // Corrected
-
+import call from "../../Assets/icons/call.webp"
 export const dymanicTools = [
   { icon: <HomeIcon />, heading: "Links", text: "This is the text for Home" },
   { icon: <SettingsIcon />, heading: "Text", text: "This is the text for Settings" },
@@ -33,7 +33,7 @@ export const staticTools = [
   { icon: <FaceIcon />, heading: "Emil", text: "Send an Email with a Pre-Written Message" },
   { icon: <BuildIcon />, heading: "V-Card", text: "Saves your Contect Details" },
   { icon: <WifiIcon />, heading: "WhatsApp", text: "Send a WhatsApp Message" },
-  { icon: <BatteryChargingFullIcon />, heading: "Call", text: "Make a Call" },
+  { icon: <img src={call}  alt='call'/>, heading: "Call", text: "Make a Call" },
   { icon: <BluetoothIcon />, heading: "SMS", text: "Send a Text Message" },
   { icon: <CameraAltIcon />, heading: "PayPal", text: "Generate PayPal Transaction" },
 ];

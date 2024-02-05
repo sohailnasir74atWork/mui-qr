@@ -23,7 +23,7 @@ export default function QrDemo({ prop }) {
   };
 
   return (
-    <div style={{ width: "30%" }}>
+    <div style={{ width: "500px" }}>
       <div className="types-of-qr-mobile-demo">
         <div className="mobile-frame">
           <img

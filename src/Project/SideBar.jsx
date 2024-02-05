@@ -21,7 +21,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import { Button, Step, StepButton, Stepper } from "@mui/material";
 import TypesOfQR from "./NewQR/TypesOfQR.jsx";
 import InputsSection from "./NewQR/InputsSection.jsx";
-const drawerWidth = 200;
+const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,

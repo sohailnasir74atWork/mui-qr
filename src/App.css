@@ -38,7 +38,7 @@ body {
   font-weight: 600 !important;
 }
 .text-secondary {
-  font-size: .7rem;
+  font-size: .8rem;
   color: var(--lightgreen-color);
   font-weight: 500;
 }
@@ -270,7 +270,7 @@ p {
 }
 
 .types-of-qr-select {
-  width: 70% !important;
+  width: 100% !important;
   padding: 30px !important;
   overflow-y: scroll;
   height: 100vh;
@@ -278,7 +278,7 @@ p {
 
 .types-of-qr-mobile-demo {
   width: 100%;
-  height: 100vh;
+  height: 300px;
   /* Use 100% of the viewport height */
   margin-top: 80px;
   
