@@ -29,7 +29,7 @@ export default function QrDemo({ prop }) {
           <img
             src={mobileFrame}
             alt="Mobile Frame"
-            style={{ width: "100%", height: "100%" }}
+            style={{ width: "100%", height: "calc(100vh - 100px)" }}
           />
           <div className="overlay">
             {" "}

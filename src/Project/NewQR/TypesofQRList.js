@@ -12,7 +12,25 @@ import ColorLensIcon from "@mui/icons-material/ColorLens"; // Corrected
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize"; // Corrected
 import Face4Icon from "@mui/icons-material/Face"; // Corrected
 import CropOriginalIcon from "@mui/icons-material/CropOriginal"; // Corrected
-import call from "../../Assets/icons/call.webp"
+import call from "../../Assets/icons/Call.png"
+import Text from "../../Assets/icons/Text.png"
+import SMS from "../../Assets/icons/SMS.png"
+import Email from "../../Assets/icons/Email.png"
+import Link from "../../Assets/icons/Link.png"
+import Paypal from "../../Assets/icons/Paypal.png"
+import QR from "../../Assets/icons/QR.png"
+import VCard from "../../Assets/icons/VCard.png"
+import WhatsApp from "../../Assets/icons/WhatsApp.png"
+import Wifi from "../../Assets/icons/Wifi.png"
+
+
+
+
+
+
+
+
+
 export const dymanicTools = [
   { icon: <HomeIcon />, heading: "Links", text: "This is the text for Home" },
   { icon: <SettingsIcon />, heading: "Text", text: "This is the text for Settings" },
@@ -27,15 +45,15 @@ export const dymanicTools = [
 ];
 
 export const staticTools = [
-  { icon: <HomeIcon />, heading: "Link", text: "Open a URL" },
-  { icon: <SettingsIcon />, heading: "Text", text: "Shows Text" },
-  { icon: <AlarmIcon />, heading: "Wi-Fi", text: "Connects to a WiFi" },
-  { icon: <FaceIcon />, heading: "Emil", text: "Send an Email with a Pre-Written Message" },
-  { icon: <BuildIcon />, heading: "V-Card", text: "Saves your Contect Details" },
-  { icon: <WifiIcon />, heading: "WhatsApp", text: "Send a WhatsApp Message" },
+  { icon: <img src={Link}  alt='Link'/>, heading: "Link", text: "Open a URL" },
+  { icon: <img src={Text}  alt='Text'/>, heading: "Text", text: "Shows Text" },
+  { icon: <img src={Wifi}  alt='Wifi'/>, heading: "Wi-Fi", text: "Connects to a WiFi" },
+  { icon: <img src={Email}  alt='Email'/>, heading: "Emil", text: "Send an Email with a Pre-Written Message" },
+  { icon: <img src={VCard}  alt='VCard'/>, heading: "V-Card", text: "Saves your Contect Details" },
+  { icon: <img src={WhatsApp}  alt='WhatsApp'/>, heading: "WhatsApp", text: "Send a WhatsApp Message" },
   { icon: <img src={call}  alt='call'/>, heading: "Call", text: "Make a Call" },
-  { icon: <BluetoothIcon />, heading: "SMS", text: "Send a Text Message" },
-  { icon: <CameraAltIcon />, heading: "PayPal", text: "Generate PayPal Transaction" },
+  { icon: <img src={SMS}  alt='SMS'/>, heading: "SMS", text: "Send a Text Message" },
+  { icon: <img src={Paypal}  alt='Paypal'/>, heading: "PayPal", text: "Generate PayPal Transaction" },
 ];
 
 
