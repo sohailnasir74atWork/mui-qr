@@ -7,6 +7,28 @@ import CustomizedAccordions from "./QrDesigns";
 
 const TypesOfQR = ({ prop }) => {
   const { handleComplete, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, activeStep } = prop;
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    // Detect mobile screen size
+    const detectMobileScreen = () => {
+      const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      const isMobile = screenWidth < 768; // Adjust the threshold as needed
+      return isMobile;
+    };
+
+    const updateMobileState = () => {
+      setIsMobile(detectMobileScreen());
+    };
+
+    // Run the detection on component mount
+    updateMobileState();
+
+    window.addEventListener('resize', updateMobileState);
+
+    return () => {
+      window.removeEventListener('resize', updateMobileState);
+    };
+  }, []); // The empty dependency array ensures the effect runs only on mount and unmount
   const inputClick = (e) => {
     
     setActiveTool(e)
@@ -19,9 +41,9 @@ const TypesOfQR = ({ prop }) => {
   }, [activeTool]);
 
   return (
-    <div className="types-of-qr-container">
+    <div className="types-of-qr-container" style={{width: isMobile ? "100%" : ''}}>
       {activeStep == 0 && (
-        <div className="types-of-qr-select">
+        <div className={isMobile ? "types-of-qr-select-mobile" : 'types-of-qr-select'}>
           <div className="static-qr flex-col">
           <div className="heading-container">
               <span className="heading-2">STATIC QR</span>{" "}
@@ -75,7 +97,7 @@ const TypesOfQR = ({ prop }) => {
           <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
         </div>
       )}
-      <QrDemo prop={{qrCodeSettings}}/>
+     {!isMobile && <QrDemo prop={{qrCodeSettings}}/>}
     </div>
   );
 };

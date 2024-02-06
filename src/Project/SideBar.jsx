@@ -18,14 +18,19 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import { Button, Step, StepButton, Stepper } from "@mui/material";
+import { Button, Step, StepButton, Stepper, useMediaQuery } from "@mui/material";
 import TypesOfQR from "./NewQR/TypesOfQR.jsx";
 import InputsSection from "./NewQR/InputsSection.jsx";
 import { sideBar } from "./NewQR/TypesofQRList.js";
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
-  width: drawerWidth,
+  [theme.breakpoints.up("sm")]: {
+    width: drawerWidth,
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: '70%',
+  },
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
@@ -42,6 +47,9 @@ const closedMixin = (theme) => ({
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
+  },
+  [theme.breakpoints.up("xs")]: {
+    width: '0px',
   },
 });
 
@@ -64,7 +72,16 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+   
+    [theme.breakpoints.up("xs")]: {
+      width: '100%',
+      position:'absolute',
+      zIndex:-3
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+   
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -76,6 +93,9 @@ const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   width: drawerWidth,
+  [theme.breakpoints.down("sm")]: {
+    width: '100%',
+  },
   flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
@@ -96,6 +116,8 @@ export default function SideBar({ prop }) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   useEffect(() => {
     if (completedSteps() === totalSteps()) {
       setSelectedIndex(3);
@@ -194,7 +216,7 @@ export default function SideBar({ prop }) {
     }
   };
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex"}}>
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ background: "#f1f1f1" }}>
         <Toolbar>
@@ -261,7 +283,7 @@ export default function SideBar({ prop }) {
           </React.Fragment>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} sx={{position: isMobile ? 'absolute': ''}}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -303,9 +325,11 @@ export default function SideBar({ prop }) {
           )}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box component="main" sx={{ flexGrow: 1 }} style={{background: isMobile ? 'lightgrey' : ''}}>
         <DrawerHeader />
+        <div style={{background: isMobile ? 'lightgrey' : ''}}>
         {renderContent()}
+        </div>
       </Box>
     </Box>
   );
