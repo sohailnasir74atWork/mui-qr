@@ -23,8 +23,9 @@ export default function QrDemo({ prop }) {
   };
 
   return (
-    <div style={{ width: "340px", position: 'fixed', top: '0', right:'0', zIndex: '100' }}>
+    <div style={{ width: "340px", position: 'fixed', top: '10px', right:'0', zIndex: '100' }}>
   <div className="types-of-qr-mobile-demo">
+    <span className="heading-2 center">Demo</span>
     <div className="mobile-frame">
       <img
         src={mobileFrame}
