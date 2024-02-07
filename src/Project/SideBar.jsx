@@ -28,6 +28,7 @@ import {
 import TypesOfQR from "./NewQR/TypesOfQR.jsx";
 import InputsSection from "./NewQR/InputsSection.jsx";
 import { sideBar } from "./NewQR/TypesofQRList.js";
+import { ArrowBack, ArrowForward } from "@mui/icons-material";
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -286,6 +287,7 @@ export default function SideBar({ prop }) {
                 disabled={activeStep === 0 || completedSteps() === totalSteps()}
                 onClick={handleBack}
                 sx={{ mr: 1 }}
+                startIcon={<ArrowBack />}
               >
                 Back
               </Button>
@@ -302,8 +304,9 @@ export default function SideBar({ prop }) {
                     {/* Step {activeStep + 1} already completed */}
                   </Typography>
                 ) : (
-                  <Button onClick={handleComplete} variant="contained">
+                  <Button onClick={handleComplete} variant="contained" color={completedSteps() === totalSteps() - 1 ? "success" : 'primary'} endIcon={completedSteps() === totalSteps() - 1 ? "" : <ArrowForward/>}>
                     {completedSteps() === totalSteps() - 1 ? "Finish" : "Next"}
+
                   </Button>
                 ))}
             </Box>}
@@ -335,7 +338,7 @@ export default function SideBar({ prop }) {
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                   borderRight:
-                    selectedIndex === index ? "3px solid red !important" : "", // Change background color for selected item
+                    selectedIndex === index ? "3px solid var(--darkgreen-color) !important" : "", // Change background color for selected item
                   px: 2.5,
                 }}
               >

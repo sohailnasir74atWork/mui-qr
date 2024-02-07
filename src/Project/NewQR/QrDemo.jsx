@@ -24,16 +24,18 @@ export default function QrDemo({ prop }) {
   };
 
   return (
-    <div style={{ width: "340px", position: 'fixed', top: '10px', right:'0', zIndex: '100' }}>
+    <div style={{ position: 'fixed', top: '20px', right:'0', zIndex: '100',   }}>
   <div className="types-of-qr-mobile-demo">
-    <span className="heading-2 center">Demo</span>
+    <div className="heading-container" style={{width:'310px'}}>
+    <span className="heading-2 center" >Demo</span>
+    </div>
     <div className="mobile-frame">
-      <img
+      {/* <img
         src={mobileFrame}
         alt="Mobile Frame"
         style={{ width: "100%", height: "100%" }}
-      />
-      <div className="overlay">
+      /> */}
+      <div className="demo-preview">
         {" "}
         <QrGenerator prop={{ qrCodeSettings }} />
       </div>

@@ -11,6 +11,7 @@ import { pink, purple, green } from '@mui/material/colors';
 import ColorHandling from './Options/ColorHandling';
 import FilterFramesIcon from '@mui/icons-material/FilterFrames';
 import AppleIcon from '@mui/icons-material/Apple';// import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -57,7 +58,8 @@ export default function CustomizedAccordions({ prop }) {
 
   return (
     <>
-      <h3 className='heading-2'>Customize Design</h3>
+    <div className='heading-container'>
+      <span className='heading-2'>Customize Design</span></div>
       <Accordion
         expanded={expanded.includes('panel2')}
         onChange={handleChange('panel2')}
@@ -102,7 +104,7 @@ export default function CustomizedAccordions({ prop }) {
           id="panel4d-header"
           sx={{ height: '80px' }}
         >
-          <AppleIcon sx={{ color: green[500] }} />
+          <InsertPhotoIcon sx={{ color: green[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>LOGO</Typography>
         </AccordionSummary>
         <AccordionDetails>

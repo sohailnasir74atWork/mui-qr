@@ -65,7 +65,8 @@ const Links = ({ prop }) => {
     <div className="input-container-home">
       {urlError && <ErrorBar message={urlError} />}
       {nameError && <ErrorBar message={nameError} />}
-      <h3 className="heading-2">Fill Out the QR Code's Content</h3>
+      <div className="heading-container">
+      <span className="heading-2">Fill Out the QR Code's Content</span></div>
            <TextField
         required
         id="outlined-required"

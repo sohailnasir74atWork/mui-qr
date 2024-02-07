@@ -113,7 +113,7 @@ const QrGenerator = ({ prop }) => {
           variant="contained" color="primary"
           disabled={!data}
           onClick={() => handleDownloadClick("png")}
-          style={{  color: 'white', fontSize:'.7rem', padding:'6px 12px' }}
+          style={{  color: 'white', fontSize:'.8rem' }}
 
         >
           Download   PNG
@@ -121,7 +121,7 @@ const QrGenerator = ({ prop }) => {
 
         <Button
   variant="contained"
-  style={{  color: 'white', fontSize:'.7rem', padding:'6px 12px' }}
+  style={{  color: 'white', fontSize:'.8rem' }}
   disabled={!data}
   onClick={() => handleDownloadClick("webp")}
 >
