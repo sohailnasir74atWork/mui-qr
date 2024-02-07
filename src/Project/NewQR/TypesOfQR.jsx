@@ -1,20 +1,24 @@
-import { TextField } from "@mui/material";
+import { Dialog, TextField, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { dymanicTools, staticTools } from "./TypesofQRList";
 import QrDemo from "./QrDemo";
 import Links from "../InputComponents/Links";
 import CustomizedAccordions from "./QrDesigns";
+import { useTheme } from "@emotion/react";
 
 const TypesOfQR = ({ prop }) => {
-  const { handleComplete, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, activeStep, isMobile } = prop;
-  
+  const { handleComplete, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, activeStep, isMobile, showMobileQR, setShowMobileQR } = prop;
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const inputClick = (e) => {
     
     setActiveTool(e)
     handleComplete()
     // console.log(activeStep);
   };
-
+  const handleClose = () => {
+    setShowMobileQR(false);
+  };
   useEffect(() => {
     // console.log(activeStep);
   }, [activeTool]);
@@ -77,6 +81,12 @@ const TypesOfQR = ({ prop }) => {
         </div>
       )}
      {!isMobile && <QrDemo prop={{qrCodeSettings}}/>}
+     {isMobile && showMobileQR && <Dialog
+        open={showMobileQR}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      ><QrDemo prop={{qrCodeSettings}}/></Dialog>}
+
     </div>
   );
 };

@@ -343,6 +343,11 @@ align-items: center;
   padding: 30px 10px !important;
   overflow-y: scroll;
   height: 100vh;
+  @media (max-width: 600px) {
+    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+  height: 100% !important;
+
+  }
 }
 .types-of-qr-mobile-demo {
   width: 100%;
@@ -352,6 +357,13 @@ align-items: center;
   
   /* overflow-y: scroll; */
   background-color: var(--background-color);
+  @media (max-width: 600px) {
+    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+  margin-top:auto !important;
+  height: 100%;
+
+
+  }
 
   /* Initially hide the scrollbar */
 
@@ -385,6 +397,11 @@ align-items: center;
   background-color: white;
   opacity: 1;
   border-radius: 50px;
+  @media (max-width: 600px) {
+    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+    position: relative;
+
+  }
 }
 .demo-preview {
   
@@ -486,6 +503,12 @@ align-items: center;
 
  text-align: center;
  margin: auto;
+ @media (max-width: 600px) {
+  /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+margin: 0px;
+
+
+}
 
 }
 .qr-box-home{
@@ -501,6 +524,13 @@ align-items: center;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0px 6px 0 rgba(205, 209, 224, 0.8);
+  @media (max-width: 600px) {
+   padding: 10px;
+   width: 250px;
+  height: 250px;
+  margin: auto;
+
+  }
 
 }
 .opacity-3{
@@ -517,7 +547,15 @@ align-items: center;
 .button-home-container{
   display: flex;
   justify-content: space-around;
-  padding:20px 0px
+  padding:20px 0px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    height: 120px;
+
+  }
+  
 }
 
 .input_rgba .input_rgba-wrap input, .input_rgba .input_rgba-wrap .input_rgba-hex input{
@@ -593,4 +631,18 @@ opacity: 0;
       flex-direction: row-reverse;
   
     }
+}
+
+.demo-container {
+  position: fixed;
+  top: 20px;
+  right:0;
+  z-index: 100;
+  @media (max-width: 600px) {
+    position: relative;
+    width: 100%;
+    top: auto;
+    right: auto;
+
+  }
 }

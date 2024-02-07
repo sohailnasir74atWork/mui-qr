@@ -29,6 +29,7 @@ import TypesOfQR from "./NewQR/TypesOfQR.jsx";
 import InputsSection from "./NewQR/InputsSection.jsx";
 import { sideBar } from "./NewQR/TypesofQRList.js";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import FixedBottomNavigation from "./NewQR/MobileBottomNav.jsx";
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -130,6 +131,8 @@ export default function SideBar({ prop }) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+  const [showMobileQR, setShowMobileQR] = React.useState(false)
+
   console.log(isMobile);
   useEffect(() => {
     if (completedSteps() === totalSteps()) {
@@ -218,7 +221,10 @@ export default function SideBar({ prop }) {
               setQrCodeSettings,
               activeTool,
               setActiveTool,
-              isMobile
+              isMobile,
+              showMobileQR,
+              setShowMobileQR
+            
             }}
           />
         );
@@ -366,6 +372,13 @@ export default function SideBar({ prop }) {
         <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
         <DrawerHeader prop={{isMobile}}/>
         {renderContent()}
+        <FixedBottomNavigation prop={{handleComplete,
+              activeStep,
+              qrCodeSettings,
+              setQrCodeSettings,
+              activeTool,
+              setActiveTool,
+              isMobile, completed, completedSteps, totalSteps, handleBack, showMobileQR, setShowMobileQR, qrCodeSettings}}/>
       </Box>
     </Box>
   );
