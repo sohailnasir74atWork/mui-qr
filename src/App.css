@@ -275,11 +275,13 @@ p {
   @media (max-width: 600px) {
     /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     width: 100% !important;
+    padding: 10px !important;
+
   }
 }
 .types-of-qr-select-mobile {
   width: 100% !important;
-  padding: 30px !important;
+  padding: 30px 10px !important;
   overflow-y: scroll;
   height: 100vh;
 }
@@ -346,6 +348,8 @@ p {
   @media (max-width: 600px) {
     /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5px;
+
   }
 }
 
