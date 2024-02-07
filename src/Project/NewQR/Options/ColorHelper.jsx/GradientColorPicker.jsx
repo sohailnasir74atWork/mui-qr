@@ -143,7 +143,7 @@ const GradientColorPicker = ({
             <div style={{background: color}} onClick={handleDemoClick} className="color-demo"></div>
             </div>
           </div>
-          <div style={{display:'flex'}}>
+          <div className="flex-responsive">
             <div className="toggle-button">
               <div className="color-switch">
                 <FormControlLabel
