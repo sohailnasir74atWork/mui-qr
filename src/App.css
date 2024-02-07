@@ -61,10 +61,10 @@ body {
 }
 
 .heading-3 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
   color: var(--darkgreen-color);
-
+  margin: 10px;
   /* color: rgb(212, 34, 212); */
   /* color: lightgray; */
 }
@@ -91,6 +91,10 @@ p {
   margin: 3px 0px;
   font-size: 12px;
 }
+.text-switch {
+  /* margin: 3px 0px; */
+  font-size: 12px;
+}
 
 .toggle-button {
   margin-left: 20px;
@@ -101,14 +105,18 @@ p {
 }
 
 .color-demo {
-  width: 100%;
+  width: 30px;
   height: 30px;
-  border-radius: 5px;
+  border-radius: 3px;
+  position: absolute;
+  right:20px;
+  top:0;
+  bottom: 0;
   /* margin-left: 10px; */
   /* Adjust the margin as needed */
   cursor: pointer;
   border: .5px solid lightgray;
-  margin-bottom: 3px;
+  margin: auto;
   /* padding-inline: 2px */
 }
 
@@ -126,8 +134,8 @@ p {
 .demo-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 200px;
+  /* align-items: flex-end; */
+  width: 300px;
 
   @media (max-width: 600px) {
     /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
@@ -135,9 +143,20 @@ p {
   }
 }
 
-/* .input-demo {
-  padding:.5px solid grey
-} */
+.input-demo,
+.input-demo:focus,
+.input-demo:focus-visible {
+  height: 50px;
+  border-radius: 50px;
+  border-width: 1px;
+  border-style: solid; /* Set the border style explicitly */
+  outline: none; /* Remove the default outline on focus */
+  width: 300px;
+  padding-left: 15px;
+  padding-right: 50px;
+ 
+}
+
 
 .color-picker-container {
   display: flex;
@@ -145,6 +164,8 @@ p {
   position: relative;
   /* Set position to relative */
   flex-direction: column;
+  margin-bottom: 10px;
+
 
 }
 
@@ -523,4 +544,13 @@ opacity: 0;
 }
 .hide {
   display: none;
+}
+
+.button {
+  border-radius: 50px !important;
+}
+
+.color-switch {
+  display: flex;
+    align-items: end;
 }

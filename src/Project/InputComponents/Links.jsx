@@ -116,7 +116,8 @@ const Links = ({ prop }) => {
         />
         <br/>
       <br/>
-      <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+      <Button variant="contained" onClick={handleSubmit}                 className="button"
+>Submit</Button>
     </div>
   );
 };

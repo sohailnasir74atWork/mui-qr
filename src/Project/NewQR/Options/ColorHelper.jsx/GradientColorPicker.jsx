@@ -138,11 +138,14 @@ const GradientColorPicker = ({
         </div>
         <div className="home-color-container">
           <div className="demo-container">
+            <div className="flex-row" style={{position:'relative'}}>
+              <input className="input-demo" value={color} readOnly/>
             <div style={{background: color}} onClick={handleDemoClick} className="color-demo"></div>
+            </div>
           </div>
           <div style={{display:'flex'}}>
             <div className="toggle-button">
-              <div>
+              <div className="color-switch">
                 <FormControlLabel
                   control={
                     <AntSwitch
@@ -152,12 +155,12 @@ const GradientColorPicker = ({
                   }
                   label=""
                 />
-                <span className="text">Gradient</span>
+                <span className="text-switch">Gradient</span>
               </div>
             </div>
             {!hideTransparent && (
               <div className="toggle-button">
-                <div>
+                <div className="color-switch">
                   <FormControlLabel
                     control={
                       <AntSwitch
@@ -167,7 +170,7 @@ const GradientColorPicker = ({
                     }
                     label=""
                   />
-                  <span className="text">Transparent</span>
+                  <span className="text-switch">Transparent</span>
                 </div>
               </div>
             )}

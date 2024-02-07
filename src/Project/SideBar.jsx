@@ -288,6 +288,7 @@ export default function SideBar({ prop }) {
                 onClick={handleBack}
                 sx={{ mr: 1 }}
                 startIcon={<ArrowBack />}
+                className="button"
               >
                 Back
               </Button>
@@ -304,7 +305,8 @@ export default function SideBar({ prop }) {
                     {/* Step {activeStep + 1} already completed */}
                   </Typography>
                 ) : (
-                  <Button onClick={handleComplete} variant="contained" color={completedSteps() === totalSteps() - 1 ? "success" : 'primary'} endIcon={completedSteps() === totalSteps() - 1 ? "" : <ArrowForward/>}>
+                  <Button onClick={handleComplete} variant="contained" color={completedSteps() === totalSteps() - 1 ? "success" : 'primary'} endIcon={completedSteps() === totalSteps() - 1 ? "" : <ArrowForward/>}                 className="button"
+                  >
                     {completedSteps() === totalSteps() - 1 ? "Finish" : "Next"}
 
                   </Button>

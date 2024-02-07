@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import GradientColorPicker from "./ColorHelper.jsx/GradientColorPicker";
 import { Divider } from "@mui/material";
+import { SpaceBar } from "@mui/icons-material";
 const ColorHandling = ({ prop }) => {
   const { setQrCodeSettings, qrCodeSettings } = prop;
   // console.log(qrCodeSettings);
@@ -8,7 +9,7 @@ const ColorHandling = ({ prop }) => {
   return (
     <div className="option-container-home p-v-15 accordion-open">
       <div className="accordion-content">
-        <span className="block heading-3">Background Color</span>
+        <div className="block heading-3">Background Color</div>
 
         <GradientColorPicker
   setColor={(color) =>
@@ -40,9 +41,9 @@ const ColorHandling = ({ prop }) => {
 />
 
         <Divider/>
+        
 
-        <span className="block heading-3">Dots Color</span>
-
+        <div className="heading-3">Dots Color</div>
         <GradientColorPicker
           setColor={(color) =>
             setQrCodeSettings((prev) => ({
@@ -73,7 +74,7 @@ const ColorHandling = ({ prop }) => {
         />
                 <Divider/>
 
-        <span className="block heading-3">Marker Border Color</span>
+        <div className="heading-3">Marker Border Color</div>
 
 <GradientColorPicker
   setColor={(color) =>
@@ -106,7 +107,7 @@ const ColorHandling = ({ prop }) => {
 />
 <Divider/>
 
-<span className="block heading-3">Marker Center Color</span>
+<div className="heading-3">Marker Center Color</div>
 
         <GradientColorPicker
           setColor={(color) =>
