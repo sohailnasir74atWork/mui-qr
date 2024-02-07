@@ -368,8 +368,8 @@ align-items: center;
 .mobile-frame {
   position: relative;
   /* overflow: scroll; */
-  margin:10px;
-  width: 100%;
+  /* margin:10px; */
+  width: 320px;
 
   /* Ensure the overlay stays within the image boundaries */
 
