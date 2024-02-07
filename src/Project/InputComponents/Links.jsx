@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ErrorBar from "../Error";
 
 const Links = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings, handleComplete } = prop;
+  const { setQrCodeSettings, qrCodeSettings, handleComplete, isMobile } = prop;
   const [value, setValue] = useState("");
   const [qrName, setQrName] = useState("");
   const [urlError, setUrlError] = useState("");
@@ -97,6 +97,13 @@ const Links = ({ prop }) => {
           }}
           sx={{marginRight:'10px'}}
         />
+       {isMobile && (
+  <>
+    <br />
+    <br />
+  </>
+)}
+
         <TextField
           id="outlined-number"
           label="Height"

@@ -6,29 +6,8 @@ import Links from "../InputComponents/Links";
 import CustomizedAccordions from "./QrDesigns";
 
 const TypesOfQR = ({ prop }) => {
-  const { handleComplete, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, activeStep } = prop;
-  const [isMobile, setIsMobile] = React.useState(false);
-  React.useEffect(() => {
-    // Detect mobile screen size
-    const detectMobileScreen = () => {
-      const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-      const isMobile = screenWidth < 768; // Adjust the threshold as needed
-      return isMobile;
-    };
-
-    const updateMobileState = () => {
-      setIsMobile(detectMobileScreen());
-    };
-
-    // Run the detection on component mount
-    updateMobileState();
-
-    window.addEventListener('resize', updateMobileState);
-
-    return () => {
-      window.removeEventListener('resize', updateMobileState);
-    };
-  }, []); // The empty dependency array ensures the effect runs only on mount and unmount
+  const { handleComplete, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, activeStep, isMobile } = prop;
+  
   const inputClick = (e) => {
     
     setActiveTool(e)
@@ -86,7 +65,7 @@ const TypesOfQR = ({ prop }) => {
       )}
       {activeStep === 1 && activeTool === 'Link' && (
         <div className="types-of-qr-select">
-        <Links prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
+        <Links prop={{setQrCodeSettings, qrCodeSettings, handleComplete, isMobile}}/>
         </div>
       )}
       {activeStep === 1 && activeTool !== 'Link' && (

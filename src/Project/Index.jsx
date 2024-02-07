@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 
-const Home = () => {
+const Home = ({ prop }) => {
   const [activeTool, setActiveTool] = useState("Link");
   const [showError, setShowError] = useState(false);
+  const { isMobile } = prop
+  console.log('home', isMobile)
   const [qrCodeSettings, setQrCodeSettings] = useState({
     qrName:'My QR',
     inputData: { url: null },
@@ -19,7 +21,7 @@ const Home = () => {
   return (
     <div>
       <SideBar
-        prop={{ qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool }}
+        prop={{ qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, isMobile }}
       />
     </div>
   );

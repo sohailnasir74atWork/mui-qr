@@ -18,7 +18,13 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import { Button, Step, StepButton, Stepper, useMediaQuery } from "@mui/material";
+import {
+  Button,
+  Step,
+  StepButton,
+  Stepper,
+  useMediaQuery,
+} from "@mui/material";
 import TypesOfQR from "./NewQR/TypesOfQR.jsx";
 import InputsSection from "./NewQR/InputsSection.jsx";
 import { sideBar } from "./NewQR/TypesofQRList.js";
@@ -29,8 +35,8 @@ const openedMixin = (theme) => ({
     width: drawerWidth,
   },
   [theme.breakpoints.down("sm")]: {
-    width: '100%',
-    borderRight: `100px solid rgba(0, 0, 0, 0.1)`, // Adjust the width and color as needed
+    width: "80%",
+    // borderRight: `100px solid rgba(0, 0, 0, 0.1)`, // Adjust the width and color as needed
   },
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
@@ -49,8 +55,8 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
-  [theme.breakpoints.up("xs")]: {
-    width: '0px',
+  [theme.breakpoints.down("sm")]: {
+    width: "0px",
   },
 });
 
@@ -73,16 +79,16 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: drawerWidth,
-   
+
     [theme.breakpoints.up("xs")]: {
-      width: '100%',
-      position:'absolute',
-      zIndex:-3
+      width: "100%",
+      position: "absolute",
+      zIndex: -3,
     },
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
     },
-   
+
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -95,7 +101,7 @@ const Drawer = styled(MuiDrawer, {
 })(({ theme, open }) => ({
   width: drawerWidth,
   [theme.breakpoints.down("sm")]: {
-    width: '100%',
+    width: "100%",
   },
   flexShrink: 0,
   whiteSpace: "nowrap",
@@ -111,14 +117,19 @@ const Drawer = styled(MuiDrawer, {
 }));
 const steps = ["Type of QR Code", "Content", "QR Design"];
 export default function SideBar({ prop }) {
-  const { qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool } = prop;
+  const {
+    qrCodeSettings,
+    setQrCodeSettings,
+    activeTool,
+    setActiveTool,
+    isMobile,
+  } = prop;
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+  console.log(isMobile);
   useEffect(() => {
     if (completedSteps() === totalSteps()) {
       setSelectedIndex(3);
@@ -178,17 +189,19 @@ export default function SideBar({ prop }) {
   };
 
   const handleListItemClick = (index) => {
+    if(isMobile) {    setOpen(false);
+    }
     setSelectedIndex(index);
-    setCompleted({})
-    setActiveStep(0)
+    setCompleted({});
+    setActiveStep(0);
     setQrCodeSettings((prevSettings) => ({
       ...prevSettings,
       inputData: {
         ...prevSettings.inputData,
-        url: null
-      }
+        url: null,
+      },
     }));
-      };
+  };
 
   const renderContent = () => {
     switch (selectedIndex) {
@@ -204,6 +217,7 @@ export default function SideBar({ prop }) {
               setQrCodeSettings,
               activeTool,
               setActiveTool,
+              isMobile
             }}
           />
         );
@@ -217,11 +231,11 @@ export default function SideBar({ prop }) {
     }
   };
   return (
-    <Box sx={{ display: "flex"}}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ background: "#f1f1f1" }}>
         <Toolbar>
-          <IconButton
+          {!isMobile && <IconButton
             color="black"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -232,21 +246,33 @@ export default function SideBar({ prop }) {
             }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton>}
           <Stepper nonLinear activeStep={activeStep}>
             {steps.map((label, index) => (
               <Step key={label} completed={completed[index]}>
                 <StepButton color="inherit" onClick={handleStep(index)}>
-                  {label}
+                  {!isMobile && label}
                 </StepButton>
               </Step>
             ))}
           </Stepper>
+          {isMobile && <IconButton
+            color="black"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{
+              marginLeft: 20,
+              ...(open && { display: "none" }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>}
           <React.Fragment>
             {/* <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
               Step {activeStep + 1}
             </Typography> */}
-            <Box
+            {!isMobile && <Box
               sx={{
                 display: "flex",
                 flexDirection: "row",
@@ -280,11 +306,15 @@ export default function SideBar({ prop }) {
                     {completedSteps() === totalSteps() - 1 ? "Finish" : "Next"}
                   </Button>
                 ))}
-            </Box>
+            </Box>}
           </React.Fragment>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open} sx={{position: isMobile ? 'absolute': ''}}>
+      <Drawer
+        variant="permanent"
+        open={open}
+        sx={{ position: isMobile ? "absolute" : "" }}
+      >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -296,41 +326,41 @@ export default function SideBar({ prop }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {sideBar.map(
-            (text, index) => (
-              <ListItem key={text} disablePadding sx={{ display: "block" }}>
-                <ListItemButton
-                  selected={selectedIndex === index}
-                  onClick={() => handleListItemClick(index)}
+          {sideBar.map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+              <ListItemButton
+                selected={selectedIndex === index}
+                onClick={() => handleListItemClick(index)}
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  borderRight:
+                    selectedIndex === index ? "3px solid red !important" : "", // Change background color for selected item
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
                   sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    borderRight:
-                      selectedIndex === index ? "3px solid red !important" : "", // Change background color for selected item
-                    px: 2.5,
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
                   }}
                 >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {text.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={text.heading} sx={{ opacity: open ? 1 : 0 }} />
-                </ListItemButton>
-              </ListItem>
-            )
-          )}
+                  {text.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={text.heading}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1 }} style={{background: isMobile ? 'lightgrey' : ''}}>
-        <DrawerHeader />
-        <div style={{background: isMobile ? 'lightgrey' : ''}}>
+      <Box component="main" sx={{ flexGrow: 1 }}>
+        <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
+        <DrawerHeader prop={{isMobile}}/>
         {renderContent()}
-        </div>
       </Box>
     </Box>
   );

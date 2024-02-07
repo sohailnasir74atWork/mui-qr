@@ -272,6 +272,10 @@ p {
   padding: 30px !important;
   overflow-y: scroll;
   height: 100vh;
+  @media (max-width: 600px) {
+    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+    width: 100% !important;
+  }
 }
 .types-of-qr-select-mobile {
   width: 100% !important;
@@ -478,4 +482,24 @@ opacity: 0;
 }
 .hide-icon{
   margin: auto;
+}
+
+.overlay-sidebar {
+  position: absolute;
+  top: 0;
+  /* Adjust as needed for the desired height */
+  right: 0;
+  /* Adjust as needed for the desired width */
+  bottom: 0;
+  /* Adjust as needed for the desired height */
+  width: 100%;
+  /* Adjust the width of the overlay */
+  height: 100%;
+  /* Adjust the height of the overlay */
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  z-index: 1000;
+}
+.hide {
+  display: none;
 }
