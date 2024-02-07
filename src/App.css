@@ -500,7 +500,7 @@ opacity: 0;
   /* Adjust the width of the overlay */
   height: 100%;
   /* Adjust the height of the overlay */
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   opacity: 1;
   z-index: 1000;
 }
