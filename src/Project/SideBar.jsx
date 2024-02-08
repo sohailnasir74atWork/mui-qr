@@ -269,7 +269,8 @@ export default function SideBar({ prop }) {
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
-              marginLeft: 20,
+              position:'absolute',
+              right:'10px',
               ...(open && { display: "none" }),
             }}
           >
