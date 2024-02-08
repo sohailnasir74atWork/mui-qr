@@ -330,7 +330,7 @@ p {
 
 }
 
-.types-of-qr-select {
+.container-custom {
   width: calc(100% - 340px) !important;
   padding: 30px !important;
   overflow-y: scroll;
@@ -343,9 +343,14 @@ p {
 
   }
 }
+.container-custom-2 {
+  padding: 30px !important;
+  background-color: var(--background-color);
+  height: 100vh;
+}
 
-.types-of-qr-select-mobile {
-  width: 100% !important;
+.container-custom-mobile {
+  /* width: 100% !important; */
   padding: 30px 10px !important;
   overflow-y: scroll;
   height: 100vh;
@@ -358,7 +363,7 @@ p {
 }
 
 .types-of-qr-mobile-demo {
-  width: 100%;
+  /* width: 100%; */
   height: 300px;
   /* Use 100% of the viewport height */
   margin-top: 30px;
@@ -469,7 +474,14 @@ p {
 
   }
 }
+.grid-container-2 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  /* Creates two columns */
+  grid-gap: 10px;
 
+  
+}
 .static-qr {
   /* padding: 20px; */
 
@@ -484,7 +496,21 @@ p {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
-  box-shadow: 0 4px 6px 0 rgba(205, 209, 224, 0.5);
+  box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
+  background-color: var(--white-color);
+  transition: all 0.25s ease-in-out;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.static-qr-tabs-2 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 6px;
+  height: 80px;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
   background-color: var(--white-color);
   transition: all 0.25s ease-in-out;
   border-radius: 8px;
@@ -530,8 +556,8 @@ p {
 }
 
 .qr-home-container {
-  /* width: 250px;
- height: 250px; */
+  width: 300px;
+ height: 300px;
 
   text-align: center;
   margin: auto;
@@ -547,12 +573,11 @@ p {
 
 .qr-box-home {
   /* margin-top: 40px; */
-  /* width: 300px;
-  height: 300px; */
+  width: 300px;
+  height: 300px;
   display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
   padding: 30px;
   margin: auto;
   background-color: white;
@@ -578,8 +603,10 @@ p {
 
 .opacity-1 {
   opacity: 1;
-  width: 100%;
-  height: 100%;
+  max-width: 100%; /* Make sure the image does not exceed the width of the container */
+  max-height: 100%; /* Make sure the image does not exceed the height of the container */
+  width: auto; /* Allow the image to shrink to fit its container */
+  height: auto; /* Allow the image to shrink to fit its container */
 }
 
 .button-home-container {

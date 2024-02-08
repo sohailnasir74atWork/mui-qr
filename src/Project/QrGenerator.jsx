@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import QRCodeStyling from "qr-code-styling";
 import qrPlaceHolder from "../Assets/qrPlaceHolder.svg";
 import { Button } from "@mui/material";
-import LeaderboardIcon from "@mui/icons-material/Leaderboard";
-// import { darkPink, lightPink } from "./Veriables";
 import { parseLinearGradient } from "./gradientParser";
 
 const QrGenerator = ({ prop }) => {
@@ -25,11 +23,11 @@ const QrGenerator = ({ prop }) => {
   const data = qrCodeSettings.inputData.url;
 
   console.log(qrCodeSettings);
-  function handleDownloadClick(typeOfImg) {
+  function handleDownloadClick(typeOfImg, qrName) {
     if (qrCode && qrCode.download) {
       qrCode
         .download({
-          name: "MyQRCode",
+          name: qrName,
           extension: typeOfImg,
         })
         .then(() => {})
@@ -47,8 +45,8 @@ const QrGenerator = ({ prop }) => {
       }
 
       const newQrCode = new QRCodeStyling({
-        width: 300,
-        height: 300,
+        width: qrCodeSettings.size.width,
+        height: qrCodeSettings.size.height,
         data: data,
         // image: img,
         dotsOptions: {
@@ -125,7 +123,7 @@ const QrGenerator = ({ prop }) => {
           variant="contained"
           color="primary"
           disabled={!data}
-          onClick={() => handleDownloadClick("png")}
+          onClick={() => handleDownloadClick("png", qrCodeSettings.qrName)}
           style={{ color: "white", fontSize: ".8rem" }}
           className="button"
         >
@@ -136,7 +134,7 @@ const QrGenerator = ({ prop }) => {
           variant="contained"
           style={{ color: "white", fontSize: ".8rem" }}
           disabled={!data}
-          onClick={() => handleDownloadClick("webp")}
+          onClick={() => handleDownloadClick("webp", qrCodeSettings.qrName)}
           className="button"
         >
           Download WEBP

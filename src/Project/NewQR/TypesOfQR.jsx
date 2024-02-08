@@ -26,7 +26,7 @@ const TypesOfQR = ({ prop }) => {
   return (
     <div className="types-of-qr-container" style={{width: isMobile ? "100%" : ''}}>
       {activeStep == 0 && (
-        <div className={isMobile ? "types-of-qr-select-mobile" : 'types-of-qr-select'}>
+        <div className={isMobile ? "container-custom-mobile" : 'container-custom'}>
           <div className="static-qr flex-col">
           <div className="heading-container">
               <span className="heading-2">STATIC QR</span>{" "}
@@ -68,15 +68,15 @@ const TypesOfQR = ({ prop }) => {
         </div>
       )}
       {activeStep === 1 && activeTool === 'Link' && (
-        <div className="types-of-qr-select">
+        <div className="container-custom">
         <Links prop={{setQrCodeSettings, qrCodeSettings, handleComplete, isMobile}}/>
         </div>
       )}
       {activeStep === 1 && activeTool !== 'Link' && (
-        <div className="types-of-qr-select">We are at step 2</div>
+        <div className="container-custom">We are at step 2</div>
       )}
       {activeStep === 2 && (
-        <div className="types-of-qr-select">
+        <div className="container-custom">
           <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
         </div>
       )}

@@ -8,6 +8,7 @@ const Home = ({ prop }) => {
   console.log('home', isMobile)
   const [qrCodeSettings, setQrCodeSettings] = useState({
     qrName:'My QR',
+    size:{height:'300', width: '300'},
     inputData: { url: null },
       colors: {
       background: { isSolid: true, color: "#FFFFFF"},

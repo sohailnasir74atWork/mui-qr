@@ -30,6 +30,7 @@ import InputsSection from "./NewQR/InputsSection.jsx";
 import { sideBar } from "./NewQR/TypesofQRList.js";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import FixedBottomNavigation from "./NewQR/MobileBottomNav.jsx";
+import MyQr from "./MyQr.jsx";
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -234,7 +235,7 @@ export default function SideBar({ prop }) {
         return <Typography paragraph>Templates</Typography>;
       // ... Add cases for other indexes
       default:
-        return <Typography paragraph>My QR Codes</Typography>;
+        return <MyQr/>;
     }
   };
   return (
@@ -348,6 +349,8 @@ export default function SideBar({ prop }) {
                   justifyContent: open ? "initial" : "center",
                   borderRight:
                     selectedIndex === index ? "3px solid var(--darkgreen-color) !important" : "", // Change background color for selected item
+                    color:
+                    selectedIndex === index ? "var(--darkgreen-color) !important" : "", // Change 
                   px: 2.5,
                 }}
               >
@@ -356,6 +359,8 @@ export default function SideBar({ prop }) {
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
+                    color:
+                    selectedIndex === index ? "var(--darkgreen-color) !important" : "", // Change 
                   }}
                 >
                   {text.icon}
