@@ -12,12 +12,12 @@ const theme = createTheme({
   palette: {
     primary: {
       main: getCssVariableValue('--darkgreen-color'),
-      light: getCssVariableValue('--white-color'),
-      dark: getCssVariableValue('--green-color'),
+      // light: getCssVariableValue('--white-color'),
+      // dark: getCssVariableValue('--green-color'),
     },
-    secondary: {
-      main: getCssVariableValue('--lightgreen-color'),
-    },
+    // secondary: {
+    //   main: getCssVariableValue('--lightgreen-color'),
+    // },
   },
   typography: {
     fontFamily: [
