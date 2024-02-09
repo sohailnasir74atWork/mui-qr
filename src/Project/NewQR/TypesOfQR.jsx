@@ -8,14 +8,23 @@ import { useTheme } from "@emotion/react";
 import QrGenerator from "../QrGenerator";
 
 const TypesOfQR = ({ prop }) => {
-  const { handleComplete, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, activeStep, isMobile, showMobileQR, setShowMobileQR } = prop;
-  const liveDemo = true
+  const {
+    handleComplete,
+    qrCodeSettings,
+    setQrCodeSettings,
+    activeTool,
+    setActiveTool,
+    activeStep,
+    isMobile,
+    showMobileQR,
+    setShowMobileQR,
+  } = prop;
+  const liveDemo = true;
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const inputClick = (e) => {
-    
-    setActiveTool(e)
-    handleComplete()
+    setActiveTool(e);
+    handleComplete();
     // console.log(activeStep);
   };
   const handleClose = () => {
@@ -26,17 +35,25 @@ const TypesOfQR = ({ prop }) => {
   }, [activeTool]);
 
   return (
-    <div className="types-of-qr-container" style={{width: isMobile ? "100%" : ''}}>
+    <div
+      className="types-of-qr-container"
+      style={{ width: isMobile ? "100%" : "" }}
+    >
       {activeStep == 0 && (
-        <div className={isMobile ? "container-custom-mobile" : 'container-custom'}>
+        <div
+          className={isMobile ? "container-custom-mobile" : "container-custom"}
+        >
           <div className="static-qr flex-col">
-          <div className="heading-container">
+            <div className="heading-container">
               <span className="heading-2">STATIC QR</span>{" "}
               <span className="heading-tag">with tracking</span>
             </div>
             <div className="grid-container">
               {staticTools.map((item, index) => (
-                <div className="static-qr-tabs" key={index}  onClick={()=>inputClick(item.heading)}
+                <div
+                  className="static-qr-tabs"
+                  key={index}
+                  onClick={() => inputClick(item.heading)}
                 >
                   <div className="static-qr-icons">{item.icon}</div>
                   <div className="flex-col">
@@ -65,39 +82,60 @@ const TypesOfQR = ({ prop }) => {
                 </div>
               ))}
             </div>
-            
           </div>
         </div>
       )}
-      {activeStep === 1 && activeTool === 'Link' && (
+      {activeStep === 1 && activeTool === "Link" && (
         <div className="container-custom">
-        <Links prop={{setQrCodeSettings, qrCodeSettings, handleComplete, isMobile}}/>
+          <Links
+            prop={{
+              setQrCodeSettings,
+              qrCodeSettings,
+              handleComplete,
+              isMobile,
+            }}
+          />
         </div>
       )}
-      
-      {activeStep === 1 && activeTool !== 'Link' && (
+
+      {activeStep === 1 && activeTool !== "Link" && (
         <div className="container-custom">We are at step 2</div>
       )}
-      {activeStep === 2 && !isMobile &&
-        
-        (<div className="container-custom">
-          <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
-        </div>)
-      }{activeStep === 2 && isMobile && <div className="flex-col" style={{width:'100%'}}> <div className="live-demo-container"><QrGenerator prop={{qrCodeSettings, liveDemo}}/></div>
-      <div className="container-custom">
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
-      </div></div>}
-     {!isMobile && <QrDemo prop={{qrCodeSettings}}/>}
-     {isMobile && showMobileQR && <Dialog
-        sx={{ m: 0, p: 1, zIndex:'10001' }} id="customized-dialog-title"
-        open={showMobileQR}
-        onClose={handleClose}>
-          <QrDemo prop={{qrCodeSettings}}/></Dialog>}
-
+      {activeStep === 2 && !isMobile && (
+        <div className="container-custom">
+          <CustomizedAccordions
+            prop={{ setQrCodeSettings, qrCodeSettings, handleComplete }}
+          />
+        </div>
+      )}
+      {activeStep === 2 && isMobile && (
+        <div className="flex-col" style={{ width: "100%" }}>
+          {" "}
+          <div className="live-demo-container">
+            <QrGenerator prop={{ qrCodeSettings, liveDemo }} />
+          </div>
+          <div className="container-custom">
+            <br />
+            <br />
+            <br />
+            <br />
+            <CustomizedAccordions
+              prop={{ setQrCodeSettings, qrCodeSettings, handleComplete }}
+            />
+          </div>
+        </div>
+      )}
+      {!isMobile && <QrDemo prop={{ qrCodeSettings }} />}
+      {isMobile && showMobileQR && (
+        <Dialog
+          sx={{ m: 0, p: 1, zIndex: "10001" }}
+          id="customized-dialog-title"
+          open={showMobileQR}
+          onClose={handleClose}
+        >
+          <QrDemo prop={{ qrCodeSettings }} />
+        </Dialog>
+      )}
     </div>
   );
 };

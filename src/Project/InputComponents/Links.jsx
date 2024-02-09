@@ -12,7 +12,6 @@ const Links = ({ prop }) => {
   const [nameError, setNameError] = useState("");
   const [widthError, setWidthError] = useState("");
   const [heightError, setHeightError] = useState("");
-
   useEffect(() => {
     setValue(qrCodeSettings.inputData.url);
     setQrName(qrCodeSettings.qrName);
