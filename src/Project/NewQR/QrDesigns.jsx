@@ -13,6 +13,7 @@ import ShapesHandling from "./Options/ShapesHandling"
 import FilterFramesIcon from '@mui/icons-material/FilterFrames';
 import AppleIcon from '@mui/icons-material/Apple';// import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
+import LogoHandling from './Options/LogoHandling';
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -109,7 +110,7 @@ export default function CustomizedAccordions({ prop }) {
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>LOGO</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          COMMING SOON
+        <LogoHandling prop={{ setQrCodeSettings, qrCodeSettings }}/>
         </AccordionDetails>
       </Accordion>
       <Accordion

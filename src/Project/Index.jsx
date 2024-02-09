@@ -7,11 +7,11 @@ const Home = ({ prop }) => {
   const [activeTool, setActiveTool] = useState("Link");
   const [showError, setShowError] = useState(false);
   const { isMobile } = prop;
-  console.log('home', isMobile);
   const [qrCodeSettings, setQrCodeSettings] = useState({
     qrName: 'My QR',
     size: { height: '300', width: '300' },
     inputData: { url: null },
+    logo: null,
     colors: {
       background: { isSolid: true, color: "#FFFFFF" },
       dots: { isSolid: true, color: "#000000" },

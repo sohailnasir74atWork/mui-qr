@@ -3,12 +3,11 @@ import QRCodeStyling from "qr-code-styling";
 import qrPlaceHolder from "../Assets/qrPlaceHolder.svg";
 import { Button } from "@mui/material";
 import { parseLinearGradient } from "./gradientParser";
-
 const QrGenerator = ({ prop }) => {
   const { qrCodeSettings, liveDemo } = prop;
   const [qrCode, setQrCode] = useState(null);
   const [qrImageUrl, setQrImageUrl] = useState("");
-  const gradientBackground = parseLinearGradient(
+    const gradientBackground = parseLinearGradient(
     qrCodeSettings.colors.background.color
   );
   const gradientBorder = parseLinearGradient(
@@ -18,10 +17,9 @@ const QrGenerator = ({ prop }) => {
   const gradientCenter = parseLinearGradient(
     qrCodeSettings.colors.cornerDots.color
   );
-
   const canvasRef = useRef(null);
   const data = qrCodeSettings.inputData.url;
-
+  const img = qrCodeSettings.logo
   console.log(qrCodeSettings);
   function handleDownloadClick(typeOfImg, qrName) {
     if (qrCode && qrCode.download) {
@@ -36,19 +34,18 @@ const QrGenerator = ({ prop }) => {
       console.error("Download function not available in QRCodeStyling.");
     }
   }
-
+  console.log(qrCodeSettings.logo);
   useEffect(() => {
     if (data !== null && data !== "") {
       const canvasElement = canvasRef.current;
       while (canvasElement.firstChild) {
         canvasElement.removeChild(canvasElement.firstChild);
       }
-
       const newQrCode = new QRCodeStyling({
         width: qrCodeSettings.size.width,
         height: qrCodeSettings.size.height,
         data: data,
-        // image: img,
+        image: img,
         dotsOptions: {
           ...(qrCodeSettings.colors.dots.isSolid
             ? { color: qrCodeSettings.colors.dots.color }
@@ -57,7 +54,7 @@ const QrGenerator = ({ prop }) => {
                   colorStops: gradientQR,
                 },
               }),
-              type:qrCodeSettings.types.dots.type 
+          type: qrCodeSettings.types.dots.type,
         },
         backgroundOptions: {
           ...(qrCodeSettings.colors.background.isSolid
@@ -76,7 +73,7 @@ const QrGenerator = ({ prop }) => {
                   colorStops: gradientBorder,
                 },
               }),
-              type:qrCodeSettings.types.corner.type 
+          type: qrCodeSettings.types.corner.type,
         },
         cornersDotOptions: {
           ...(qrCodeSettings.colors.cornerDots.isSolid
@@ -86,7 +83,7 @@ const QrGenerator = ({ prop }) => {
                   colorStops: gradientCenter,
                 },
               }),
-              type:qrCodeSettings.types.cornerDots.type 
+          type: qrCodeSettings.types.cornerDots.type,
         },
         imageOptions: {
           crossOrigin: "anonymous",
@@ -98,7 +95,6 @@ const QrGenerator = ({ prop }) => {
           canvasElement.querySelector("canvas").toDataURL("image/png")
         );
       }, 1);
-
       setQrCode(newQrCode);
       newQrCode.append(canvasElement);
     }
@@ -108,7 +104,7 @@ const QrGenerator = ({ prop }) => {
     <div className={liveDemo ? "live-demo" : "qr-home-container"}>
       <div ref={canvasRef} style={{ display: "none" }}></div>
       {data && qrImageUrl && (
-        <div className={liveDemo ? "qr-box-home-live-demo" :"qr-box-home"}>
+        <div className={liveDemo ? "qr-box-home-live-demo" : "qr-box-home"}>
           <img src={qrImageUrl} alt="QR Code" className="opacity-1" />
         </div>
       )}{" "}
@@ -121,28 +117,30 @@ const QrGenerator = ({ prop }) => {
           />
         </div>
       )}
-     { !liveDemo && <div className="button-home-container">
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={!data}
-          onClick={() => handleDownloadClick("png", qrCodeSettings.qrName)}
-          style={{ color: "white", fontSize: ".8rem" }}
-          className="button"
-        >
-          Download PNG
-        </Button>
+      {!liveDemo && (
+        <div className="button-home-container">
+          <Button
+            variant="contained"
+            color="primary"
+            disabled={!data}
+            onClick={() => handleDownloadClick("png", qrCodeSettings.qrName)}
+            style={{ color: "white", fontSize: ".8rem" }}
+            className="button"
+          >
+            Download PNG
+          </Button>
 
-        <Button
-          variant="contained"
-          style={{ color: "white", fontSize: ".8rem" }}
-          disabled={!data}
-          onClick={() => handleDownloadClick("webp", qrCodeSettings.qrName)}
-          className="button"
-        >
-          Download WEBP
-        </Button>
-      </div>}
+          <Button
+            variant="contained"
+            style={{ color: "white", fontSize: ".8rem" }}
+            disabled={!data}
+            onClick={() => handleDownloadClick("webp", qrCodeSettings.qrName)}
+            className="button"
+          >
+            Download WEBP
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
