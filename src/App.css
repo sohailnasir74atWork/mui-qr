@@ -107,7 +107,7 @@ p {
 .text-switch {
   /* margin: 3px 0px; */
   font-size: 12px;
-  color:var(--lightgrey-color)
+  color:var(--lightgrey-color);
 
 
   @media (max-width: 600px) {
