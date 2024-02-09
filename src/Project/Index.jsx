@@ -18,6 +18,12 @@ const Home = ({ prop }) => {
       square: { isSolid: true, color: "#000000" },
       cornerDots: { isSolid: true, color: "#000000" },
     },
+    types: {
+      corner: { type: 'square' },
+      dots: { type: 'square' },
+      square: { isSolid: true, color: "#000000" },
+      cornerDots: { type: 'square'},
+    },
     clearInput: false,
   });
 

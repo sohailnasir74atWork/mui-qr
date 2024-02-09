@@ -1,0 +1,20 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+   
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+   
+    border: 2px solid transparent; /* Border on hover */
+    padding: 10px; /* Inner padding on hover */
+    border-radius: 10px;
+  }
+  
+  .image-container:hover img {
+    border: 2px solid var(--darkgreen-color); /* Border on hover */
+    padding: 10px; /* Inner padding on hover */
+  }
+  

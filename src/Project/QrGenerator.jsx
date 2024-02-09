@@ -57,6 +57,7 @@ const QrGenerator = ({ prop }) => {
                   colorStops: gradientQR,
                 },
               }),
+              type:qrCodeSettings.types.dots.type 
         },
         backgroundOptions: {
           ...(qrCodeSettings.colors.background.isSolid
@@ -75,6 +76,7 @@ const QrGenerator = ({ prop }) => {
                   colorStops: gradientBorder,
                 },
               }),
+              type:qrCodeSettings.types.corner.type 
         },
         cornersDotOptions: {
           ...(qrCodeSettings.colors.cornerDots.isSolid
@@ -84,6 +86,7 @@ const QrGenerator = ({ prop }) => {
                   colorStops: gradientCenter,
                 },
               }),
+              type:qrCodeSettings.types.cornerDots.type 
         },
         imageOptions: {
           crossOrigin: "anonymous",

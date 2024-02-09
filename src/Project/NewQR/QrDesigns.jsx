@@ -9,6 +9,7 @@ import ColorLensIcon from '@mui/icons-material/ColorLens';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import { pink, purple, green } from '@mui/material/colors';
 import ColorHandling from './Options/ColorHandling';
+import ShapesHandling from "./Options/ShapesHandling"
 import FilterFramesIcon from '@mui/icons-material/FilterFrames';
 import AppleIcon from '@mui/icons-material/Apple';// import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
@@ -91,7 +92,7 @@ export default function CustomizedAccordions({ prop }) {
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>Shape & Forms</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          COMMING SOON
+          <ShapesHandling prop={{ setQrCodeSettings, qrCodeSettings }}/>
         </AccordionDetails>
       </Accordion>
       <Accordion
