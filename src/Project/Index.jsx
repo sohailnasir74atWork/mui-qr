@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import QrGenerator from "./QrGenerator";
+import { Helmet } from "react-helmet";
 
 const Home = ({ prop }) => {
   const [activeTool, setActiveTool] = useState("Link");
@@ -22,6 +23,9 @@ const Home = ({ prop }) => {
 
   return (
     <div>
+      <Helmet>
+        <meta name="theme-color" content="#FFFFFF" />
+      </Helmet>
         <SideBar
         prop={{ qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, isMobile }}
       />
