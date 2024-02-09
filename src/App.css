@@ -346,6 +346,20 @@ p {
 
   }
 }
+.container-custom-live-demo {
+  width: calc(100% - 340px) !important;
+  padding: 30px !important;
+  overflow-y: scroll;
+  height: 100vh;
+
+  @media (max-width: 600px) {
+    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+    margin-top: 100px;
+    width: 100% !important;
+    padding: 10px !important;
+
+  }
+}
 .container-custom-2 {
   padding: 30px !important;
   background-color: var(--background-color);
@@ -765,4 +779,15 @@ p {
   /* width: 100%; */
   width: 150px;
   height: 150px;
+}
+.live-demo-container {
+  position: fixed;
+  top:0;
+  right: 0;
+    z-index: 1000000;
+    width: 100%;
+    background: var(--white-color);
+    box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px
 }

@@ -79,8 +79,8 @@ const TypesOfQR = ({ prop }) => {
         <div className="container-custom">We are at step 2</div>
       )}
       {activeStep === 2 && (
-        <div className="flex-col" style={{width:'100%'}}>{isMobile && <div><QrGenerator prop={{qrCodeSettings, liveDemo}}/></div>}
-        <div className="container-custom">
+        <div className="flex-col" style={{width:'100%'}}>{isMobile && <div className="live-demo-container"><QrGenerator prop={{qrCodeSettings, liveDemo}}/></div>}
+        <div className={activeStep === 2 ? "container-custom-live-demo" :"container-custom"}>
           <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
         </div></div>
       )}
