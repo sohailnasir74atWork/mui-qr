@@ -29,19 +29,19 @@ body {
 .heading-2 {
   font-size: 20px;
   font-weight: 900;
-  color: var(--darkgreen-color);
+  color: var(--black-color);
   margin-bottom: 20px;
 }
 
 .text-primary {
   font-size: 1rem !important;
-  color: var(--darkgreen-color) !important;
+  color: var(--lightgrey-color) !important;
   font-weight: 600 !important;
 }
 
 .text-secondary {
   font-size: .8rem;
-  color: var(--lightgreen-color);
+  color: var(--lightgrey-color);
   font-weight: 500;
 }
 
@@ -65,7 +65,7 @@ body {
 .heading-3 {
   font-size: 16px;
   font-weight: 900;
-  color: var(--darkgreen-color);
+  color: var(--black-color);
   margin: 10px;
 
   /* color: rgb(212, 34, 212); */
@@ -101,11 +101,14 @@ p {
 .text {
   margin: 3px 0px;
   font-size: 12px;
+  color:var(--lightgrey-color)
 }
 
 .text-switch {
   /* margin: 3px 0px; */
   font-size: 12px;
+  color:var(--lightgrey-color)
+
 
   @media (max-width: 600px) {
     padding-right: 20px;
