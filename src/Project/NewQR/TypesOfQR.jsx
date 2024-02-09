@@ -89,7 +89,7 @@ const TypesOfQR = ({ prop }) => {
       </div></div>}
      {!isMobile && <QrDemo prop={{qrCodeSettings}}/>}
      {isMobile && showMobileQR && <Dialog
-        sx={{ m: 0, p: 1 }} id="customized-dialog-title"
+        sx={{ m: 0, p: 1, zIndex:'10001' }} id="customized-dialog-title"
         open={showMobileQR}
         onClose={handleClose}>
           <QrDemo prop={{qrCodeSettings}}/></Dialog>}

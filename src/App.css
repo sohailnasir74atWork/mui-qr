@@ -780,7 +780,7 @@ p {
   /* justify-content: center; */
   /* align-items: center; */
   margin: auto;
-  z-index: 10000;
+  z-index: 1;
   /* width: 100%; */
   width: 150px;
   height: 150px;
@@ -789,7 +789,7 @@ p {
   position: fixed;
   top:0;
   right: 0;
-    z-index: 1000000;
+    z-index: 10000;
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
     box-shadow: 0 0px 9px 0 rgba(0, 0, 0, 0.5);
