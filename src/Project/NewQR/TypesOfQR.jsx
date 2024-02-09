@@ -74,6 +74,7 @@ const TypesOfQR = ({ prop }) => {
         <Links prop={{setQrCodeSettings, qrCodeSettings, handleComplete, isMobile}}/>
         </div>
       )}
+      
       {activeStep === 1 && activeTool !== 'Link' && (
         <div className="container-custom">We are at step 2</div>
       )}
