@@ -6,14 +6,14 @@ import { Helmet } from "react-helmet";
 const Home = ({ prop }) => {
   const [activeTool, setActiveTool] = useState("Link");
   const [showError, setShowError] = useState(false);
-  const { isMobile } = prop
-  console.log('home', isMobile)
+  const { isMobile } = prop;
+  console.log('home', isMobile);
   const [qrCodeSettings, setQrCodeSettings] = useState({
-    qrName:'My QR',
-    size:{height:'300', width: '300'},
+    qrName: 'My QR',
+    size: { height: '300', width: '300' },
     inputData: { url: null },
-      colors: {
-      background: { isSolid: true, color: "#FFFFFF"},
+    colors: {
+      background: { isSolid: true, color: "#FFFFFF" },
       dots: { isSolid: true, color: "#000000" },
       square: { isSolid: true, color: "#000000" },
       cornerDots: { isSolid: true, color: "#000000" },
@@ -21,12 +21,20 @@ const Home = ({ prop }) => {
     clearInput: false,
   });
 
+  useEffect(() => {
+    if (isMobile) {
+      // Additional styles for mobile browsers
+      document.body.style.backgroundColor = "#FFFFFF"; // Set the background color for the body
+      // You may need to experiment with other styles for specific mobile browsers
+    }
+  }, [isMobile]);
+
   return (
     <div>
       <Helmet>
         <meta name="theme-color" content="#FFFFFF" />
       </Helmet>
-        <SideBar
+      <SideBar
         prop={{ qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, isMobile }}
       />
     </div>
