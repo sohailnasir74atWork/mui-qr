@@ -330,6 +330,7 @@ p {
   flex-direction: row;
   width: 100%;
   background-color: var(--background-color);
+  justify-content: center;
 
 
 }
