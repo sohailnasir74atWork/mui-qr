@@ -78,12 +78,15 @@ const TypesOfQR = ({ prop }) => {
       {activeStep === 1 && activeTool !== 'Link' && (
         <div className="container-custom">We are at step 2</div>
       )}
-      {activeStep === 2 && (
-        <div className="flex-col" style={{width:'100%'}}>{isMobile && <div className="live-demo-container"><QrGenerator prop={{qrCodeSettings, liveDemo}}/></div>}
-        <div className={activeStep === 2 ? "container-custom-live-demo" :"container-custom"}>
+      {activeStep === 2 && !isMobile &&
+        
+        (<div className="container-custom">
           <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
-        </div></div>
-      )}
+        </div>)
+      }{activeStep === 2 && isMobile && <div className="flex-col" style={{width:'100%'}}> <div className="live-demo-container"><QrGenerator prop={{qrCodeSettings, liveDemo}}/></div>
+      <div className="container-custom-live-demo">
+        <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
+      </div></div>}
      {!isMobile && <QrDemo prop={{qrCodeSettings}}/>}
      {isMobile && showMobileQR && <Dialog
         sx={{ m: 0, p: 1 }} id="customized-dialog-title"
