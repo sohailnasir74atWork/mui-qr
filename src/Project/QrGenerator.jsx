@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import { parseLinearGradient } from "./gradientParser";
 
 const QrGenerator = ({ prop }) => {
-  const { qrCodeSettings } = prop;
+  const { qrCodeSettings, liveDemo } = prop;
   const [qrCode, setQrCode] = useState(null);
   const [qrImageUrl, setQrImageUrl] = useState("");
   const gradientBackground = parseLinearGradient(
@@ -102,10 +102,10 @@ const QrGenerator = ({ prop }) => {
   }, [data, canvasRef, qrCodeSettings]);
 
   return (
-    <div className="qr-home-container">
+    <div className={liveDemo ? "live-demo" : "qr-home-container"}>
       <div ref={canvasRef} style={{ display: "none" }}></div>
       {data && qrImageUrl && (
-        <div className="qr-box-home">
+        <div className={liveDemo ? "qr-box-home-live-demo" :"qr-box-home"}>
           <img src={qrImageUrl} alt="QR Code" className="opacity-1" />
         </div>
       )}{" "}
@@ -118,7 +118,7 @@ const QrGenerator = ({ prop }) => {
           />
         </div>
       )}
-      <div className="button-home-container">
+     { !liveDemo && <div className="button-home-container">
         <Button
           variant="contained"
           color="primary"
@@ -139,13 +139,7 @@ const QrGenerator = ({ prop }) => {
         >
           Download WEBP
         </Button>
-      </div>
-      <div className="button-stats-home-container">
-        {/* <Button variant="contained" startIcon={<LeaderboardIcon />}    style={{ width: '100%' }}
->
-  number of scans
-</Button> */}
-      </div>
+      </div>}
     </div>
   );
 };

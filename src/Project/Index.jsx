@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
+import QrGenerator from "./QrGenerator";
 
 const Home = ({ prop }) => {
   const [activeTool, setActiveTool] = useState("Link");
@@ -21,7 +22,7 @@ const Home = ({ prop }) => {
 
   return (
     <div>
-      <SideBar
+        <SideBar
         prop={{ qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, isMobile }}
       />
     </div>

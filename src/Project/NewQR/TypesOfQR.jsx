@@ -5,9 +5,11 @@ import QrDemo from "./QrDemo";
 import Links from "../InputComponents/Links";
 import CustomizedAccordions from "./QrDesigns";
 import { useTheme } from "@emotion/react";
+import QrGenerator from "../QrGenerator";
 
 const TypesOfQR = ({ prop }) => {
   const { handleComplete, qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, activeStep, isMobile, showMobileQR, setShowMobileQR } = prop;
+  const liveDemo = true
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const inputClick = (e) => {
@@ -76,9 +78,10 @@ const TypesOfQR = ({ prop }) => {
         <div className="container-custom">We are at step 2</div>
       )}
       {activeStep === 2 && (
+        <div className="flex-col" style={{width:'100%'}}>{isMobile && <div><QrGenerator prop={{qrCodeSettings, liveDemo}}/></div>}
         <div className="container-custom">
           <CustomizedAccordions prop={{setQrCodeSettings, qrCodeSettings, handleComplete}}/>
-        </div>
+        </div></div>
       )}
      {!isMobile && <QrDemo prop={{qrCodeSettings}}/>}
      {isMobile && showMobileQR && <Dialog
