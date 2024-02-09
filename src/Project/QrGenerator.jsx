@@ -87,27 +87,29 @@ const QrGenerator = ({ prop }) => {
         },
         imageOptions: {
           crossOrigin: "anonymous",
-          margin: 20,
+          margin: 10,
+          hideBackgroundDots:'true'
         },
       });
-      setTimeout(() => {
-        setQrImageUrl(
-          canvasElement.querySelector("canvas").toDataURL("image/png")
-        );
-      }, 1);
+      
+        
+     
       setQrCode(newQrCode);
       newQrCode.append(canvasElement);
+      // setQrImageUrl(
+      //   canvasElement.querySelector("canvas").toDataURL("image/png")
+      // );
     }
   }, [data, canvasRef, qrCodeSettings]);
 
   return (
     <div className={liveDemo ? "live-demo" : "qr-home-container"}>
-      <div ref={canvasRef} style={{ display: "none" }}></div>
-      {data && qrImageUrl && (
-        <div className={liveDemo ? "qr-box-home-live-demo" : "qr-box-home"}>
-          <img src={qrImageUrl} alt="QR Code" className="opacity-1" />
-        </div>
-      )}{" "}
+      {/* <div ref={canvasRef} style={{ display: "none" }}></div> */}
+      {data && (
+  <div ref={canvasRef} className={liveDemo ? "qr-code-container-mobile" : "qr-code-container"}></div>
+
+)}
+
       {!data && (
         <div className="qr-box-home">
           <img

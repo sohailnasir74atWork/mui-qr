@@ -593,6 +593,7 @@ p {
   /* margin-top: 40px; */
   /* width: 300px;
   height: 300px; */
+  /* margin: 30px; */
   display: flex;
   justify-content: center; /* Center the image horizontally */
   align-items: center; /* Center the image vertically */
@@ -634,10 +635,9 @@ p {
 
 .opacity-1 {
   opacity: 1;
-  max-width: 100%; /* Make sure the image does not exceed the width of the container */
-  max-height: 100%; /* Make sure the image does not exceed the height of the container */
-  width: auto; /* Allow the image to shrink to fit its container */
-  height: auto; /* Allow the image to shrink to fit its container */
+  width: 70%; /* Make sure the image does not exceed the width of the container */
+  height: 70%; /* Make sure the image does not exceed the height of the container */
+  
 }
 
 .button-home-container {
@@ -791,4 +791,25 @@ p {
     box-shadow: 0 0px 9px 0 rgba(0, 0, 0, 0.5);
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px
+}
+.qr-code-container{
+  width: 300px;
+  height: 300px;
+  padding:20px;
+  background-color: var(--white-color);
+}
+.qr-code-container canvas {
+  width: 250px;
+  height: 250px;
+  object-fit: contain; /* This ensures the content is scaled to maintain its aspect ratio while fitting within the element's content box. */
+}
+.qr-code-container-mobile{
+  width: 150px;
+  height: 150px;
+  background-color: var(--white-color);
+}
+.qr-code-container-mobile canvas {
+  width: 150px;
+  height: 150px;
+  object-fit: contain; /* This ensures the content is scaled to maintain its aspect ratio while fitting within the element's content box. */
 }

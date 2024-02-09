@@ -26,10 +26,10 @@ const LogoHandling = ({ prop }) => {
 
   const handleClickLogo = (logo) => {
     // Update QR code settings on logo click
-    // setQrCodeSettings((prevSettings) => ({
-    //   ...prevSettings,
-    //   logo: logo,
-    // }));
+    setQrCodeSettings((prevSettings) => ({
+      ...prevSettings,
+      logo: logo,
+    }));
   };
 
   return (
