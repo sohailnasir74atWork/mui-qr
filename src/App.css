@@ -322,6 +322,7 @@ p {
 .center {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .types-of-qr-container {
