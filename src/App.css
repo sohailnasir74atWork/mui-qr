@@ -219,8 +219,9 @@ p {
 .color-picker {
   position: absolute !important;
   left: 200px !important;
-  top: 0% !important;
-  z-index: 1000 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  z-index: 100000000000 !important;
   background-color: lightgray;
 
   @media (max-width: 600px) {

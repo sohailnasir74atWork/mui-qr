@@ -64,7 +64,7 @@ export default function FixedBottomNavigation({prop}) {
 const liveDemo = true
 
   return (
-    <Box sx={{ pb: 7, width: '100%', maxWidth: 500, position: 'relative', margin: 'auto' }}>
+    <Box sx={{ pb: 7, width: '100%', maxWidth: 500, position: 'relative', margin: 'auto', height:'100vh' }}>
       <div className="live-demo-container">
             <QrGenerator prop={{ qrCodeSettings, liveDemo }} />
           </div>
@@ -72,10 +72,10 @@ const liveDemo = true
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
-        style={{height:'100%'}}
+        style={{height:'100vh'}}
           >
         {designCard.map((option, index) => (
-          <TabPanel value={value} index={index} key={index} dir={theme.direction} style={{height:'100%'}}>
+          <TabPanel value={value} index={index} key={index} dir={theme.direction} style={{height:'100vh'}}>
             {option} 
           </TabPanel>
         ))}
