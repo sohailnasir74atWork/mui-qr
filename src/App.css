@@ -208,6 +208,7 @@ p {
   /* Set position to relative */
   flex-direction: column;
   margin-bottom: 10px;
+  z-index: 100000000000 !important;
 
 
 }
@@ -658,6 +659,9 @@ p {
 
 .input_rgba .input_rgba-wrap input,
 .input_rgba .input_rgba-wrap .input_rgba-hex input {
+  height: 20px;
+}
+.input_rgba-alpha{
   height: 20px;
 }
 
