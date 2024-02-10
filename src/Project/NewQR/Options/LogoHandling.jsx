@@ -77,7 +77,6 @@ const LogoHandling = ({ prop }) => {
           onClick={() => handleClickLogo(cornerDot1)}
         />
       </div>
-      <Divider />
     </div>
   );
 };

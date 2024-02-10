@@ -14,7 +14,7 @@ import ColorHandling from './Options/ColorHandling';
 import ShapesHandling from './Options/ShapesHandling';
 import LogoHandling from './Options/LogoHandling';
 import MobileQRDemo from './MobileQRDemo';
-import QrGenerator from '../QrGenerator';
+import QrGenerator from './QrGenerator';
 
 // Define your options array here
 const options = [
@@ -36,6 +36,7 @@ function TabPanel(props) {
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
       {...other}
+      
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -51,10 +52,10 @@ export default function FixedBottomNavigation({prop}) {
   const [value, setValue] = React.useState(0);
   const {qrCodeSettings, setQrCodeSettings, isMobile} = prop
   const designCard = [
-    <ColorHandling  prop={{qrCodeSettings, setQrCodeSettings}}/>,
-      <ShapesHandling prop={{qrCodeSettings, setQrCodeSettings}}/> ,
-     <LogoHandling prop={{qrCodeSettings, setQrCodeSettings}}/> ,
-     <LogoHandling prop={{qrCodeSettings, setQrCodeSettings}} /> ,
+    <ColorHandling  prop={{qrCodeSettings, setQrCodeSettings, isMobile}}/>,
+      <ShapesHandling prop={{qrCodeSettings, setQrCodeSettings, isMobile}}/> ,
+     <LogoHandling prop={{qrCodeSettings, setQrCodeSettings, isMobile}}/> ,
+     <LogoHandling prop={{qrCodeSettings, setQrCodeSettings, isMobile}} /> ,
    ];
 
   const handleChangeIndex = (index) => {
@@ -71,9 +72,10 @@ const liveDemo = true
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
-      >
+        style={{height:'100%'}}
+          >
         {designCard.map((option, index) => (
-          <TabPanel value={value} index={index} key={index} dir={theme.direction}>
+          <TabPanel value={value} index={index} key={index} dir={theme.direction} style={{height:'100%'}}>
             {option} 
           </TabPanel>
         ))}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
-import QrGenerator from "./QrGenerator";
 import { Helmet } from "react-helmet";
 
 const Home = ({ prop }) => {

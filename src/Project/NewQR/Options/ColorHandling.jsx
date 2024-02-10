@@ -3,7 +3,7 @@ import GradientColorPicker from "./ColorHelper.jsx/GradientColorPicker";
 import { Divider } from "@mui/material";
 import { SpaceBar } from "@mui/icons-material";
 const ColorHandling = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings } = prop;
+  const { setQrCodeSettings, qrCodeSettings, isMobile } = prop;
   // console.log(qrCodeSettings);
 
   return (

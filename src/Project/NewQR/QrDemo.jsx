@@ -8,7 +8,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import mobileFrame from "../../Assets/mobileFrame.webp";
-import QrGenerator from "../QrGenerator";
+import QrGenerator from "./QrGenerator";
 
 export default function QrDemo({ prop }) {
   const { qrCodeSettings } = prop;

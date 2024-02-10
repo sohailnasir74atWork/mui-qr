@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import QRCodeStyling from "qr-code-styling";
-import qrPlaceHolder from "../Assets/qrPlaceHolder.svg";
+import qrPlaceHolder from "../../Assets/qrPlaceHolder.svg";
 import { Button } from "@mui/material";
-import { parseLinearGradient } from "./gradientParser";
+import { parseLinearGradient } from "../gradientParser";
 const QrGenerator = ({ prop }) => {
   const { qrCodeSettings, liveDemo } = prop;
   const [qrCode, setQrCode] = useState(null);

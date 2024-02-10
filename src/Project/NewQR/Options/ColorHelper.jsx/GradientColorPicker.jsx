@@ -56,6 +56,7 @@ const GradientColorPicker = ({
   setSolidColor,
   solidColor,
   hideTransparent,
+  isMobile
 }) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [isTransparentToggleOn, setIsTransparentToggleOn] = useState(false);

@@ -5,7 +5,7 @@ import QrDemo from "./QrDemo";
 import Links from "../InputComponents/Links";
 import CustomizedAccordions from "./QrDesigns";
 import { useTheme } from "@emotion/react";
-import QrGenerator from "../QrGenerator";
+import QrGenerator from "./QrGenerator";
 
 const TypesOfQR = ({ prop }) => {
   const {
