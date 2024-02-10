@@ -104,11 +104,11 @@ const TypesOfQR = ({ prop }) => {
       {activeStep === 2 && !isMobile && (
         <div className="container-custom">
           <CustomizedAccordions
-            prop={{ setQrCodeSettings, qrCodeSettings, handleComplete }}
+            prop={{ setQrCodeSettings, qrCodeSettings, handleComplete, isMobile }}
           />
         </div>
       )}
-      {activeStep === 2 && isMobile && (
+      {activeStep === 2 && !isMobile && (
         <div className="flex-col" style={{ width: "100%" }}>
           {" "}
           <div className="live-demo-container">
@@ -120,7 +120,7 @@ const TypesOfQR = ({ prop }) => {
             <br />
             <br />
             <CustomizedAccordions
-              prop={{ setQrCodeSettings, qrCodeSettings, handleComplete }}
+              prop={{ setQrCodeSettings, qrCodeSettings, handleComplete, isMobile }}
             />
           </div>
         </div>

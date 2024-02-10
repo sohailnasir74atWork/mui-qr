@@ -778,19 +778,19 @@ p {
   margin: auto;
   z-index: 1;
   /* width: 100%; */
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 .live-demo-container {
-  position: fixed;
-  top:0;
-  right: 0;
+  /* position: fixed; */
+  padding:5px;
     z-index: 10000;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0px 9px 0 rgba(0, 0, 0, 0.5);
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px
+    /* background-color: var(--background-color); */
+    /* background: rgba(0, 0, 0, 0.5); */
+    /* box-shadow: 0 0px 9px 0 rgba(0, 0, 0, 0.5); */
+    /* border-bottom-right-radius: 15px; */
+    /* border-bottom-left-radius: 15px */
 }
 .qr-code-container{
   width: 300px;
@@ -804,12 +804,12 @@ p {
   object-fit: contain; /* This ensures the content is scaled to maintain its aspect ratio while fitting within the element's content box. */
 }
 .qr-code-container-mobile{
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   background-color: var(--white-color);
 }
 .qr-code-container-mobile canvas {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: contain; /* This ensures the content is scaled to maintain its aspect ratio while fitting within the element's content box. */
 }

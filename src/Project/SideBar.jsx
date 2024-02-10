@@ -471,7 +471,7 @@ export default function SideBar({ prop }) {
         <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
         <DrawerHeader prop={{ isMobile }} />
         {renderContent()}
-        {activeStep > 0 && isMobile && (
+        {activeStep > 1 && isMobile && (
           <FixedBottomNavigation
             prop={{
               handleComplete,

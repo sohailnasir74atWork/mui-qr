@@ -1,24 +1,83 @@
 import * as React from 'react';
+import { useTheme } from '@mui/material/styles';
+import SwipeableViews from 'react-swipeable-views';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import QrCodeIcon from '@mui/icons-material/QrCode';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import { ArrowBack, ArrowForward, CheckCircleOutline } from '@mui/icons-material';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
+import CropOriginalIcon from '@mui/icons-material/CropOriginal';
+import ColorHandling from './Options/ColorHandling';
+import ShapesHandling from './Options/ShapesHandling';
+import LogoHandling from './Options/LogoHandling';
+import MobileQRDemo from './MobileQRDemo';
+import QrGenerator from '../QrGenerator';
 
-export default function FixedBottomNavigation({ prop }) {
-  const [value, setValue] = React.useState(0);
-  const { handleComplete, activeStep, completed, completedSteps, totalSteps, handleBack, showMobileQR, setShowMobileQR } = prop;
-  const handleQR = ()=>{
-    setShowMobileQR(!showMobileQR)
-  }
+// Define your options array here
+const options = [
+  { label: "Colors", icon: <ColorLensIcon /> },
+  { label: "Shapes", icon: <DashboardCustomizeIcon /> },
+  { label: "Log", icon: <FaceRetouchingNaturalIcon /> },
+  { label: "Frames", icon: <CropOriginalIcon /> },
+];
+
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
 
   return (
-    <Box sx={{ pb: 7 }}>
-      <CssBaseline />
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`tabpanel-${index}`}
+      aria-labelledby={`tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+export default function FixedBottomNavigation({prop}) {
+  const theme = useTheme();
+  const [value, setValue] = React.useState(0);
+  const {qrCodeSettings, setQrCodeSettings} = prop
+  const designCard = [
+    <ColorHandling  prop={{qrCodeSettings, setQrCodeSettings}}/>,
+      <ShapesHandling prop={{qrCodeSettings, setQrCodeSettings}}/> ,
+     <LogoHandling prop={{qrCodeSettings, setQrCodeSettings}}/> ,
+     <LogoHandling prop={{qrCodeSettings, setQrCodeSettings}} /> ,
+   ];
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+const liveDemo = true
+
+  return (
+    <Box sx={{ pb: 7, width: '100%', maxWidth: 500, position: 'relative', margin: 'auto' }}>
+      <div className="live-demo-container">
+            <QrGenerator prop={{ qrCodeSettings, liveDemo }} />
+          </div>
+      <SwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+        {designCard.map((option, index) => (
+          <TabPanel value={value} index={index} key={index} dir={theme.direction}>
+            {option} 
+          </TabPanel>
+        ))}
+      </SwipeableViews>
       <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
         <BottomNavigation
           showLabels
@@ -27,33 +86,13 @@ export default function FixedBottomNavigation({ prop }) {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction icon={<Button
-                color="primary"
-                variant="outlined"
-                disabled={activeStep === 0 || completedSteps() === totalSteps()}
-                onClick={handleBack}
-                sx={{ mr: 1 }}
-                startIcon={<ArrowBack />}
-                className="button"
-              >
-                Back
-              </Button>} />
-          <BottomNavigationAction icon={<QrCodeIcon />} onClick={handleQR}/>
-
-          {/* Custom Button as the third action */}
-          <BottomNavigationAction
-            icon={
-              <Button
-                onClick={handleComplete}
-                variant="contained"
-                color={completedSteps() === totalSteps() - 1 ? 'success' : 'primary'}
-                endIcon={completedSteps() === totalSteps() - 1 ? null : <ArrowForward />}
-                className="button"
-              >
-                {completedSteps() === totalSteps() - 1 ? 'Finish' : 'Next'}
-              </Button>
-            }
-          />
+          {options.map((option, index) => (
+            <BottomNavigationAction
+              key={option.label}
+              label={option.label}
+              icon={option.icon}
+            />
+          ))}
         </BottomNavigation>
       </Paper>
     </Box>
