@@ -28,7 +28,12 @@ import {
 import TypesOfQR from "./NewQR/TypesOfQR.jsx";
 import InputsSection from "./NewQR/InputsSection.jsx";
 import { sideBar } from "./NewQR/TypesofQRList.js";
-import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import {
+  ArrowBack,
+  ArrowCircleLeftRounded,
+  ArrowCircleRightRounded,
+  ArrowForward,
+} from "@mui/icons-material";
 import FixedBottomNavigation from "./NewQR/MobileBottomNav.jsx";
 import MyQr from "./MyQr.jsx";
 const drawerWidth = 240;
@@ -132,7 +137,7 @@ export default function SideBar({ prop }) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
-  const [showMobileQR, setShowMobileQR] = React.useState(false)
+  const [showMobileQR, setShowMobileQR] = React.useState(false);
 
   console.log(isMobile);
   useEffect(() => {
@@ -194,7 +199,8 @@ export default function SideBar({ prop }) {
   };
 
   const handleListItemClick = (index) => {
-    if(isMobile) {    setOpen(false);
+    if (isMobile) {
+      setOpen(false);
     }
     setSelectedIndex(index);
     setCompleted({});
@@ -224,8 +230,7 @@ export default function SideBar({ prop }) {
               setActiveTool,
               isMobile,
               showMobileQR,
-              setShowMobileQR
-            
+              setShowMobileQR,
             }}
           />
         );
@@ -235,7 +240,7 @@ export default function SideBar({ prop }) {
         return <Typography paragraph>Templates</Typography>;
       // ... Add cases for other indexes
       default:
-        return <MyQr/>;
+        return <MyQr />;
     }
   };
   return (
@@ -243,18 +248,20 @@ export default function SideBar({ prop }) {
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ background: "#f1f1f1" }}>
         <Toolbar>
-          {!isMobile && <IconButton
-            color="black"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>}
+          {!isMobile && (
+            <IconButton
+              color="black"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 5,
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
           <Stepper nonLinear activeStep={activeStep}>
             {steps.map((label, index) => (
               <Step key={label} completed={completed[index]}>
@@ -264,62 +271,142 @@ export default function SideBar({ prop }) {
               </Step>
             ))}
           </Stepper>
-          {isMobile && <IconButton
-            color="black"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              position:'absolute',
-              right:'10px',
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>}
+          {isMobile && (
+            <IconButton
+              color="black"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                position: "absolute",
+                right: "10px",
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
           <React.Fragment>
             {/* <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
               Step {activeStep + 1}
             </Typography> */}
-            {!isMobile && <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                position: "fixed",
-                right: "20px",
-              }}
-            >
-              <Button
-                color="primary"
-                variant="outlined"
-                disabled={activeStep === 0 || completedSteps() === totalSteps()}
-                onClick={handleBack}
-                sx={{ mr: 1 }}
-                startIcon={<ArrowBack />}
-                className="button"
+            {!isMobile && (
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  position: "fixed",
+                  right: "20px",
+                }}
               >
-                Back
-              </Button>
-              <Box sx={{ flex: "1 1 auto" }} />
-              {/* <Button onClick={handleNext} sx={{ mr: 1 }}>
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  disabled={
+                    activeStep === 0 || completedSteps() === totalSteps()
+                  }
+                  onClick={handleBack}
+                  sx={{ mr: 1 }}
+                  startIcon={<ArrowBack />}
+                  className="button"
+                >
+                  Back
+                </Button>
+                <Box sx={{ flex: "1 1 auto" }} />
+                {/* <Button onClick={handleNext} sx={{ mr: 1 }}>
                 Next
               </Button> */}
-              {activeStep !== steps.length &&
-                (completed[activeStep] ? (
-                  <Typography
-                    variant="caption"
-                    sx={{ display: "inline-block" }}
-                  >
-                    {/* Step {activeStep + 1} already completed */}
-                  </Typography>
-                ) : (
-                  <Button onClick={handleComplete} variant="contained" color={completedSteps() === totalSteps() - 1 ? "success" : 'primary'} endIcon={completedSteps() === totalSteps() - 1 ? "" : <ArrowForward/>}                 className="button"
-                  >
-                    {completedSteps() === totalSteps() - 1 ? "Finish" : "Next"}
-
-                  </Button>
-                ))}
-            </Box>}
+                {activeStep !== steps.length &&
+                  (completed[activeStep] ? (
+                    <Typography
+                      variant="caption"
+                      sx={{ display: "inline-block" }}
+                    >
+                      {/* Step {activeStep + 1} already completed */}
+                    </Typography>
+                  ) : (
+                    <Button
+                      onClick={handleComplete}
+                      variant="contained"
+                      color={
+                        completedSteps() === totalSteps() - 1
+                          ? "success"
+                          : "primary"
+                      }
+                      endIcon={
+                        completedSteps() === totalSteps() - 1 ? (
+                          ""
+                        ) : (
+                          <ArrowForward />
+                        )
+                      }
+                      className="button"
+                    >
+                      {completedSteps() === totalSteps() - 1
+                        ? "Finish"
+                        : "Next"}
+                    </Button>
+                  ))}
+              </Box>
+            )}
+            {isMobile && (
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  position: "fixed",
+                  right: "50px",
+                }}
+              >
+                <IconButton
+                  color="primary"
+                  variant="outlined"
+                  disabled={
+                    activeStep === 0 || completedSteps() === totalSteps()
+                  }
+                  onClick={handleBack}
+                  sx={{ mr: 1 }}
+                  // startIcon={<ArrowBack />}
+                  className="button"
+                >
+<ArrowCircleLeftRounded  />
+                </IconButton>
+                <Box sx={{ flex: "1 1 auto" }} />
+                {/* <Button onClick={handleNext} sx={{ mr: 1 }}>
+                Next
+              </Button> */}
+                {activeStep !== steps.length &&
+                  (completed[activeStep] ? (
+                    <Typography
+                      variant="caption"
+                      sx={{ display: "inline-block" }}
+                    >
+                      {/* Step {activeStep + 1} already completed */}
+                    </Typography>
+                  ) : (
+                    <IconButton
+                      onClick={handleComplete}
+                      variant="contained"
+                      color={
+                        completedSteps() === totalSteps() - 1
+                          ? "success"
+                          : "primary"
+                      }
+                      endIcon={
+                        completedSteps() === totalSteps() - 1 ? (
+                          ""
+                        ) : (
+                          <ArrowForward />
+                        )
+                      }
+                      className="button"
+                    >
+                      {/* {completedSteps() === totalSteps() - 1 ? "Finish" : "Next"} */}
+                      <ArrowCircleRightRounded />
+                    </IconButton>
+                  ))}
+              </Box>
+            )}
           </React.Fragment>
         </Toolbar>
       </AppBar>
@@ -348,9 +435,13 @@ export default function SideBar({ prop }) {
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                   borderRight:
-                    selectedIndex === index ? "3px solid var(--darkgreen-color) !important" : "", // Change background color for selected item
-                    color:
-                    selectedIndex === index ? "var(--darkgreen-color) !important" : "", // Change 
+                    selectedIndex === index
+                      ? "3px solid var(--darkgreen-color) !important"
+                      : "", // Change background color for selected item
+                  color:
+                    selectedIndex === index
+                      ? "var(--darkgreen-color) !important"
+                      : "", // Change
                   px: 2.5,
                 }}
               >
@@ -360,7 +451,9 @@ export default function SideBar({ prop }) {
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
                     color:
-                    selectedIndex === index ? "var(--darkgreen-color) !important" : "", // Change 
+                      selectedIndex === index
+                        ? "var(--darkgreen-color) !important"
+                        : "", // Change
                   }}
                 >
                   {text.icon}
@@ -376,15 +469,28 @@ export default function SideBar({ prop }) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>
         <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
-        <DrawerHeader prop={{isMobile}}/>
+        <DrawerHeader prop={{ isMobile }} />
         {renderContent()}
-        {activeStep > 0 && isMobile && <FixedBottomNavigation prop={{handleComplete,
+        {activeStep > 0 && isMobile && (
+          <FixedBottomNavigation
+            prop={{
+              handleComplete,
               activeStep,
               qrCodeSettings,
               setQrCodeSettings,
               activeTool,
               setActiveTool,
-              isMobile, completed, completedSteps, totalSteps, handleBack, showMobileQR, setShowMobileQR, qrCodeSettings}}/>}
+              isMobile,
+              completed,
+              completedSteps,
+              totalSteps,
+              handleBack,
+              showMobileQR,
+              setShowMobileQR,
+              qrCodeSettings,
+            }}
+          />
+        )}
       </Box>
     </Box>
   );
