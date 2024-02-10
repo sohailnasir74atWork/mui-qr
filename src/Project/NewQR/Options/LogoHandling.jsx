@@ -6,7 +6,7 @@ import cornerDot1 from "../../../Assets/Shapes/cornerDot1.svg";
 import "./optionsStyles.css";
 
 const LogoHandling = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings } = prop;
+  const { setQrCodeSettings, qrCodeSettings, isMobile } = prop;
 
   const handleUploadLogo = (event) => {
     const file = event.target.files[0];
@@ -33,8 +33,8 @@ const LogoHandling = ({ prop }) => {
   };
 
   return (
-    <div className="option-container-home p-v-15 accordion-open">
-      <div className="button-logo">
+<div className={ isMobile ? "option-container-home p-v-15 accordion-open" : "p-v-15 accordion-open"}> 
+     <div className="button-logo">
         <input
           type="file"
           accept="image/*"

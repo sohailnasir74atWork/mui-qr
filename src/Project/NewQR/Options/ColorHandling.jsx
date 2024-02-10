@@ -7,7 +7,7 @@ const ColorHandling = ({ prop }) => {
   // console.log(qrCodeSettings);
 
   return (
-    <div className="option-container-home p-v-15 accordion-open">
+    <div className={ isMobile ? "option-container-home p-v-15 accordion-open" : "p-v-15 accordion-open"}>
       <div className="accordion-content">
         <div className="block heading-3">Background Color</div>
 

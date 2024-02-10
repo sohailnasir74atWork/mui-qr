@@ -75,7 +75,7 @@ const liveDemo = true
         style={{height:'100vh'}}
           >
         {designCard.map((option, index) => (
-          <TabPanel value={value} index={index} key={index} dir={theme.direction} style={{height:'100vh'}}>
+          <TabPanel value={value} index={index} key={index} dir={theme.direction} style={{boxShadow:'100vh'}}>
             {option} 
           </TabPanel>
         ))}

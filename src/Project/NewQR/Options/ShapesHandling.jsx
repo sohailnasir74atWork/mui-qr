@@ -6,7 +6,7 @@ import cornerDot1 from "../../../Assets/Shapes/cornerDot1.svg"
 import "./optionsStyles.css";
 
 const ShapesHandling = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings } = prop;
+  const { setQrCodeSettings, qrCodeSettings, isMobile } = prop;
   console.log(qrCodeSettings)
 
   // Array of image sources
@@ -69,8 +69,8 @@ const ShapesHandling = ({ prop }) => {
     });
   };
   return (
-    <div className="option-container-home p-v-15 accordion-open">
-      <div className="accordion-content">
+<div className={ isMobile ? "option-container-home p-v-15 accordion-open" : "p-v-15 accordion-open"}> 
+     <div className="accordion-content">
         <div className="block heading-3">Dots Styles</div>
         <div className="image-list">
           {dotStyles.map((src, index) => (
