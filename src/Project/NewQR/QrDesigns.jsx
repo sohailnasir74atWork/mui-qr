@@ -11,7 +11,6 @@ import { pink, purple, green } from '@mui/material/colors';
 import ColorHandling from './Options/ColorHandling';
 import ShapesHandling from "./Options/ShapesHandling"
 import FilterFramesIcon from '@mui/icons-material/FilterFrames';
-import AppleIcon from '@mui/icons-material/Apple';// import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import LogoHandling from './Options/LogoHandling';
 const Accordion = styled((props) => (

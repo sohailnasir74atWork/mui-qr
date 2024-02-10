@@ -49,7 +49,7 @@ function TabPanel(props) {
 export default function FixedBottomNavigation({prop}) {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-  const {qrCodeSettings, setQrCodeSettings} = prop
+  const {qrCodeSettings, setQrCodeSettings, isMobile} = prop
   const designCard = [
     <ColorHandling  prop={{qrCodeSettings, setQrCodeSettings}}/>,
       <ShapesHandling prop={{qrCodeSettings, setQrCodeSettings}}/> ,

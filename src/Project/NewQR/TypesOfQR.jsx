@@ -108,7 +108,7 @@ const TypesOfQR = ({ prop }) => {
           />
         </div>
       )}
-      {activeStep === 2 && !isMobile && (
+      {/* {activeStep === 2 && !isMobile && (
         <div className="flex-col" style={{ width: "100%" }}>
           {" "}
           <div className="live-demo-container">
@@ -124,7 +124,7 @@ const TypesOfQR = ({ prop }) => {
             />
           </div>
         </div>
-      )}
+      )} */}
       {!isMobile && <QrDemo prop={{ qrCodeSettings }} />}
       {isMobile && showMobileQR && (
         <Dialog
