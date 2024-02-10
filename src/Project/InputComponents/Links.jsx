@@ -1,164 +1,97 @@
-import { Button, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Button, TextField, Slider } from "@mui/material";
 import ErrorBar from "../Error";
 
 const Links = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings, handleComplete, isMobile } = prop;
-  const [value, setValue] = useState("");
-  const [qrName, setQrName] = useState("");
-  const [width, setWidth] = useState(qrCodeSettings.size.width);
-  const [height, setHeight] = useState(qrCodeSettings.size.height);
+  const { setQrCodeSettings, qrCodeSettings, handleComplete } = prop;
+  const [value, setValue] = useState(qrCodeSettings.inputData.url);
+  const [qrName, setQrName] = useState(qrCodeSettings.qrName);
+  const [size, setSize] = useState(qrCodeSettings.size.width); // Assuming width and height are initially the same
   const [urlError, setUrlError] = useState("");
   const [nameError, setNameError] = useState("");
-  const [widthError, setWidthError] = useState("");
-  const [heightError, setHeightError] = useState("");
+
   useEffect(() => {
     setValue(qrCodeSettings.inputData.url);
     setQrName(qrCodeSettings.qrName);
-    setWidth(qrCodeSettings.size.width);
-    setHeight(qrCodeSettings.size.height);
+    setSize(qrCodeSettings.size.width); // Sync with external updates
   }, [qrCodeSettings]);
 
   const handleInputChange = (event) => {
-    const updatedValue = event.target.value;
-    setValue(updatedValue);
+    setValue(event.target.value);
     setUrlError("");
   };
 
   const handleQRNameChange = (event) => {
-    const updatedQRNameValue = event.target.value;
-    setQrName(updatedQRNameValue);
+    setQrName(event.target.value);
     setNameError("");
   };
 
-  const handleWidthChange = (event) => {
-    const updatedWidth = event.target.value;
-    setWidth(updatedWidth);
-    setWidthError("");
-  };
-
-  const handleHeightChange = (event) => {
-    const updatedHeight = event.target.value;
-    setHeight(updatedHeight);
-    setHeightError("");
+  const handleSizeChange = (_, newValue) => {
+    setSize(newValue);
   };
 
   const handleSubmit = () => {
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-    const isValidUrl = urlRegex.test(value);
-    const isQrNameValid = qrName.trim() !== "";
-
-    // Validate width and height
-    if (width.trim() < 30) {
-      setWidthError("Width should not be less than 30");
-    } else {
-      setWidthError("");
-    }
-
-    if (height.trim() < 30) {
-      setHeightError("Height should not be less than 30");
-    } else {
-      setHeightError("");
-    }
-
-    // Set errors based on validation results
-    if (!isValidUrl || value.trim() === "") {
+    if (!urlRegex.test(value)) {
       setUrlError("Please enter a valid URL");
-    } else {
-      setUrlError("");
+      return;
     }
-
-    if (!isQrNameValid) {
+    if (!qrName.trim()) {
       setNameError("Name should not be empty");
-    } else {
-      setNameError("");
+      return;
     }
 
-    // If all validations pass, update the parent component's state
-    if (
-      isValidUrl &&
-      isQrNameValid &&
-      widthError === "" &&
-      heightError === ""
-    ) {
-      setQrCodeSettings((prevSettings) => ({
-        ...prevSettings,
-        inputData: { ...prevSettings.inputData, url: value },
-        qrName: qrName.trim(),
-        size: {
-          width: width.trim(),
-          height: height.trim(),
-        },
-      }));
-      handleComplete();
-    }
+    // Assuming validation for size is not needed as the slider controls the range
+    setQrCodeSettings({
+      ...qrCodeSettings,
+      inputData: { ...qrCodeSettings.inputData, url: value },
+      qrName: qrName.trim(),
+      size: { width: size, height: size }, // Apply the size to both width and height
+    });
+    handleComplete();
   };
 
   return (
     <div>
       {urlError && <ErrorBar message={urlError} />}
       {nameError && <ErrorBar message={nameError} />}
-      {widthError && <ErrorBar message={widthError} />}
-      {heightError && <ErrorBar message={heightError} />}
       <div className="heading-container">
         <span className="heading-2">Fill Out the QR Code's Content</span>
       </div>
       <TextField
         required
-        id="outlined-required"
         label="Write Your QR Name"
         value={qrName}
         onChange={handleQRNameChange}
-        style={{ width: "100%" }}
+        fullWidth
+        margin="normal"
       />
-      <br />
-      <br />
       <TextField
         required
-        id="outlined-required"
-        label="Submit Url Here"
+        label="Submit URL Here"
         value={value}
         onChange={handleInputChange}
-        style={{ width: "100%" }}
+        fullWidth
+        margin="normal"
       />
-      <p>Your QR code will open this URL</p>
+      <p>Your QR code will open this URL.</p>
 
-      <br />
-      <TextField
-        id="outlined-number"
-        label="Width"
-        defaultValue={qrCodeSettings.size.width}
-        type="number"
-        onChange={handleWidthChange}
-        error={widthError !== ""}
-        helperText={widthError}
-        InputLabelProps={{
-          shrink: true,
-        }}
-        sx={{ marginRight: "10px" }}
+      {/* Removed Width and Height TextFields */}
+      <br/>
+      <span className="heading-3">Control Size</span>
+      <br/>
+      <Slider
+        value={size}
+        onChange={handleSizeChange}
+        aria-labelledby="input-slider"
+        valueLabelDisplay="auto"
+        min={30}
+        max={1000}
+        style={{ marginTop: 10, marginBottom: 10, width:'50%' }}
       />
-      {isMobile && (
-        <>
-          <br />
-          <br />
-        </>
-      )}
+      <br/>
 
-      <TextField
-        id="outlined-number"
-        label="Height"
-        defaultValue={qrCodeSettings.size.height}
-        type="number"
-        onChange={handleHeightChange}
-        error={heightError !== ""}
-        helperText={heightError}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-      <br />
-      <br />
-      <Button variant="contained" onClick={handleSubmit} className="button">
+      <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }}>
         Submit
       </Button>
     </div>
