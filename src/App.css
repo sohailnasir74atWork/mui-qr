@@ -204,11 +204,11 @@ p {
 .color-picker-container {
   display: flex;
   height: 100%;
-  position: relative;
+  width: 100%;
+  /* position: relative; */
   /* Set position to relative */
   flex-direction: column;
   margin-bottom: 10px;
-  z-index: 100000000000 !important;
 
 
 }
@@ -221,7 +221,7 @@ p {
   position: absolute !important;
   left: 200px !important;
   top: 0 !important;
-  bottom: 0 !important;
+  /* bottom: 0 !important; */
   z-index: 100000000000 !important;
   background-color: lightgray;
 
