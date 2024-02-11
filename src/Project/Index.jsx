@@ -11,7 +11,8 @@ const Home = ({ prop }) => {
     size: { height: '300', width: '300' },
     inputData: { url: null },
     logo: null,
-    colors: {
+    logoSetting:{backgrounddots: true, margin:10},
+     colors: {
       background: { isSolid: true, color: "#FFFFFF" },
       dots: { isSolid: true, color: "#000000" },
       square: { isSolid: true, color: "#000000" },

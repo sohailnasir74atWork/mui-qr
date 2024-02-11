@@ -34,7 +34,7 @@ const QrGenerator = ({ prop }) => {
       console.error("Download function not available in QRCodeStyling.");
     }
   }
-  console.log(qrCodeSettings.logo);
+  console.log('marginq', qrCodeSettings.logoSetting.margin);
   useEffect(() => {
     if (data !== null && data !== "") {
       const canvasElement = canvasRef.current;
@@ -87,8 +87,9 @@ const QrGenerator = ({ prop }) => {
         },
         imageOptions: {
           crossOrigin: "anonymous",
-          margin: 10,
-          hideBackgroundDots:'true'
+          margin: qrCodeSettings.logoSetting.margin,
+          hideBackgroundDots:qrCodeSettings.logoSetting.backgrounddots,
+
         },
       });
       

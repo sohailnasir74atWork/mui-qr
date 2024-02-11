@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { FormControlLabel, Switch } from "@mui/material";
 import ErrorBar from "./Error";
 
-const AntSwitch = styled(Switch)(({ theme }) => ({
+export const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
   height: 16,
   padding: 0,

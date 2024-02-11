@@ -104,8 +104,9 @@ p {
 
 .text-switch {
   /* margin: 3px 0px; */
-  font-size: 12px;
+  font-size: .9rem;
   color: var(--lightgrey-color);
+
 
 
   @media (max-width: 600px) {
@@ -115,10 +116,10 @@ p {
 }
 
 .toggle-button {
-  margin-left: 20px;
-  margin-top: 5px;
+  margin-left: 15px;
+  /* margin-top: 5px; */
   display: flex;
-  width: 100px;
+  /* width: 150px; */
   justify-content: flex-end;
 
   @media (max-width: 600px) {

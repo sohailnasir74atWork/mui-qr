@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, TextField, Slider } from "@mui/material";
+import { Button, TextField, Slider, Typography } from "@mui/material";
 import ErrorBar from "../Error";
 
 const Links = ({ prop }) => {
@@ -78,8 +78,9 @@ const Links = ({ prop }) => {
 
       {/* Removed Width and Height TextFields */}
       <br/>
-      <span className="heading-3">Control Size</span>
-      <br/>
+      <Typography id="track-inverted-slider" gutterBottom>
+        Control Size
+      </Typography>
       <Slider
         value={size}
         onChange={handleSizeChange}
@@ -88,6 +89,7 @@ const Links = ({ prop }) => {
         min={30}
         max={1000}
         style={{ marginTop: 10, marginBottom: 10, width:'50%' }}
+        
       />
       <br/>
 
