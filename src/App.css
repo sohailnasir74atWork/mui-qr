@@ -636,12 +636,13 @@ p {
 }
 
 .colorpicker .color-picker-panel-board-hsv {
-  min-height: 100px;
-  height: 100px;
+  min-height: 100px !important;
+  height: 100px !important;
 }
 
 .popup_tabs {
   margin: auto !important;
+  
 }
 
 .popup_tabs-body {
