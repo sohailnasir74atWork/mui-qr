@@ -219,11 +219,15 @@ p {
 
 .color-picker {
   position: absolute !important;
-  left: 200px !important;
+  right: 0px !important;
   top: 0 !important;
-  /* bottom: 0 !important; */
+  left: 0 !important;
+  /* margin: auto; */
+  display: flex !important;
+  justify-content: center !important;
+  bottom: 0 !important;
   z-index: 100000000000 !important;
-  background-color: lightgray;
+  background-color: rgba(0, 0, 0, 0.3);
 
   @media (max-width: 600px) {
     left: 140px !important;
@@ -689,6 +693,9 @@ p {
 .colorpicker .color-picker-panel-board-hsv {
   min-height: 100px;
   height: 100px;
+}
+.popup_tabs{
+margin: auto !important;
 }
 
 .popup_tabs-body {

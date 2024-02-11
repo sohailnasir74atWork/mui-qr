@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import  ReactGPicker  from 'react-gcolor-picker';
+import ReactGPicker from 'react-gcolor-picker';
 import styled from "@emotion/styled";
-import Switch from "@mui/material/Switch";
-import { FormControlLabel } from "@mui/material";
+import { FormControlLabel, Switch } from "@mui/material";
 import ErrorBar from "./Error";
-import { Flag } from "@mui/icons-material";
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
@@ -42,10 +40,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-track": {
     borderRadius: 16 / 2,
     opacity: 1,
-    backgroundColor:
-      theme.palette.mode === "dark"
-        ? "rgba(255,255,255,.35)"
-        : "rgba(0,0,0,.25)",
+    backgroundColor: theme.palette.mode === "dark" ? "rgba(255,255,255,.35)" : "rgba(0,0,0,.25)",
     boxSizing: "border-box",
   },
 }));
@@ -62,52 +57,46 @@ const GradientColorPicker = ({
   const [isTransparentToggleOn, setIsTransparentToggleOn] = useState(false);
   const [isGradientToggleOn, setIsGradientToggleOn] = useState(false);
   const [showError, setShowError] = useState(false);
-  const [errorTransparent, seterrorTransparent] = useState(false);
-
-// console.log(solidColor)
+  const [errorTransparent, setErrorTransparent] = useState(false);
   const colorPickerRef = useRef();
 
   const handleColorChange = (newColor) => {
     setColor(newColor);
   };
 
+  const handleInputChange = (event) => {
+    setColor(event.target.value);
+  };
+
   const handleTransparentToggle = () => {
     if (!isGradientToggleOn) {
-      setIsTransparentToggleOn((prev) => {
-        const newTransparentState = !prev;
-        setColor(newTransparentState ? "" : "#ffffff");
-        return newTransparentState;
-      });
+      setIsTransparentToggleOn(!isTransparentToggleOn);
+      setColor(isTransparentToggleOn ? "#ffffff" : "");
     } else {
-      setShowError((prev) => !prev);
+      setShowError(true);
     }
     setShowColorPicker(false);
   };
 
   const handleGradientToggle = () => {
-    if(!isTransparentToggleOn){
-    setIsGradientToggleOn((prev) => !prev);
-    setSolidColor(!solidColor);
+    if (!isTransparentToggleOn) {
+      setIsGradientToggleOn(!isGradientToggleOn);
+      setSolidColor(!solidColor);
+    } else {
+      setErrorTransparent(true);
+    }
     setShowColorPicker(false);
-  } else {
-    seterrorTransparent((prev) => !prev);
-  }} 
+  };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+    const handleClickOutside = (event) => {
+      if (colorPickerRef.current && !colorPickerRef.current.contains(event.target)) {
+        setShowColorPicker(false);
+      }
     };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  const handleClickOutside = (event) => {
-    if (
-      colorPickerRef.current &&
-      !colorPickerRef.current.contains(event.target)
-    ) {
-      setShowColorPicker(false);
-    }
-  };
 
   const handleDemoClick = () => {
     setShowColorPicker(!showColorPicker);
@@ -116,67 +105,50 @@ const GradientColorPicker = ({
   return (
     <div>
       <div className="color-picker-container">
-        {showError && <ErrorBar message={'Please disbale gradient mode'}/>}
-        {errorTransparent && <ErrorBar message={'Please disbale transparent mode'}/>}
-
-        <div style={{ display: "flex" }}></div>
-        <div
-          className="color-picker"
-          ref={colorPickerRef}
-          style={{ display: showColorPicker ? "block" : "none" }}
-        >
-          <ReactGPicker
-            color={color}
-            onChange={handleColorChange}
-            solid={isGradientToggleOn ? false : true}
-            gradient={isGradientToggleOn ? true : false}
-            format='hex'
-            popupWidth={200}
-            showGradientAngle={false}
-            showGradientResult={false}
-
-          />
-        </div>
+        {showError && <ErrorBar message="Please disable gradient mode" />}
+        {errorTransparent && <ErrorBar message="Please disable transparent mode" />}
         <div className="home-color-container">
           <div className="demo-container">
-            <div className="flex-row" style={{position:'relative'}}>
-              <input className="input-demo" value={color} readOnly/>
-            <div style={{background: color}} onClick={handleDemoClick} className="color-demo"></div>
+            <div className="flex-row" style={{ position: 'relative' }}>
+              <input className="input-demo" value={color} onChange={handleInputChange} />
+              <div style={{ background: color }} onClick={handleDemoClick} className="color-demo"></div>
             </div>
           </div>
           <div className="flex-responsive">
             <div className="toggle-button">
-              <div className="color-switch">
-                <FormControlLabel
-                  control={
-                    <AntSwitch
-                      checked={isGradientToggleOn}
-                      onChange={handleGradientToggle}
-                    />
-                  }
-                  label=""
-                />
-                <span className="text-switch">Gradient</span>
-              </div>
+              <FormControlLabel
+                control={<AntSwitch checked={isGradientToggleOn} onChange={handleGradientToggle} />}
+                label=""
+              />
+              <span className="text-switch">Gradient</span>
             </div>
             {!hideTransparent && (
               <div className="toggle-button">
-                <div className="color-switch">
-                  <FormControlLabel
-                    control={
-                      <AntSwitch
-                        checked={isTransparentToggleOn}
-                        onChange={handleTransparentToggle}
-                      />
-                    }
-                    label=""
-                  />
-                  <span className="text-switch">Transparent</span>
-                </div>
+                <FormControlLabel
+                  control={<AntSwitch checked={isTransparentToggleOn} onChange={handleTransparentToggle} />}
+                  label=""
+                />
+                <span className="text-switch">Transparent</span>
               </div>
             )}
           </div>
         </div>
+        {showColorPicker && (
+          <div className="color-picker">
+            <div ref={colorPickerRef} style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <ReactGPicker
+              color={color}
+              onChange={handleColorChange}
+              solid={!isGradientToggleOn}
+              gradient={isGradientToggleOn}
+              format='hex'
+              popupWidth={200}
+              showGradientAngle={false}
+              showGradientResult={false}
+              showInputs={false}
+            /></div>
+          </div>
+        )}
       </div>
     </div>
   );
