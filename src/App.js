@@ -53,7 +53,6 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home prop={{ isMobile }} />} />
-          {/* Other routes */}
         </Routes>
       </Router>
     </ThemeProvider>

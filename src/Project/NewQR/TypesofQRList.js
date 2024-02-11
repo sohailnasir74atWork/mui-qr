@@ -12,16 +12,15 @@ import ColorLensIcon from "@mui/icons-material/ColorLens"; // Corrected
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize"; // Corrected
 import Face4Icon from "@mui/icons-material/Face"; // Corrected
 import CropOriginalIcon from "@mui/icons-material/CropOriginal"; // Corrected
-import call from "../../Assets/icons/Call.png";
-import Text from "../../Assets/icons/Text.png";
-import SMS from "../../Assets/icons/SMS.png";
-import Email from "../../Assets/icons/Email.png";
-import Link from "../../Assets/icons/Link.png";
-import Paypal from "../../Assets/icons/Paypal.png";
-import QR from "../../Assets/icons/QR.png";
-import VCard from "../../Assets/icons/VCard.png";
-import WhatsApp from "../../Assets/icons/WhatsApp.png";
-import Wifi from "../../Assets/icons/Wifi.png";
+import call from "../../Assets/icons/call.svg";
+import Text from "../../Assets/icons/text.svg";
+import SMS from "../../Assets/icons/sms.svg";
+import Email from "../../Assets/icons/email.svg";
+import Link from "../../Assets/icons/web.svg";
+import Paypal from "../../Assets/icons/paypal.svg";
+import VCard from "../../Assets/icons/vcard.svg";
+import WhatsApp from "../../Assets/icons/whatsapp.svg";
+import Wifi from "../../Assets/icons/wifi.svg";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import BurstModeIcon from "@mui/icons-material/BurstMode";
 import QrCodeIcon from "@mui/icons-material/QrCode";
@@ -72,36 +71,36 @@ export const dymanicTools = [
 ];
 
 export const staticTools = [
-  { icon: <img src={Link} alt="Link" />, heading: "Link", text: "Open a URL" },
-  { icon: <img src={Text} alt="Text" />, heading: "Text", text: "Shows Text" },
+  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Link", text: "Open a URL" },
+  { icon: <img src={Text} alt="Text" class='img-static'/>, heading: "Text", text: "Shows Text" },
   {
-    icon: <img src={Wifi} alt="Wifi" />,
+    icon: <img src={Wifi} alt="Wifi" class='img-static'/>,
     heading: "Wi-Fi",
     text: "Connects to a WiFi",
   },
   {
-    icon: <img src={Email} alt="Email" />,
+    icon: <img src={Email} alt="Email" class='img-static'/>,
     heading: "Emil",
     text: "Send an Email with a Pre-Written Message",
   },
   {
-    icon: <img src={VCard} alt="VCard" />,
+    icon: <img src={VCard} alt="VCard" class='img-static'/>,
     heading: "V-Card",
     text: "Saves your Contect Details",
   },
   {
-    icon: <img src={WhatsApp} alt="WhatsApp" />,
+    icon: <img src={WhatsApp} alt="WhatsApp"class='img-static' />,
     heading: "WhatsApp",
     text: "Send a WhatsApp Message",
   },
-  { icon: <img src={call} alt="call" />, heading: "Call", text: "Make a Call" },
+  { icon: <img src={call} alt="call" class='img-static'/>, heading: "Call", text: "Make a Call" },
   {
-    icon: <img src={SMS} alt="SMS" />,
+    icon: <img src={SMS} alt="SMS" class='img-static'/>,
     heading: "SMS",
     text: "Send a Text Message",
   },
   {
-    icon: <img src={Paypal} alt="Paypal" />,
+    icon: <img src={Paypal} alt="Paypal" class='img-static'/>,
     heading: "PayPal",
     text: "Generate PayPal Transaction",
   },

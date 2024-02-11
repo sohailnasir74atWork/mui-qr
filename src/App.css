@@ -503,10 +503,14 @@ p {
   justify-content: center;
   align-items: center;
   height: 64px;
-  width: 100px;
+  width: 64px;
+  padding: 3px;
   background-color: var(--background-color);
   margin-right: 20px;
   border-radius: 5px;
+}
+.img-static{
+  width: 100%;
 }
 
 ::-webkit-scrollbar {
