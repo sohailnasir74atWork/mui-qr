@@ -136,64 +136,19 @@ export default function SideBar({ prop }) {
   const [open, setOpen] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [activeStep, setActiveStep] = React.useState(0);
-  const [completed, setCompleted] = React.useState({});
   const [showMobileQR, setShowMobileQR] = React.useState(false);
 
-  console.log(isMobile);
-  // useEffect(() => {
-  //   if (activeStep === 2 ) {
-  //     setSelectedIndex(3);
-  //   }
-  // }, [activeStep]);
   const handleComplete = ()=>{
-        setSelectedIndex(3);
+    setSelectedIndex(3)
   }
-  const totalSteps = () => {
-    return steps.length;
-  };
-
-  const completedSteps = () => {
-    return Object.keys(completed).length;
-  };
-
-  const isLastStep = () => {
-    return activeStep === totalSteps() - 1;
-  };
-
-  const allStepsCompleted = () => {
-    return completedSteps() === totalSteps();
-  };
-  const handleNext = () => {
-    const newActiveStep =
-      isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
-        : activeStep + 1;
-    setActiveStep(newActiveStep);
+   const handleNext = () => {
+        setActiveStep(activeStep + 1);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-
-  const handleStep = (step) => () => {
-    setActiveStep(step);
-  };
-
-  // const handleNext = () => {
-  //   const newCompleted = completed;
-  //   newCompleted[activeStep] = true;
-  //   setCompleted(newCompleted);
-  //   handleNext();
-  // };
-
-  const handleReset = () => {
-    setActiveStep(0);
-    setCompleted({});
-  };
-
-  const handleDrawerOpen = () => {
+   const handleDrawerOpen = () => {
     setOpen(true);
   };
 
@@ -206,7 +161,6 @@ export default function SideBar({ prop }) {
       setOpen(false);
     }
     setSelectedIndex(index);
-    setCompleted({});
     setActiveStep(0);
     setQrCodeSettings((prevSettings) => ({
       ...prevSettings,
@@ -268,9 +222,7 @@ export default function SideBar({ prop }) {
           <Stepper nonLinear activeStep={activeStep}>
             {steps.map((label, index) => (
               <Step key={label}>
-                <StepButton color="inherit">
-                  {!isMobile && label}
-                </StepButton>
+                <StepButton color="inherit">{!isMobile && label}</StepButton>
               </Step>
             ))}
           </Stepper>
@@ -302,20 +254,54 @@ export default function SideBar({ prop }) {
                   right: "20px",
                 }}
               >
-                {activeStep !== 0 &&<Button
+                {activeStep !== 0 && (
+                  <Button
+                    color="primary"
+                    variant="outlined"
+                    onClick={handleBack}
+                    sx={{ mr: 1 }}
+                    startIcon={<ArrowBack />}
+                    className="button"
+                  >
+                    Back
+                  </Button>
+                )}
+                <Box sx={{ flex: "1 1 auto" }} />
+
+                {activeStep !== 1 && activeStep !== 0 && (
+                  <Button
+                    onClick={activeStep < 2 ? handleNext : handleComplete}
+                    variant="contained"
+                    color={activeStep === 2 ? "success" : "primary"}
+                    endIcon={activeStep === 2 ? "" : <ArrowForward />}
+                    className="button"
+                  >
+                    {activeStep === 2 ? "Finish" : "Next"}
+                  </Button>
+                )}
+              </Box>
+            )}
+            {isMobile && (
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  position: "fixed",
+                  right: "50px",
+                }}
+              >
+                {activeStep !== 0 && <IconButton
                   color="primary"
                   variant="outlined"
                   onClick={handleBack}
                   sx={{ mr: 1 }}
-                  startIcon={<ArrowBack />}
                   className="button"
                 >
-                  Back
-                </Button>}
-                <Box sx={{ flex: "1 1 auto" }}/>
-               
-                                  <Button
-                      onClick={activeStep < 2 ? handleNext : handleComplete }
+                  <ArrowCircleLeftRounded sx={{fontSize : "27px"}}/>
+                </IconButton>}
+                <Box sx={{ flex: "1 1 auto" }} />
+                {activeStep !== 1 && activeStep !== 0 && <IconButton
+                      onClick={activeStep < 2 ? handleNext : handleComplete}
                       variant="contained"
                       color={
                         activeStep === 2
@@ -331,69 +317,9 @@ export default function SideBar({ prop }) {
                       }
                       className="button"
                     >
-                      {activeStep === 2
-                        ? "Finish"
-                        : "Next"}
-                    </Button>
-                  
-              </Box>
-            )}
-            {isMobile && (
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  position: "fixed",
-                  right: "50px",
-                }}
-              >
-                <IconButton
-                  color="primary"
-                  variant="outlined"
-                  disabled={
-                    activeStep === 0 || completedSteps() === totalSteps()
-                  }
-                  onClick={handleBack}
-                  sx={{ mr: 1 }}
-                  // startIcon={<ArrowBack />}
-                  className="button"
-                >
-<ArrowCircleLeftRounded  />
-                </IconButton>
-                <Box sx={{ flex: "1 1 auto" }} />
-                {/* <Button onClick={handleNext} sx={{ mr: 1 }}>
-                Next
-              </Button> */}
-                {activeStep !== steps.length &&
-                  (completed[activeStep] ? (
-                    <Typography
-                      variant="caption"
-                      sx={{ display: "inline-block" }}
-                    >
-                      {/* Step {activeStep + 1} already completed */}
-                    </Typography>
-                  ) : (
-                    <IconButton
-                      onClick={handleNext}
-                      variant="contained"
-                      color={
-                        completedSteps() === totalSteps() - 1
-                          ? "success"
-                          : "primary"
-                      }
-                      endIcon={
-                        completedSteps() === totalSteps() - 1 ? (
-                          ""
-                        ) : (
-                          <ArrowForward />
-                        )
-                      }
-                      className="button"
-                    >
-                      {/* {completedSteps() === totalSteps() - 1 ? "Finish" : "Next"} */}
-                      <ArrowCircleRightRounded />
+                      <ArrowCircleRightRounded sx={{fontSize: "27px"}}/>
                     </IconButton>
-                  ))}
+                  }
               </Box>
             )}
           </React.Fragment>
@@ -470,9 +396,6 @@ export default function SideBar({ prop }) {
               activeTool,
               setActiveTool,
               isMobile,
-              completed,
-              completedSteps,
-              totalSteps,
               handleBack,
               showMobileQR,
               setShowMobileQR,

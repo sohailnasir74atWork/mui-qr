@@ -80,7 +80,7 @@ export const staticTools = [
   },
   {
     icon: <img src={Email} alt="Email" class='img-static'/>,
-    heading: "Emil",
+    heading: "Email",
     text: "Send an Email with a Pre-Written Message",
   },
   {
