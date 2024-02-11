@@ -39,8 +39,8 @@ const ColorHandling = ({ prop }) => {
   }
   solidColor={qrCodeSettings.colors.background.isSolid}
 />
-
-        <Divider/>
+<br/>
+       <Divider/>
         
 
         <div className="heading-3">Dots Color</div>
@@ -72,6 +72,7 @@ const ColorHandling = ({ prop }) => {
           solidColor={qrCodeSettings.colors.dots.isSolid}
           hideTransparent
         />
+        <br/>
                 <Divider/>
 
         <div className="heading-3">Marker Border Color</div>
@@ -105,6 +106,7 @@ const ColorHandling = ({ prop }) => {
   solidColor={qrCodeSettings.colors.square.isSolid}
   hideTransparent
 />
+<br/>
 <Divider/>
 
 <div className="heading-3">Marker Center Color</div>
