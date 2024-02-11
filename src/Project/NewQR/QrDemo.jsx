@@ -13,7 +13,6 @@ import QrGenerator from "./QrGenerator";
 export default function QrDemo({ prop }) {
   const { qrCodeSettings } = prop;
   const [value, setValue] = React.useState(0);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -29,12 +28,7 @@ export default function QrDemo({ prop }) {
           <span className="heading-2 center">Demo</span>
         </div>
         <div className="mobile-frame">
-          {/* <img
-        src={mobileFrame}
-        alt="Mobile Frame"
-        style={{ width: "100%", height: "100%" }}
-      /> */}
-          <div className="demo-preview">
+         <div className="demo-preview">
             {" "}
             <QrGenerator prop={{ qrCodeSettings }} />
           </div>

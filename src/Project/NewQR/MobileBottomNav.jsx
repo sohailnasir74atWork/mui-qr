@@ -87,7 +87,7 @@ const liveDemo = true
             setValue(newValue);
           }}
         >
-          {options.map((option, index) => (
+        {options.map((option, index) => (
             <BottomNavigationAction
               key={option.label}
               label={option.label}

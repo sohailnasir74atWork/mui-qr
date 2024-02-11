@@ -84,9 +84,7 @@ body {
   font-size: 40px;
   font-family: fantasy;
   font-weight: 500;
-  /* color: rgb(212, 34, 212); */
-  /* color: lightgray; */
-  color: purple;
+   color: purple;
 }
 
 .button-stats-home-container {
@@ -101,13 +99,13 @@ p {
 .text {
   margin: 3px 0px;
   font-size: 12px;
-  color:var(--lightgrey-color)
+  color: var(--lightgrey-color)
 }
 
 .text-switch {
   /* margin: 3px 0px; */
   font-size: 12px;
-  color:var(--lightgrey-color);
+  color: var(--lightgrey-color);
 
 
   @media (max-width: 600px) {
@@ -125,6 +123,8 @@ p {
 
   @media (max-width: 600px) {
     margin-left: 10px;
+    flex-direction: row-reverse;
+    justify-content: right;
 
   }
 
@@ -153,14 +153,12 @@ p {
   margin: auto;
 
   @media (max-width: 600px) {
-    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     width: 25px;
     height: 25px;
     left: 100px;
 
   }
 
-  /* padding-inline: 2px */
 }
 
 .home-color-container {
@@ -199,7 +197,6 @@ p {
   }
 
 }
-
 
 .color-picker-container {
   display: flex;
@@ -250,7 +247,6 @@ p {
   /* Default direction is row */
 
   @media (max-width: 600px) {
-    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     flex-direction: column;
   }
 }
@@ -349,12 +345,12 @@ p {
   height: 100vh;
 
   @media (max-width: 600px) {
-    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     width: 100% !important;
     padding: 10px !important;
 
   }
 }
+
 .container-custom-live-demo {
   width: calc(100% - 340px) !important;
   padding: 30px !important;
@@ -363,13 +359,12 @@ p {
   height: 100vh;
 
   @media (max-width: 600px) {
-    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
-    /* margin-top: 100px; */
     width: 100% !important;
     padding: 10px !important;
 
   }
 }
+
 .container-custom-2 {
   padding: 30px !important;
   background-color: var(--background-color);
@@ -377,23 +372,17 @@ p {
 }
 
 .container-custom-mobile {
-  /* width: 100% !important; */
   padding: 30px 10px !important;
   overflow-y: scroll;
   scroll-behavior: smooth;
   height: 100vh;
 
-  
+
 }
 
 .types-of-qr-mobile-demo {
-  /* width: 100%; */
   height: 100%;
-  /* Use 100% of the viewport height */
   margin-top: 30px;
-
-
-  /* overflow-y: scroll; */
   background-color: var(--background-color);
 
   @media (max-width: 600px) {
@@ -402,63 +391,38 @@ p {
 
 
   }
-
-
-
 }
-
-
-
-
 .mobile-frame {
   position: relative;
-  /* overflow: scroll; */
-  /* margin:10px; */
-  width: 320px;
+   width: 320px;
 
   @media (max-width: 600px) {
-    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     width: auto;
 
   }
-
-  /* Ensure the overlay stays within the image boundaries */
-
 }
 
 .overlay {
   position: absolute;
   top: 2.5%;
-  /* Adjust as needed for the desired height */
   left: 5%;
-  /* Adjust as needed for the desired width */
   bottom: 2.5%;
-  /* Adjust as needed for the desired height */
   width: 90%;
-  /* Adjust the width of the overlay */
   height: 95%;
-  /* Adjust the height of the overlay */
   background-color: white;
   opacity: 1;
   border-radius: 50px;
 
   @media (max-width: 600px) {
-    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
     position: relative;
 
   }
 }
 
 .demo-preview {
-
-  /* Adjust the height of the overlay */
-  /* background-color: white; */
   opacity: 1;
   margin: 10px;
-  /* border-radius: 50px; */
-  /* padding0px */
-
-}
+ }
 
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
   margin: 0px !important;
@@ -471,8 +435,7 @@ p {
 
 .flex-responsive {
   display: flex;
-  flex-direction: row;
-
+  flex-direction:row;
   @media (max-width: 600px) {
     flex-direction: column;
   }
@@ -486,29 +449,18 @@ p {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* Creates two columns */
   grid-gap: 10px;
-
-  /* Adjust the space between the items */
-  /* padding: 20px; */
-  @media (max-width: 600px) {
-    /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+   @media (max-width: 600px) {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 5px;
 
   }
 }
+
 .grid-container-2 {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  /* Creates two columns */
   grid-gap: 10px;
-
-  
-}
-.static-qr {
-  /* padding: 20px; */
-
 }
 
 .static-qr-tabs {
@@ -526,6 +478,7 @@ p {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
 .static-qr-tabs-2 {
   display: flex;
   flex-direction: row;
@@ -556,13 +509,6 @@ p {
   border-radius: 5px;
 }
 
-
-/* WebKit (Chrome, Safari) scrollbar styles */
-/* ::-webkit-scrollbar {
-  width: 0px; /* Hide the scrollbar */
-
-
-/* When the user hovers over the container, show the scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -581,7 +527,7 @@ p {
 
 .qr-home-container {
   width: 300px;
- /* height: 300px; */
+  /* height: 300px; */
 
   text-align: center;
   margin: auto;
@@ -596,19 +542,16 @@ p {
 }
 
 .qr-box-home {
-  /* margin-top: 40px; */
-  /* width: 300px;
-  height: 300px; */
-  /* margin: 30px; */
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
   padding: 30px;
   margin: auto;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0px 6px 0 rgba(205, 209, 224, 0.8);
-
   @media (max-width: 600px) {
     padding: 10px;
 
@@ -619,18 +562,14 @@ p {
   }
 
 }
+
 .qr-box-home-live-demo {
-  /* margin-top: 40px; */
-  /* width: 300px;
-  height: 300px; */
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-  /* padding: 30px; */
+  justify-content: center;
+  align-items: center;
   margin: auto;
   background-color: white;
   border-radius: 10px;
-  /* box-shadow: 0 0px 6px 0 rgba(205, 209, 224, 0.8); */
 }
 
 .opacity-3 {
@@ -641,9 +580,9 @@ p {
 
 .opacity-1 {
   opacity: 1;
-  width: 70%; /* Make sure the image does not exceed the width of the container */
-  height: 70%; /* Make sure the image does not exceed the height of the container */
-  
+  width: 70%;
+  height: 70%;
+
 }
 
 .button-home-container {
@@ -665,7 +604,8 @@ p {
 .input_rgba .input_rgba-wrap .input_rgba-hex input {
   height: 20px;
 }
-.input_rgba-alpha{
+
+.input_rgba-alpha {
   height: 20px;
 }
 
@@ -694,8 +634,9 @@ p {
   min-height: 100px;
   height: 100px;
 }
-.popup_tabs{
-margin: auto !important;
+
+.popup_tabs {
+  margin: auto !important;
 }
 
 .popup_tabs-body {
@@ -714,10 +655,7 @@ margin: auto !important;
 }
 
 
-/** Your CSS or Emotion styles **/
 .MuiDrawer-paper {
-  /* Other styles */
-
   &.mini-drawer {
     width: 50px;
     /* Set the width for the mini drawer state */
@@ -735,15 +673,10 @@ margin: auto !important;
 .overlay-sidebar {
   position: absolute;
   top: 0;
-  /* Adjust as needed for the desired height */
   right: 0;
-  /* Adjust as needed for the desired width */
   bottom: 0;
-  /* Adjust as needed for the desired height */
   width: 100%;
-  /* Adjust the width of the overlay */
   height: 100%;
-  /* Adjust the height of the overlay */
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 1;
   z-index: 1000;
@@ -782,11 +715,8 @@ margin: auto !important;
 
   }
 }
-.live-demo{
-  /* position: absolute; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+
+.live-demo {
   margin: auto;
   z-index: 1;
   /* width: 100%; */
@@ -796,41 +726,41 @@ margin: auto !important;
   box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
   border-radius: 10px;
 }
+
 .live-demo-container {
   /* position: fixed; */
-  padding:5px;
-    z-index: 10000;
-    /* width: 100%; */
-    /* background-color: var(--background-color); */
-    /* background: rgba(0, 0, 0, 0.5); */
-    /* box-shadow: 0 0px 9px 0 rgba(0, 0, 0, 0.5); */
-    /* border-bottom-right-radius: 15px; */
-    /* border-bottom-left-radius: 15px */
+  padding: 5px;
+  z-index: 10000;
 }
-.qr-code-container{
+
+.qr-code-container {
   width: 300px;
   height: 300px;
-  padding:20px;
+  padding: 20px;
   background-color: var(--white-color);
 }
+
 .qr-code-container canvas {
   width: 250px;
   height: 250px;
-  object-fit: contain; /* This ensures the content is scaled to maintain its aspect ratio while fitting within the element's content box. */
+  object-fit: contain;
 }
-.qr-code-container-mobile{
+
+.qr-code-container-mobile {
   width: 200px;
   height: 200px;
   background-color: var(--white-color);
 }
+
 .qr-code-container-mobile canvas {
   width: 200px;
   height: 200px;
-  object-fit: contain; /* This ensures the content is scaled to maintain its aspect ratio while fitting within the element's content box. */
+  object-fit: contain;
+ 
 }
 
 
-.option-container-home{
+.option-container-home {
   padding: 10px;
   box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
   border-radius: 10px;
