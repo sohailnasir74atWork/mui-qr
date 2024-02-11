@@ -9,7 +9,7 @@ import QrGenerator from "./QrGenerator";
 
 const TypesOfQR = ({ prop }) => {
   const {
-    handleComplete,
+    handleNext,
     qrCodeSettings,
     setQrCodeSettings,
     activeTool,
@@ -24,7 +24,7 @@ const TypesOfQR = ({ prop }) => {
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const inputClick = (e) => {
     setActiveTool(e);
-    handleComplete();
+    handleNext();
     // console.log(activeStep);
   };
   const handleClose = () => {
@@ -91,7 +91,7 @@ const TypesOfQR = ({ prop }) => {
             prop={{
               setQrCodeSettings,
               qrCodeSettings,
-              handleComplete,
+              handleNext,
               isMobile,
             }}
           />
@@ -104,7 +104,7 @@ const TypesOfQR = ({ prop }) => {
       {activeStep === 2 && !isMobile && (
         <div className="container-custom">
           <CustomizedAccordions
-            prop={{ setQrCodeSettings, qrCodeSettings, handleComplete, isMobile }}
+            prop={{ setQrCodeSettings, qrCodeSettings, handleNext, isMobile }}
           />
         </div>
       )}

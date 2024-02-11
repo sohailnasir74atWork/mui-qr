@@ -140,11 +140,14 @@ export default function SideBar({ prop }) {
   const [showMobileQR, setShowMobileQR] = React.useState(false);
 
   console.log(isMobile);
-  useEffect(() => {
-    if (completedSteps() === totalSteps()) {
-      setSelectedIndex(3);
-    }
-  }, [activeStep]);
+  // useEffect(() => {
+  //   if (activeStep === 2 ) {
+  //     setSelectedIndex(3);
+  //   }
+  // }, [activeStep]);
+  const handleComplete = ()=>{
+        setSelectedIndex(3);
+  }
   const totalSteps = () => {
     return steps.length;
   };
@@ -178,12 +181,12 @@ export default function SideBar({ prop }) {
     setActiveStep(step);
   };
 
-  const handleComplete = () => {
-    const newCompleted = completed;
-    newCompleted[activeStep] = true;
-    setCompleted(newCompleted);
-    handleNext();
-  };
+  // const handleNext = () => {
+  //   const newCompleted = completed;
+  //   newCompleted[activeStep] = true;
+  //   setCompleted(newCompleted);
+  //   handleNext();
+  // };
 
   const handleReset = () => {
     setActiveStep(0);
@@ -222,7 +225,7 @@ export default function SideBar({ prop }) {
         ) : (
           <TypesOfQR
             prop={{
-              handleComplete,
+              handleNext,
               activeStep,
               qrCodeSettings,
               setQrCodeSettings,
@@ -264,8 +267,8 @@ export default function SideBar({ prop }) {
           )}
           <Stepper nonLinear activeStep={activeStep}>
             {steps.map((label, index) => (
-              <Step key={label} completed={completed[index]}>
-                <StepButton color="inherit" onClick={handleStep(index)}>
+              <Step key={label}>
+                <StepButton color="inherit">
                   {!isMobile && label}
                 </StepButton>
               </Step>
@@ -299,42 +302,28 @@ export default function SideBar({ prop }) {
                   right: "20px",
                 }}
               >
-                <Button
+                {activeStep !== 0 &&<Button
                   color="primary"
                   variant="outlined"
-                  disabled={
-                    activeStep === 0 || completedSteps() === totalSteps()
-                  }
                   onClick={handleBack}
                   sx={{ mr: 1 }}
                   startIcon={<ArrowBack />}
                   className="button"
                 >
                   Back
-                </Button>
-                <Box sx={{ flex: "1 1 auto" }} />
-                {/* <Button onClick={handleNext} sx={{ mr: 1 }}>
-                Next
-              </Button> */}
-                {activeStep !== steps.length &&
-                  (completed[activeStep] ? (
-                    <Typography
-                      variant="caption"
-                      sx={{ display: "inline-block" }}
-                    >
-                      {/* Step {activeStep + 1} already completed */}
-                    </Typography>
-                  ) : (
-                    <Button
-                      onClick={handleComplete}
+                </Button>}
+                <Box sx={{ flex: "1 1 auto" }}/>
+               
+                                  <Button
+                      onClick={activeStep < 2 ? handleNext : handleComplete }
                       variant="contained"
                       color={
-                        completedSteps() === totalSteps() - 1
+                        activeStep === 2
                           ? "success"
                           : "primary"
                       }
                       endIcon={
-                        completedSteps() === totalSteps() - 1 ? (
+                        activeStep === 2 ? (
                           ""
                         ) : (
                           <ArrowForward />
@@ -342,11 +331,11 @@ export default function SideBar({ prop }) {
                       }
                       className="button"
                     >
-                      {completedSteps() === totalSteps() - 1
+                      {activeStep === 2
                         ? "Finish"
                         : "Next"}
                     </Button>
-                  ))}
+                  
               </Box>
             )}
             {isMobile && (
@@ -385,7 +374,7 @@ export default function SideBar({ prop }) {
                     </Typography>
                   ) : (
                     <IconButton
-                      onClick={handleComplete}
+                      onClick={handleNext}
                       variant="contained"
                       color={
                         completedSteps() === totalSteps() - 1
@@ -474,7 +463,7 @@ export default function SideBar({ prop }) {
         {activeStep > 1 && isMobile && (
           <FixedBottomNavigation
             prop={{
-              handleComplete,
+              handleNext,
               activeStep,
               qrCodeSettings,
               setQrCodeSettings,

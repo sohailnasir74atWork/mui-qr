@@ -3,7 +3,7 @@ import { Button, TextField, Slider } from "@mui/material";
 import ErrorBar from "../Error";
 
 const Links = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings, handleComplete } = prop;
+  const { setQrCodeSettings, qrCodeSettings, handleNext } = prop;
   const [value, setValue] = useState(qrCodeSettings.inputData.url);
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
   const [size, setSize] = useState(qrCodeSettings.size.width); // Assuming width and height are initially the same
@@ -48,7 +48,7 @@ const Links = ({ prop }) => {
       qrName: qrName.trim(),
       size: { width: size, height: size }, // Apply the size to both width and height
     });
-    handleComplete();
+    handleNext();
   };
 
   return (
