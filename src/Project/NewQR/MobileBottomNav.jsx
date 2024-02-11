@@ -24,7 +24,6 @@ const options = [
   { label: "Frames", icon: <CropOriginalIcon /> },
 ];
 
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -64,7 +63,7 @@ export default function FixedBottomNavigation({prop}) {
 const liveDemo = true
 
   return (
-    <Box sx={{  width: '100%', maxWidth: 500, position: 'relative', margin: 'auto' }}>
+    <Box sx={{  width: '100%', maxWidth: 500, position: 'relative', margin: 'auto', height:'100%' }}>
       <div className="live-demo-container">
             <QrGenerator prop={{ qrCodeSettings, liveDemo }} />
           </div>
