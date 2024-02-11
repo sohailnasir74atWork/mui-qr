@@ -34,6 +34,7 @@ const LogoHandling = ({ prop }) => {
 
   return (
 <div className={ isMobile ? "option-container-home p-v-15 accordion-open" : "p-v-15 accordion-open"}> 
+<br/>
      <div className="button-logo">
         <input
           type="file"
