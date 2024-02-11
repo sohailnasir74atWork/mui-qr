@@ -45,7 +45,7 @@ const TypesOfQR = ({ prop }) => {
         >
           <div className="static-qr flex-col">
             <div className="heading-container">
-              <span className="heading-2">STATIC QR</span>{" "}
+              <span className="heading-2">Generate Static QR</span>{" "}
               <span className="heading-tag">with tracking</span>
             </div>
             <div className="grid-container">
@@ -64,7 +64,7 @@ const TypesOfQR = ({ prop }) => {
               ))}
             </div>
             <div className="heading-container">
-              <h3 className="heading-2">DYNAMIC QR</h3>{" "}
+              <h3 className="heading-2">Generate Dymanic QR</h3>{" "}
               <span className="heading-tag">with tracking</span>
             </div>
             <div className="grid-container">
