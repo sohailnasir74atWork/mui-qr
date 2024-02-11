@@ -88,7 +88,7 @@ const Links = ({ prop }) => {
         valueLabelDisplay="auto"
         min={30}
         max={1000}
-        style={{ marginTop: 10, marginBottom: 10, width:'50%' }}
+        className="slider-select"
         
       />
       <br/>

@@ -120,7 +120,7 @@ const LogoHandling = ({ prop }) => {
         min={0}
         max={40}
         disabled={!qrCodeSettings.logo}
-        style={{ marginTop: 10, marginBottom: 10, width:'30%' }}
+        className="slider-select"
       />
       <br/>
       <div className="logo-container">

@@ -64,3 +64,13 @@
   .button-logo{
     margin-bottom: 20px;
   }
+  .slider-select {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    width:20% !important;
+    @media (max-width: 600px) {
+       
+      width:50% !important;
+
+    }
+  }
