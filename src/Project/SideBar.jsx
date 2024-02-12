@@ -247,31 +247,34 @@ export default function SideBar({ prop }) {
                   right: "20px",
                 }}
               >
-                {activeStep !== 0 && (
-                  <Button
+              
+                  {activeStep !== 0 && <Button
                     color="primary"
                     variant="outlined"
                     onClick={handleBack}
                     sx={{ mr: 1 }}
                     startIcon={<ArrowBack />}
                     className="button"
+                    disabled={activeStep === 0}
+
                   >
                     Back
-                  </Button>
-                )}
+                  </Button>}
+              
                 <Box sx={{ flex: "1 1 auto" }} />
 
-                {activeStep !== 1 && activeStep !== 0 && (
+            
                   <Button
                     onClick={activeStep < 2 ? handleNext : handleComplete}
                     variant="contained"
                     color={activeStep === 2 ? "success" : "primary"}
                     endIcon={activeStep === 2 ? "" : <ArrowForward />}
                     className="button"
+                    disabled={activeStep < 2}
                   >
                     {activeStep === 2 ? "Finish" : "Next"}
                   </Button>
-                )}
+              
               </Box>
             )}
             {isMobile && (
