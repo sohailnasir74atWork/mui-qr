@@ -203,7 +203,7 @@ export default function SideBar({ prop }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ background: "#f1f1f1" }}>
+      <AppBar position="fixed" open={open} sx={{ background: "#d3d3d3" }}>
         <Toolbar>
           {!isMobile && (
             <IconButton
