@@ -15,8 +15,9 @@ const Home = ({ prop }) => {
       mail: { email: null, message : null },
       whatsapp: { number: null, message : null },
       message: { number: null, message : null },
-
-    },
+      call: { call : null },
+      wifi: { networkName : null, networkType : null, password : null, isHide : false },
+   },
     logo: null,
     logoSetting: { backgrounddots: true, margin: 10 },
     colors: {

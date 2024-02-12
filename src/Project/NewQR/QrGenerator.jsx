@@ -27,6 +27,35 @@ else if (qrCodeSettings.inputData.message.number && qrCodeSettings.inputData.mes
   const encodedMessage = encodeURIComponent(qrCodeSettings.inputData.message.message);
   qrData = `sms:${qrCodeSettings.inputData.message.number}?body=${encodedMessage}`;
 }
+else if (qrCodeSettings.inputData.call.number) {
+  qrData = `tel:${qrCodeSettings.inputData.call.number}`;
+}
+else if (
+  qrCodeSettings.inputData.wifi.networkName &&
+  qrCodeSettings.inputData.wifi.networkType &&
+  qrCodeSettings.inputData.wifi.password
+) {
+  const { networkName, networkType, password, isHide } = qrCodeSettings.inputData.wifi;
+
+  let wifiEncryptionType = '';
+  switch (networkType.toLowerCase()) {
+    case 'none':
+      wifiEncryptionType = 'nopass';
+      break;
+    case 'wep':
+      wifiEncryptionType = 'WEP';
+      break;
+    case 'wpa/wpa2':
+      wifiEncryptionType = 'WPA';
+      break;
+    // Add more cases as needed
+    default:
+      wifiEncryptionType = '';
+  }
+
+  // Construct the Wi-Fi QR code data
+  qrData = `WIFI:T:${wifiEncryptionType};S:${networkName};P:${password};;`;
+}
 
 
   useEffect(() => {

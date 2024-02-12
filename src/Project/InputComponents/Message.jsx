@@ -30,7 +30,9 @@ const Message = ({ prop }) => {
           text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
           mail: { ...prevSettings.inputData.mail, email: null, message: null },
           whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
-          message: { ...prevSettings.inputData.message, number: fullNumber, message: message }, 
+          message: { ...prevSettings.inputData.message, number: fullNumber, message: message },
+          call: { ...prevSettings.inputData.call, number: null }, 
+ 
         },
         qrName: qrName.trim(),
         size: { width: size, height: size },

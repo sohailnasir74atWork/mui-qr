@@ -52,6 +52,8 @@ const Links = ({ prop }) => {
         whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null }, // Optionally clear other types
         mail: { ...prevSettings.inputData.mail, email: null, message: null }, // Optionally clear other types
         message: { ...prevSettings.inputData.message, number: null, message: null }, // Optionally clear other types
+        call: { ...prevSettings.inputData.call, number: null }, 
+
       },
       qrName: qrName.trim(),
       size: { width: size, height: size },

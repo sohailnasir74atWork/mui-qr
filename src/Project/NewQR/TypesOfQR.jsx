@@ -10,6 +10,8 @@ import Text from "../InputComponents/Text";
 import Email from "../InputComponents/Email";
 import WhatsApp from "../InputComponents/WhatsApp";
 import Message from "../InputComponents/Message";
+import Call from "../InputComponents/Call";
+import Wifi from "../InputComponents/Wifi";
 
 const TypesOfQR = ({ prop }) => {
   const {
@@ -140,6 +142,30 @@ const TypesOfQR = ({ prop }) => {
       {activeStep === 1 && activeTool === "SMS" && (
         <div className="container-custom">
           <Message
+            prop={{
+              setQrCodeSettings,
+              qrCodeSettings,
+              handleNext,
+              isMobile,
+            }}
+          />
+        </div>
+      )}
+      {activeStep === 1 && activeTool === "Call" && (
+        <div className="container-custom">
+          <Call
+            prop={{
+              setQrCodeSettings,
+              qrCodeSettings,
+              handleNext,
+              isMobile,
+            }}
+          />
+        </div>
+      )}
+      {activeStep === 1 && activeTool === "Wi-Fi" && (
+        <div className="container-custom">
+          <Wifi
             prop={{
               setQrCodeSettings,
               qrCodeSettings,

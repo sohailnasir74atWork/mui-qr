@@ -5,11 +5,10 @@ import { isValidPhoneNumber } from 'libphonenumber-js';
 
 // Assuming countries data is imported or defined elsewhere in your project
 import { countries } from "./CountriesList";
-const WhatsApp = ({ prop }) => {
+const Call = ({ prop }) => {
     const { setQrCodeSettings, qrCodeSettings, handleNext } = prop;
     const [selectedCountry, setSelectedCountry] = useState(countries[0].dial_code); // Default to the first country's dial code
     const [number, setNumber] = useState("");
-    const [message, setMessage] = useState("");
     const [qrName, setQrName] = useState(qrCodeSettings.qrName);
     const [size, setSize] = useState(qrCodeSettings.size.width);
     const [numberError, setNumberError] = useState("");
@@ -29,9 +28,9 @@ const WhatsApp = ({ prop }) => {
           url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
           text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
           mail: { ...prevSettings.inputData.mail, email: null, message: null },
+          whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
           message: { ...prevSettings.inputData.message, number: null, message: null },
-          whatsapp: { ...prevSettings.inputData.whatsapp, number: fullNumber, message: message }, 
-          call: { ...prevSettings.inputData.call, number: null }, 
+          call: { ...prevSettings.inputData.call, number: fullNumber }, 
         },
         qrName: qrName.trim(),
         size: { width: size, height: size },
@@ -43,7 +42,7 @@ const WhatsApp = ({ prop }) => {
       <div>
         {numberError && <ErrorBar message={numberError} />}
         <div className="heading-container">
-        <span className="heading-2">Create Your WhatsApp Message QR Code</span>
+        <span className="heading-2">Create Your Phone Call QR Code</span>
       </div>
         <TextField
           required
@@ -72,7 +71,7 @@ const WhatsApp = ({ prop }) => {
           <Grid item xs={9}>
             <TextField
               required
-              label="WhatsApp Number"
+              label="Phone Number"
               value={number}
               onChange={(e) => setNumber(e.target.value)}
               fullWidth
@@ -81,17 +80,7 @@ const WhatsApp = ({ prop }) => {
             />
           </Grid>
         </Grid>
-        <TextField
-          required
-          label="WhatsApp Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          fullWidth
-          margin="normal"
-          multiline
-          rows={4}
-        />
-        <Typography id="input-slider" gutterBottom>QR Code Size</Typography>
+           <Typography id="input-slider" gutterBottom>QR Code Size</Typography>
         <Slider
           value={size}
           onChange={(e, newValue) => setSize(newValue)}
@@ -110,4 +99,4 @@ const WhatsApp = ({ prop }) => {
     );
   };
   
-  export default WhatsApp;
+  export default Call;
