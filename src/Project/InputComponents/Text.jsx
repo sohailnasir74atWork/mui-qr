@@ -51,9 +51,10 @@ const Text = ({ prop }) => {
       inputData: {
         ...prevSettings.inputData,
         url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
-        text: { ...prevSettings.inputData.text, value: value },
         mail: { ...prevSettings.inputData.mail, email: null, message: null }, // Optionally clear other types
-        whatsapp: { number: null, message: null },
+        whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null }, // Optionally clear other types
+        message: { ...prevSettings.inputData.message, number: null, message: null }, // Optionally clear other types
+        text: { ...prevSettings.inputData.text, value: value },
 
       },
       qrName: qrName.trim(),

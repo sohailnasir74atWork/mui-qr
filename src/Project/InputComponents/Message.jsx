@@ -5,7 +5,7 @@ import { isValidPhoneNumber } from 'libphonenumber-js';
 
 // Assuming countries data is imported or defined elsewhere in your project
 import { countries } from "./CountriesList";
-const WhatsApp = ({ prop }) => {
+const Message = ({ prop }) => {
     const { setQrCodeSettings, qrCodeSettings, handleNext } = prop;
     const [selectedCountry, setSelectedCountry] = useState(countries[0].dial_code); // Default to the first country's dial code
     const [number, setNumber] = useState("");
@@ -29,8 +29,8 @@ const WhatsApp = ({ prop }) => {
           url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
           text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
           mail: { ...prevSettings.inputData.mail, email: null, message: null },
-          message: { ...prevSettings.inputData.message, number: null, message: null },
-          whatsapp: { ...prevSettings.inputData.whatsapp, number: fullNumber, message: message }, 
+          whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
+          message: { ...prevSettings.inputData.message, number: fullNumber, message: message }, 
         },
         qrName: qrName.trim(),
         size: { width: size, height: size },
@@ -41,7 +41,7 @@ const WhatsApp = ({ prop }) => {
     return (
       <div>
         {numberError && <ErrorBar message={numberError} />}
-        <Typography variant="h6" gutterBottom>Create Your WhatsApp Message QR Code</Typography>
+        <Typography variant="h6" gutterBottom>Create Your SMS QR Code</Typography>
         <TextField
           required
           label="QR Name"
@@ -69,7 +69,7 @@ const WhatsApp = ({ prop }) => {
           <Grid item xs={9}>
             <TextField
               required
-              label="WhatsApp Number"
+              label="Phone Number"
               value={number}
               onChange={(e) => setNumber(e.target.value)}
               fullWidth
@@ -80,7 +80,7 @@ const WhatsApp = ({ prop }) => {
         </Grid>
         <TextField
           required
-          label="WhatsApp Message"
+          label="Phone Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           fullWidth
@@ -107,4 +107,4 @@ const WhatsApp = ({ prop }) => {
     );
   };
   
-  export default WhatsApp;
+  export default Message;

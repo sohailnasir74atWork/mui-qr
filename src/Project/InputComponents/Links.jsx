@@ -49,7 +49,9 @@ const Links = ({ prop }) => {
         url: { ...prevSettings.inputData.url, value: value }, // Assuming 'value' is the new URL to set
         text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
         whatsapp: { number: null, message: null },
+        whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null }, // Optionally clear other types
         mail: { ...prevSettings.inputData.mail, email: null, message: null }, // Optionally clear other types
+        message: { ...prevSettings.inputData.message, number: null, message: null }, // Optionally clear other types
       },
       qrName: qrName.trim(),
       size: { width: size, height: size },

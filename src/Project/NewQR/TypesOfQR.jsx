@@ -9,6 +9,7 @@ import QrGenerator from "./QrGenerator";
 import Text from "../InputComponents/Text";
 import Email from "../InputComponents/Email";
 import WhatsApp from "../InputComponents/WhatsApp";
+import Message from "../InputComponents/Message";
 
 const TypesOfQR = ({ prop }) => {
   const {
@@ -127,6 +128,18 @@ const TypesOfQR = ({ prop }) => {
       {activeStep === 1 && activeTool === "WhatsApp" && (
         <div className="container-custom">
           <WhatsApp
+            prop={{
+              setQrCodeSettings,
+              qrCodeSettings,
+              handleNext,
+              isMobile,
+            }}
+          />
+        </div>
+      )}
+      {activeStep === 1 && activeTool === "SMS" && (
+        <div className="container-custom">
+          <Message
             prop={{
               setQrCodeSettings,
               qrCodeSettings,

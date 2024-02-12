@@ -23,6 +23,11 @@ else if (qrCodeSettings.inputData.whatsapp.number && qrCodeSettings.inputData.wh
     const encodedMessage = encodeURIComponent(qrCodeSettings.inputData.whatsapp.message);
     qrData = `https://wa.me/${qrCodeSettings.inputData.whatsapp.number}?text=${encodedMessage}`;
 }
+else if (qrCodeSettings.inputData.message.number && qrCodeSettings.inputData.message.message) {
+  const encodedMessage = encodeURIComponent(qrCodeSettings.inputData.message.message);
+  qrData = `sms:${qrCodeSettings.inputData.message.number}?body=${encodedMessage}`;
+}
+
 
   useEffect(() => {
     // Dynamically determine the data for the QR code based on the available input data

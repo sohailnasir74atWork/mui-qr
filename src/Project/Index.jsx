@@ -14,6 +14,8 @@ const Home = ({ prop }) => {
       text: { value: null },
       mail: { email: null, message : null },
       whatsapp: { number: null, message : null },
+      message: { number: null, message : null },
+
     },
     logo: null,
     logoSetting: { backgrounddots: true, margin: 10 },
