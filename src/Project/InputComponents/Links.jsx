@@ -64,7 +64,7 @@ const Links = ({ prop }) => {
       {urlError && <ErrorBar message={urlError} />}
       {nameError && <ErrorBar message={nameError} />}
       <div className="heading-container">
-        <span className="heading-2">Fill Out the QR Code's Content</span>
+        <span className="heading-2">Create Your URL QR Code</span>
       </div>
       <TextField
         required

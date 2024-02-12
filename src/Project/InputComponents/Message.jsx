@@ -41,7 +41,9 @@ const Message = ({ prop }) => {
     return (
       <div>
         {numberError && <ErrorBar message={numberError} />}
-        <Typography variant="h6" gutterBottom>Create Your SMS QR Code</Typography>
+        <div className="heading-container">
+        <span className="heading-2">Create Your SMS QR Code</span>
+      </div>
         <TextField
           required
           label="QR Name"
