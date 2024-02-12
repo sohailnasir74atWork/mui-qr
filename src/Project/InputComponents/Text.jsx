@@ -35,26 +35,34 @@ const Text = ({ prop }) => {
       setTextError("Please enter a text Message");
       return;
     }
+  
+    if (value.length > 1000) {
+      setTextError("Text Message should not exceed 1000 characters");
+      return;
+    }
+  
     if (!qrName.trim()) {
       setNameError("Name should not be empty");
       return;
     }
-
-    // Assuming validation for size is not needed as the slider controls the range
+  
     setQrCodeSettings((prevSettings) => ({
-        ...prevSettings,
-        inputData: {
-          ...prevSettings.inputData,
-          url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
-          text: { ...prevSettings.inputData.text, value: value }, // Assuming 'textValue' is the new text to set
-          mail: { ...prevSettings.inputData.mail, email: null, message: null }, // Optionally clear other types
-        },
-        qrName: qrName.trim(),
-        size: { width: size, height: size },
-      }));
-      
+      ...prevSettings,
+      inputData: {
+        ...prevSettings.inputData,
+        url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
+        text: { ...prevSettings.inputData.text, value: value },
+        mail: { ...prevSettings.inputData.mail, email: null, message: null }, // Optionally clear other types
+        whatsapp: { number: null, message: null },
+
+      },
+      qrName: qrName.trim(),
+      size: { width: size, height: size },
+    }));
+  
     handleNext();
   };
+  
 
   return (
     <div>

@@ -65,7 +65,9 @@ const Email = ({ prop }) => {
           ...prevSettings.inputData,
           url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
           text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
-          mail: { ...prevSettings.inputData.mail, email: email, message: message }, // Assuming 'emailValue' and 'messageValue' are new values to set
+          mail: { ...prevSettings.inputData.mail, email: email, message: message }, 
+          whatsapp: { number: null, message: null },
+
         },
         qrName: qrName.trim(),
         size: { width: size, height: size },
