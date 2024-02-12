@@ -13,6 +13,7 @@ const Home = ({ prop }) => {
       url: { value: null },
       text: { value: null },
       mail: { email: null, message : null },
+      whatsapp: { number: null, message : null },
     },
     logo: null,
     logoSetting: { backgrounddots: true, margin: 10 },
@@ -37,6 +38,19 @@ const Home = ({ prop }) => {
       document.body.style.backgroundColor = "#FFFFFF"; // Set the background color for the body
       // You may need to experiment with other styles for specific mobile browsers
     }
+    // This is a conceptual example; you'll need to replace `YOUR_API_ENDPOINT` with an actual API URL
+fetch('https://restcountries.com/v3.1/all')
+.then(response => response.json())
+.then(data => {
+  const countryCodes = data.map(country => ({
+    code: country.alpha2Code,
+    dialCode: country.callingCodes[0], // Assuming the API provides calling codes in an array
+    label: country.name
+  }));
+  console.log(countryCodes);
+})
+.catch(error => console.error('Error fetching country codes:', error));
+
   }, [isMobile]);
 
   return (

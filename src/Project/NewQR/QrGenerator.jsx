@@ -10,13 +10,20 @@ const QrGenerator = ({ prop }) => {
   const canvasRef = useRef(null);
   const img = qrCodeSettings.logo;
   let qrData = '';
-    if (qrCodeSettings.inputData.url.value) {
-      qrData = qrCodeSettings.inputData.url.value;
-    } else if (qrCodeSettings.inputData.text.value) {
-      qrData = qrCodeSettings.inputData.text.value;
-    } else if (qrCodeSettings.inputData.mail.email && qrCodeSettings.inputData.mail.message) {
-      qrData = `mailto:${qrCodeSettings.inputData.mail.email}?body=${encodeURIComponent(qrCodeSettings.inputData.mail.message)}`;
-    }
+if (qrCodeSettings.inputData.url.value) {
+    qrData = qrCodeSettings.inputData.url.value;
+}
+else if (qrCodeSettings.inputData.text.value) {
+    qrData = qrCodeSettings.inputData.text.value;
+}
+else if (qrCodeSettings.inputData.mail.email && qrCodeSettings.inputData.mail.message) {
+    qrData = `mailto:${qrCodeSettings.inputData.mail.email}?body=${encodeURIComponent(qrCodeSettings.inputData.mail.message)}`;
+}
+else if (qrCodeSettings.inputData.whatsapp.number && qrCodeSettings.inputData.whatsapp.message) {
+    const encodedMessage = encodeURIComponent(qrCodeSettings.inputData.whatsapp.message);
+    qrData = `https://wa.me/${qrCodeSettings.inputData.whatsapp.number}?text=${encodedMessage}`;
+}
+
   useEffect(() => {
     // Dynamically determine the data for the QR code based on the available input data
     
