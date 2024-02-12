@@ -56,6 +56,13 @@ const Text = ({ prop }) => {
         message: { ...prevSettings.inputData.message, number: null, message: null }, // Optionally clear other types
         text: { ...prevSettings.inputData.text, value: value },
         call: { ...prevSettings.inputData.call, number: null }, 
+        wifi: {
+            ...prevSettings.inputData.wifi,
+            networkName: null,
+            networkType: null,
+            password: null,
+            isHide: null,
+          }, 
 
 
       },

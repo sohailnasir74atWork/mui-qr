@@ -31,7 +31,14 @@ const Message = ({ prop }) => {
           mail: { ...prevSettings.inputData.mail, email: null, message: null },
           whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
           message: { ...prevSettings.inputData.message, number: fullNumber, message: message },
-          call: { ...prevSettings.inputData.call, number: null }, 
+          call: { ...prevSettings.inputData.call, number: null },
+          wifi: {
+            ...prevSettings.inputData.wifi,
+            networkName: null,
+            networkType: null,
+            password: null,
+            isHide: null,
+          },  
  
         },
         qrName: qrName.trim(),
