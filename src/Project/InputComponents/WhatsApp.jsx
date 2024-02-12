@@ -28,7 +28,7 @@ const WhatsApp = ({ prop }) => {
           ...prevSettings.inputData,
           url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
           text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
-          mail: { ...prevSettings.inputData.mail, email: email, message: message }, 
+          mail: { ...prevSettings.inputData.mail, email: null, message: null }, 
           whatsapp: { number: fullNumber, message: message },
         },
         qrName: qrName.trim(),
