@@ -162,14 +162,7 @@ export default function SideBar({ prop }) {
     }
     setSelectedIndex(index);
     setActiveStep(0);
-    setQrCodeSettings((prevSettings) => ({
-      ...prevSettings,
-      inputData: {
-        ...prevSettings.inputData,
-        url: null,
-      },
-    }));
-  };
+   };
 
   const renderContent = () => {
     switch (selectedIndex) {
