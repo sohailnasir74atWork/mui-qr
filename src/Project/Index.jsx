@@ -3,26 +3,30 @@ import SideBar from "./SideBar";
 import { Helmet } from "react-helmet";
 
 const Home = ({ prop }) => {
-  const [activeTool, setActiveTool] = useState("Link");
+  const [activeTool, setActiveTool] = useState("");
   const [showError, setShowError] = useState(false);
   const { isMobile } = prop;
   const [qrCodeSettings, setQrCodeSettings] = useState({
-    qrName: 'My QR',
-    size: { height: '300', width: '300' },
-    inputData: { url: null },
+    qrName: "My QR",
+    size: { height: "300", width: "300" },
+    inputData: {
+      url: { value: null },
+      text: { value: null },
+      mail: { email: null, message : null },
+    },
     logo: null,
-    logoSetting:{backgrounddots: true, margin:10},
-     colors: {
+    logoSetting: { backgrounddots: true, margin: 10 },
+    colors: {
       background: { isSolid: true, color: "#FFFFFF" },
       dots: { isSolid: true, color: "#000000" },
       square: { isSolid: true, color: "#000000" },
       cornerDots: { isSolid: true, color: "#000000" },
     },
     types: {
-      corner: { type: 'square' },
-      dots: { type: 'square' },
+      corner: { type: "square" },
+      dots: { type: "square" },
       square: { isSolid: true, color: "#000000" },
-      cornerDots: { type: 'square'},
+      cornerDots: { type: "square" },
     },
     clearInput: false,
   });
@@ -41,7 +45,13 @@ const Home = ({ prop }) => {
         <meta name="theme-color" content="#FFFFFF" />
       </Helmet>
       <SideBar
-        prop={{ qrCodeSettings, setQrCodeSettings, activeTool, setActiveTool, isMobile }}
+        prop={{
+          qrCodeSettings,
+          setQrCodeSettings,
+          activeTool,
+          setActiveTool,
+          isMobile,
+        }}
       />
     </div>
   );

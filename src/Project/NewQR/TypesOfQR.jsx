@@ -6,6 +6,8 @@ import Links from "../InputComponents/Links";
 import CustomizedAccordions from "./QrDesigns";
 import { useTheme } from "@emotion/react";
 import QrGenerator from "./QrGenerator";
+import Text from "../InputComponents/Text";
+import Email from "../InputComponents/Email";
 
 const TypesOfQR = ({ prop }) => {
   const {
@@ -97,10 +99,34 @@ const TypesOfQR = ({ prop }) => {
           />
         </div>
       )}
-
-      {activeStep === 1 && activeTool !== "Link" && (
-        <div className="container-custom">We are at step 2</div>
+      {activeStep === 1 && activeTool === "Text" && (
+        <div className="container-custom">
+          <Text
+            prop={{
+              setQrCodeSettings,
+              qrCodeSettings,
+              handleNext,
+              isMobile,
+            }}
+          />
+        </div>
       )}
+      {activeStep === 1 && activeTool === "Email" && (
+        <div className="container-custom">
+          <Email
+            prop={{
+              setQrCodeSettings,
+              qrCodeSettings,
+              handleNext,
+              isMobile,
+            }}
+          />
+        </div>
+      )}
+
+      {/* {activeStep === 1 && activeTool !== "Link" && (
+        <div className="container-custom">We are at step 2</div>
+      )} */}
       {activeStep === 2 && !isMobile && (
         <div className="container-custom">
           <CustomizedAccordions

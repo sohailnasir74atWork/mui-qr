@@ -2,23 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Button, TextField, Slider, Typography } from "@mui/material";
 import ErrorBar from "../Error";
 
-const Links = ({ prop }) => {
+const Text = ({ prop }) => {
   const { setQrCodeSettings, qrCodeSettings, handleNext } = prop;
-  const [value, setValue] = useState(qrCodeSettings.inputData.url.value);
+  const [value, setValue] = useState(qrCodeSettings.inputData.text.value);
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
   const [size, setSize] = useState(qrCodeSettings.size.width); // Assuming width and height are initially the same
-  const [urlError, setUrlError] = useState("");
+  const [textError, setTextError] = useState("");
   const [nameError, setNameError] = useState("");
 
   useEffect(() => {
-    setValue(qrCodeSettings.inputData.url.value);
+    setValue(qrCodeSettings.inputData.text.value);
     setQrName(qrCodeSettings.qrName);
     setSize(qrCodeSettings.size.width); // Sync with external updates
   }, [qrCodeSettings]);
 
   const handleInputChange = (event) => {
     setValue(event.target.value);
-    setUrlError("");
+    setTextError("");
   };
 
   const handleQRNameChange = (event) => {
@@ -31,9 +31,8 @@ const Links = ({ prop }) => {
   };
 
   const handleSubmit = () => {
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-    if (!urlRegex.test(value) || !value) {
-      setUrlError("Please enter a valid URL");
+    if (!value) {
+      setTextError("Please enter a text Message");
       return;
     }
     if (!qrName.trim()) {
@@ -43,22 +42,23 @@ const Links = ({ prop }) => {
 
     // Assuming validation for size is not needed as the slider controls the range
     setQrCodeSettings((prevSettings) => ({
-      ...prevSettings,
-      inputData: {
-        ...prevSettings.inputData,
-        url: { ...prevSettings.inputData.url, value: value }, // Assuming 'value' is the new URL to set
-        text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
-        mail: { ...prevSettings.inputData.mail, email: null, message: null }, // Optionally clear other types
-      },
-      qrName: qrName.trim(),
-      size: { width: size, height: size },
-    }));
+        ...prevSettings,
+        inputData: {
+          ...prevSettings.inputData,
+          url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
+          text: { ...prevSettings.inputData.text, value: value }, // Assuming 'textValue' is the new text to set
+          mail: { ...prevSettings.inputData.mail, email: null, message: null }, // Optionally clear other types
+        },
+        qrName: qrName.trim(),
+        size: { width: size, height: size },
+      }));
+      
     handleNext();
   };
 
   return (
     <div>
-      {urlError && <ErrorBar message={urlError} />}
+      {textError && <ErrorBar message={textError} />}
       {nameError && <ErrorBar message={nameError} />}
       <div className="heading-container">
         <span className="heading-2">Fill Out the QR Code's Content</span>
@@ -73,13 +73,15 @@ const Links = ({ prop }) => {
       />
       <TextField
         required
-        label="Submit URL Here"
+        label="Write your text here"
         value={value}
         onChange={handleInputChange}
         fullWidth
+        multiline
         margin="normal"
+        rows={4}
       />
-      <p>Your QR code will open this URL.</p>
+      <p>Your QR code will show this text.</p>
 
       {/* Removed Width and Height TextFields */}
       <br/>
@@ -105,4 +107,4 @@ const Links = ({ prop }) => {
   );
 };
 
-export default Links;
+export default Text;
